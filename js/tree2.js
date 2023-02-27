@@ -12,13 +12,15 @@ var treeData = {
         children: [
           {
             name: "F",
-            parent:"C"
+            parent: "C",
+            children:[]
           }
         ]
         },
         {
-        name: "D",
-        parent:"A"
+          name: "D",
+          parent: "A",
+          children:[]
         },
       ],
     },
@@ -27,8 +29,9 @@ var treeData = {
       parent:"Root",
       children: [
         {
-        name: "E",
-        parent:"B"
+          name: "E",
+          parent: "B",
+          children:[]
         },
       ]
     },
@@ -245,35 +248,59 @@ function update(source) {
     d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
     d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
     
+    var name_ = d.data.name;
+    console.log("name_ : ", name_)
     
-    const myNodeSelection = d3.selectAll(".node").filter(d=>d.data.name == "C");
-    const descendants = myNodeSelection.datum().descendants();
+    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
+    console.log("myNodeSelection: ",myNodeSelection);
+    var descendants = myNodeSelection.datum().descendants();
     console.log("descendants: ",descendants);
 
-    node.style("fill", (d => descendants.includes(d) ? "red" : null))
-    node.select("circle").style("stroke", (d => descendants.includes(d) ? "red" : null))
+    node.style("fill", (d => descendants.includes(d) ? "pink" : null));
+    node.select("circle").style("stroke", (d => descendants.includes(d) ? "yellow" : null));
+    //link.style("stroke", "pink").style("stroke-width", 4);
 
-    /*
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", "pink")
-      if (d.parent != "null") {
-        // links between nodes --> highlight in pink
-        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
-      }//end if
+    var length = d.data.children.length;
+    console.log("length: ", length);
 
-      d = d.parent;//iterate through nodes  
+
+    for (var i = 0; i < length; i++){
+      d3.selectAll("#node" + d.id).style("fill", "pink");
+
+      d3.selectAll("#link" + descendants[i].id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
+
+      console.log("before: ", d.data.name);
+
+      d = descendants[i++];//iterate through nodes
+      
+      console.log("after", d.data.name);
+
     }
 
-    if (d.data.parent == "null") {
+    /*
+    while(d.data.children != "null") {
       d3.selectAll("#node" + d.id).style("fill", "pink")
-    }//end if
-    */
+      if (d.children != "null") {
+        // links between nodes --> highlight in pink
+        d3.selectAll("#link" + d.children.id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
+      }//end if
+
+      d = d.children;//iterate through nodes
+
+    }*/
+
+    /*
+    if (d.data.children == "null") {
+      d3.selectAll("#node" + d.id).style("fill", "pink")
+    }//end if*/
+    
     
   }
 
   function mouseout(event, d) {
     console.log("out node: ", d.data.name);
 
+    /*
     while(d.parent) {
       d3.selectAll("#node" + d.id).style("fill", "yellow")
       if (d.parent != "null") {
@@ -285,7 +312,7 @@ function update(source) {
 
     if (d.data.parent == "null") {
       d3.selectAll("#node" + d.id).style("fill", "yellow")
-    }//end if
+    }//end if*/
   }
 
 
