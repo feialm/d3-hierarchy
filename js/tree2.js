@@ -38,7 +38,7 @@ var treeData = {
   ],
 };
 
-console.log("LADDA DATA", treeData);
+//console.log("LADDA DATA", treeData);
 
 
 var margin = { top: 20, right: 90, bottom: 20, left: 90 };
@@ -63,6 +63,7 @@ var root;
 
 // declare tree and its layout --> size
 var treemap = d3.tree().size([height, width]);
+
 
 // using parent-child relationships to
 // assigns data to hierarchy, parent, child, height, depth
@@ -101,7 +102,7 @@ function update(source) {
     return d.id || (d.id = ++i);
   });
 
-  // enter new nodes at parents previous pos
+  // enter new nodes at parents previous pos, grouping on DOM
   var nodeEnter = node
     .enter()
     .append("g")
@@ -243,39 +244,49 @@ function update(source) {
 
 
   function mouseover(event, d) {
-    console.log("over node: ", d.data.name);
+
     //reset all nodes color
     d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
     d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
     
     var name_ = d.data.name;
-    console.log("name_ : ", name_)
+    console.log("over node, name_ : ", name_)
     
     var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
-    console.log("myNodeSelection: ",myNodeSelection);
+    //console.log("myNodeSelection: ",myNodeSelection);
     var descendants = myNodeSelection.datum().descendants();
     console.log("descendants: ",descendants);
 
     node.style("fill", (d => descendants.includes(d) ? "pink" : null));
     node.select("circle").style("stroke", (d => descendants.includes(d) ? "yellow" : null));
-    //link.style("stroke", "pink").style("stroke-width", 4);
-
-    var length = d.data.children.length;
+    var length = descendants.length;
     console.log("length: ", length);
+    var i = length - 1;
+    console.log("descendants last: ", descendants[i].data.name);
 
 
-    for (var i = 0; i < length; i++){
+    while (i >= 0) {
+      
       d3.selectAll("#node" + d.id).style("fill", "pink");
 
-      d3.selectAll("#link" + descendants[i].id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
+      // LINKS FUNGERAR INTE ÄN
+      console.log("descendants[i]: ", descendants[i].data.name);
+      //d3.selectAll("#link" + descendants[i].data.parent.id + "-" + descendants[i].data.id).style("stroke", "pink").style("stroke-width", 4);
+      d3.selectAll("#link" +  descendants[i].data.parent.id + "-" + descendants[i].data.id).style("stroke", "pink").style("stroke-width", 4);
+      console.log("descendants[i].parent.name: ", descendants[i].data.parent);
+      console.log("d : ", d.data.name);
 
-      console.log("before: ", d.data.name);
-
-      d = descendants[i++];//iterate through nodes
+      d = descendants[--i]//iterate through nodes
+      console.log("i: ", i);
       
-      console.log("after", d.data.name);
-
-    }
+      if (i <0) {
+        break;
+      } else {
+        
+       console.log("after descendants[i]:", descendants[i].data.parent);
+      }
+      
+    }// end while
 
     /*
     while(d.data.children != "null") {
