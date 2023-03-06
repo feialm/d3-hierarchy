@@ -35,8 +35,6 @@ var treeData = {
   ],
 };
 
-console.log("LADDA DATA", treeData);
-
 
 var margin = { top: 20, right: 90, bottom: 20, left: 90 };
 var width = 960 - margin.left - margin.right;
@@ -55,7 +53,6 @@ var svg = d3
 
 
 var i = 0;
-var duration = 210;
 var root;
 
 // declare tree and its layout --> size
@@ -72,23 +69,7 @@ root.y0 = 0;
 
 console.log("ROOT: ", root);
 
-// collapse nodes after the second level
-// lek med det här och se om man kan ändra detta
-//root.children.forEach(collapse);
-
-
 update(root);
-
-/*
-// Collapse the node and all it's children
-// lek med det här och se om man kan ändra detta
-function collapse(d) {
-  if(d.children) {
-    d._children = d.children
-    d._children.forEach(collapse)
-    d.children = null
-  }
-}*/
 
 
 function update(source) {
@@ -129,9 +110,7 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function(d){return "node" + d.id})//TEST
     .attr("r", 0)
-    .style("fill", function (d) {
-      return d._children ? "red" : "steelblue";//collapsed/expanded
-    });
+    .style("fill", "steelblue");
 
   // Labels for nodes
   nodeEnter
@@ -154,8 +133,6 @@ function update(source) {
 
   // update node attributes
   nodeUpdate
-    .transition()
-    .duration(duration)
     .attr("transform", function (d) {
       return "translate(" + d.y + ", " + d.x + ")";
     });
@@ -164,35 +141,12 @@ function update(source) {
   nodeUpdate
     .select("circle.node")
     .attr("r", 10)//radius 
-    .style("stroke", function(d){
-    return d._children ? "red" : "steelblue";//change stroke color depening on expand/collapse tree
-    })
+    .style("stroke", "steelblue")
     .on("mouseout", mouseout)
     .on("mouseover", mouseover)
     .attr("cursor", "pointer");
 
-  nodeExit = node
-    .exit()
-    .transition()
-    .duration(duration)// animering speed nodes
-    .attr("transform", function (d) {
-      return "translate(" + source.y + "," + source.x + ")";
-    })
-    .remove();//remove node
-  
 
-  // size of nodes in animation before removed
-  // on exit
-  nodeExit.select("circle").attr("r", 1e-6);
-  nodeExit.select("text").style("fill-opacity", 1e-6);
-
-// ---------- testar links - node highlight grejs här -------
-  /*
-  var thisNode = node;
-  d3.selectAll(".link")
-    .style("stroke", function (d) {
-      return d.source === thisNode || d.target === thisNode ? "yellow" : "green";
-    });*/
 
   //----------------- Links -----------------------
 
@@ -222,9 +176,6 @@ function update(source) {
     .attr("id", function(d){
       return("link" + d.parent.id + "-" + d.id);//TEST
     })
-    .style("stroke", function(d){
-      return d.children ? "green" : "purple";
-    })
     .attr("d", function (d) {
       var o = { x: source.x0, y: source.y };
       return diagonal(o, o);
@@ -235,23 +186,9 @@ function update(source) {
 
   // transition back to parent element position
   linkUpdate
-    .transition()
-    .duration(duration)//animation speed links/edges
     .attr("d", function (d) {
       return diagonal(d, d.parent);
     });
-
-  
-  // remove links
-  var linkExit = link
-    .exit()
-    .transition()
-    .duration(duration)//animation speed links/edges
-    .attr("d", function (d) {
-    var o = { x: source.x0, y: source.y0 };
-    return diagonal(o, o);
-    })
-    .remove();
 
   
   // Stores old position for transition
@@ -302,13 +239,7 @@ function update(source) {
 
   // new children toogle, onclik on node
   function click(event, d) {
-    if (d.children) {
-      d._children = d.children;
-      d.children = null;
-    } else {
-      d.children = d._children;
-      d._children = null;
-    }
+    console.log("CLICK");
     update(d);
   }
 }
