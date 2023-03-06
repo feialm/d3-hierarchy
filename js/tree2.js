@@ -149,8 +149,7 @@ function update(source) {
     .on("mouseover", mouseover)
     .attr("cursor", "pointer");
 
-
-
+  
   //----------------- Links -----------------------
 
   // links
@@ -202,16 +201,21 @@ function update(source) {
 
   //------------- Functions --------------
 
+  function getAscendants(d) {
+    const name_ = d.data.name;
+    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
+    return myNodeSelection.datum().descendants().reverse();
+  }
+
+
   function mouseover(event, d) {
     console.log("over node: ", d.data.name);
-    const name_ = d.data.name;
 
     //reset all nodes color
     d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
     d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå 
-    
-    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
-    var ascendants = myNodeSelection.datum().descendants().reverse();
+
+    var ascendants = getAscendants(d);
 
     node.style("fill", (d => ascendants.includes(d) ? "pink" : null));
     node.select("circle").style("stroke", (d => ascendants.includes(d) ? "yellow" : null));
@@ -232,17 +236,8 @@ function update(source) {
 
   function mouseout(event, d) {
     console.log("out node: ", d.data.name);
-    const name_ = d.data.name;
 
-    //reset all nodes color
-    d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
-    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå 
-    
-    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
-    var ascendants = myNodeSelection.datum().descendants().reverse();
-
-    node.style("fill", (d => ascendants.includes(d) ? "pink" : null));
-    node.select("circle").style("stroke", (d => ascendants.includes(d) ? "yellow" : null));
+    var ascendants = getAscendants(d);
 
     const length = ascendants.length;
     var j = 0;
