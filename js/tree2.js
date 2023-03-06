@@ -193,8 +193,6 @@ function update(source) {
       return diagonal(d, d.parent);
     });
 
-
-
   
   // Stores old position for transition
   nodes.forEach(function (d) {
@@ -202,94 +200,67 @@ function update(source) {
     d.y0 = d.y;
   });
 
+  //------------- Functions --------------
 
   function mouseover(event, d) {
+    console.log("over node: ", d.data.name);
+    const name_ = d.data.name;
 
     //reset all nodes color
     d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
-    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
-    
-    var name_ = d.data.name;
-    console.log("over node, name_ : ", name_)
+    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå 
     
     var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
-    //console.log("myNodeSelection: ",myNodeSelection);
-    var descendants = myNodeSelection.datum().descendants();
-    console.log("descendants: ",descendants);
+    var ascendants = myNodeSelection.datum().descendants().reverse();
 
-    node.style("fill", (d => descendants.includes(d) ? "pink" : null));
-    node.select("circle").style("stroke", (d => descendants.includes(d) ? "yellow" : null));
-    var length = descendants.length;
-    console.log("length: ", length);
-    var i = length - 1;
-    console.log("descendants last: ", descendants[i].data.name);
+    node.style("fill", (d => ascendants.includes(d) ? "pink" : null));
+    node.select("circle").style("stroke", (d => ascendants.includes(d) ? "yellow" : null));
 
+    const length = ascendants.length;
+    var j = 0;
+    d = ascendants[0];
 
-    while (i >= 0) {
-      
-      d3.selectAll("#node" + d.id).style("fill", "pink");
-
-      // LINKS FUNGERAR INTE ÄN
-      console.log("descendants[i]: ", descendants[i].data.name);
-      //d3.selectAll("#link" + descendants[i].data.parent.id + "-" + descendants[i].data.id).style("stroke", "pink").style("stroke-width", 4);
-      d3.selectAll("#link" +  descendants[i].data.parent.id + "-" + descendants[i].data.id).style("stroke", "pink").style("stroke-width", 4);
-      console.log("descendants[i].parent.name: ", descendants[i].data.parent);
-      console.log("d : ", d.data.name);
-
-      d = descendants[--i]//iterate through nodes
-      console.log("i: ", i);
-      
-      if (i <0) {
-        break;
-      } else {
-        
-       console.log("after descendants[i]:", descendants[i].data.parent);
-      }
-      
-    }// end while
-
-    /*
-    while(d.data.children != "null") {
-      d3.selectAll("#node" + d.id).style("fill", "pink")
-      if (d.children != "null") {
-        // links between nodes --> highlight in pink
-        d3.selectAll("#link" + d.children.id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
-      }//end if
-
-      d = d.children;//iterate through nodes
-
-    }*/
-
-    /*
-    if (d.data.children == "null") {
-      d3.selectAll("#node" + d.id).style("fill", "pink")
-    }//end if*/
-    
+      while (j < length) {  
+        d3.selectAll("#node" + d.id).style("fill", "pink");
+        if (d.data.parent != " null" && j <length-1) {
+          d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
+        }
+        d = ascendants[++j]//iterate through nodes
+      }// end while
     
   }
 
   function mouseout(event, d) {
     console.log("out node: ", d.data.name);
+    const name_ = d.data.name;
 
-    /*
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", "yellow")
-      if (d.parent != "null") {
-        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);;
-      }//end if
+    //reset all nodes color
+    d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
+    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå 
+    
+    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
+    var ascendants = myNodeSelection.datum().descendants().reverse();
 
-      d = d.parent;//iterate through nodes 
-    }
+    node.style("fill", (d => ascendants.includes(d) ? "pink" : null));
+    node.select("circle").style("stroke", (d => ascendants.includes(d) ? "yellow" : null));
 
-    if (d.data.parent == "null") {
-      d3.selectAll("#node" + d.id).style("fill", "yellow")
-    }//end if*/
+    const length = ascendants.length;
+    var j = 0;
+    d = ascendants[0];
+
+      while (j < length) {       
+        d3.selectAll("#node" + d.id).style("fill", "yellow");
+        if (d.data.parent != " null" && j <length-1) {
+          d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);
+        }
+        d = ascendants[++j]//iterate through nodes
+      }// end while
   }
 
 
   // new children toogle (expand/collapse), onclik on node
   function click(event, d) {
-    console.log("CLICK");
+    console.log("CLICK ", d.data.name);
     update(d);
   }
 }

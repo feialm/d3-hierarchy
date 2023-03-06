@@ -197,6 +197,8 @@ function update(source) {
     d.y0 = d.y;
   });
 
+//------------- Functions --------------
+
 
   function mouseover(event, d) {
     console.log("over node: ", d.data.name);
@@ -239,7 +241,7 @@ function update(source) {
 
   // new children toogle, onclik on node
   function click(event, d) {
-    console.log("CLICK");
+    console.log("CLICK ", d.data.name);
     update(d);
   }
 }
