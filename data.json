@@ -1,0 +1,39 @@
+{
+  "name": "Root",
+  "parent": "null",
+  "children": [
+    {
+      "name": "A",
+      "parent":"Root",
+      "children": [
+        {
+        "name": "C",
+        "parent":"A",
+        "children": [
+          {
+            "name": "F",
+            "parent": "C",
+            "children":[]
+          }
+        ]
+        },
+        {
+          "name": "D",
+          "parent": "A",
+          "children":[]
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "parent":"Root",
+      "children": [
+        {
+          "name": "E",
+          "parent": "B",
+          "children":[]
+        }
+      ]
+    }
+  ]
+}

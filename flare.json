@@ -1,0 +1,36 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "display",
+   "children": [
+    {"name": "DirtySprite", "size": 833},
+    {"name": "LineSprite", "size": 172},
+    {"name": "RectSprite", "size": 323},
+    {"name": "TextSprite", "size": 606}
+   ]
+  },
+  {
+   "name": "query",
+   "children": [
+    {"name": "AggregateExpression", "size": 161},
+    {"name": "And", "size": 107},
+    {
+     "name": "axis",
+     "children": [
+      {"name": "Axes", "size": 132},
+      {"name": "Axis", "size": 593}
+     ]
+    },
+    {
+     "name": "data",
+     "children": [
+      {"name": "Data", "size": 544},
+      {"name": "DataList", "size": 788}
+     ]
+    }
+   ]
+  }
+ ]
+}
+

@@ -1,0 +1,11 @@
+{"children":
+[{"name":"boss1","children":[
+    {"name":"AA","group":"A","value":28,"colname":"level3"},
+    {"name":"BB","group":"C","value":19,"colname":"level3"}],
+    "colname":"level2"},
+{"name":"boss2","children":[
+    {"name":"CC","group":"B","value":15,"colname":"level3"}],
+    "colname":"level2"},
+{"name":"boss3","children":[
+    {"name":"DD","group":"B","value":10,"colname":"level3"}],"colname":"level2"}]
+}
