@@ -81,7 +81,6 @@ function update(source) {
   // nodes
   var nodes = treeData.descendants();
 
-
   // normalize, fixed depth
   nodes.forEach(function (d) {
     d.y = d.depth * 180;

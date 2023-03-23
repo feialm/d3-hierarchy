@@ -26,7 +26,7 @@ colname:"level2"},
 var margin = { top: 20, right: 90, bottom: 20, left: 90 };
 var width = 960 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
-
+var i = 0;
 
 var svg = d3
   .select(".container")
@@ -37,25 +37,27 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-  
-  // prepare a color scale
-  const color = d3.scaleOrdinal()
-    .domain(["boss1", "boss3", "boss3"])
-    .range([ "#402D54", "#D18975", "#8FD175"])
+var root;
+
+// prepare a color scale
+const color = d3.scaleOrdinal()
+  .domain(["boss1", "boss3", "boss3"])
+  .range(["#402D54", "#D18975", "#8FD175"]);
   
 
 d3.json("data2.json").then(function (data) {
 
-  console.log(data);
+  console.log("Data: ", data);
 
-  const root = d3.hierarchy(data).sum(function (d) {
+  root = d3.hierarchy(data).sum(function (d) {
     return d.value;
   });
+
+  console.log("Root: ", root);
 
   update(root);
 
 });
-
 
 
 function update(root){ 
@@ -63,7 +65,41 @@ function update(root){
   var tree = d3.treemap().size([width, height])
     .padding(2)(root);
   
+  var nodes = tree.descendants();
+  console.log("Nodes", nodes);
 
+
+  // -----------------  Nodes -------------
+
+  // Give nodes id
+  var node = svg.selectAll("g.node").data(nodes, function (d) {
+    return d.id || (d.id = ++i);
+  });
+
+  var nodeEnter = node
+    .enter()
+    .append("g")
+    .attr("class", "node")
+    //.on("mouseout", mouseout)
+    .on("mouseover", mouseover)
+  
+  console.log("nodeEnter: ", nodeEnter);
+  
+    // node attribute/style
+  nodeEnter
+    .append("rect")
+    .attr("class", "node")
+    .attr("id", function (d) { return "node" + d.id })//TEST
+    .attr("x", function (d) { return d.x0; })
+    .attr("y", function (d) { return d.y0; })
+    .attr("width", function (d) { return d.x1 - d.x0; })
+    .attr("height", function (d) { return d.y1 - d.y0; })
+    .style("fill", "steelblue")
+    .style("stroke", "orange");
+  
+  
+
+  /*
   // nu fungerar lite saker här när man skriver function(event,d) istället
   // kolla skillnaden på root.leaves() och tree.leaves()
   svg.selectAll("rect")
@@ -88,7 +124,7 @@ function update(root){
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
         .text(function(d){ return d.data.name })
         .attr("font-size", "15px")
-        .attr("fill", "white")
+        .attr("fill", "white")*/
 
 }
 
@@ -101,10 +137,10 @@ function click(event, d) {
 
 function mouseover(event, d) {
     svg.select("rect").style("fill", "red")
-    console.log("over node: ", d.data.name);   
+    console.log("over node: ", d.data);   
   }
 
 function mouseout(event, d) {
-    svg.select("rect").style("fill", function(d){ return color(d.parent.data.name)})
-    console.log("out node: ", d.data.name);
+    //svg.select("rect").style("fill", function(d){ return color(d.parent.data.name)})
+    console.log("out node: ", d.data);
   }
