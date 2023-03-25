@@ -41,8 +41,8 @@ var root;
 
 // prepare a color scale
 const color = d3.scaleOrdinal()
-  .domain(["boss1", "boss3", "boss3"])
-  .range(["#402D54", "#D18975", "#8FD175"]);
+  .domain(["level1", "level2", "level3"])
+  .range(["#FEDD74", "#D18975", "#8FD175"]);
   
 
 d3.json("data2.json").then(function (data) {
@@ -85,17 +85,78 @@ function update(root){
   
   console.log("nodeEnter: ", nodeEnter);
   
-    // node attribute/style
+  // Node attribute/style
   nodeEnter
     .append("rect")
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
-    .attr("x", function (d) { return d.x0; })
-    .attr("y", function (d) { return d.y0; })
-    .attr("width", function (d) { return d.x1 - d.x0; })
-    .attr("height", function (d) { return d.y1 - d.y0; })
-    .style("fill", "steelblue")
+    .attr("x", function (d) {
+      if (d.data.colname == null) {
+        return d.x0;
+      }
+      if (d.data.colname == "level2") {
+        return d.x0+2;
+      }
+      if (d.data.colname == "level3") {
+        return d.x0+5;
+      }
+    })
+    .attr("y", function (d) {
+      if (d.data.colname == null) {
+        return d.y0;
+      }
+      if (d.data.colname == "level2") {
+        return d.y0+10;
+      }
+      if (d.data.colname == "level3") {
+        return d.y0 + 20;
+      }
+    })
+    .attr("width", function (d) {
+      if (d.data.colname == null) {
+        return d.x1 - d.x0;
+      }
+      if (d.data.colname == "level2") {
+        return (d.x1 - d.x0)/1.1;
+      }
+      if (d.data.colname == "level3") {
+        return (d.x1 - d.x0)/1.5;
+      }
+    })
+    .attr("height", function (d) {
+      if (d.data.colname == null) {
+        return d.y1 - d.y0;
+      }
+      if (d.data.colname == "level2") {
+        return (d.y1 - d.y0)/1.1;
+      }
+      if(d.data.colname == "level3") {
+        return (d.y1 - d.y0)/1.5;
+      }
+    })
+    .style("fill", function(d){return color(d.data.colname)})
     .style("stroke", "orange");
+  
+  
+  // Labels for nodes
+  nodeEnter
+    .append("text")
+    .attr("dy", ".35em")
+    .attr("x", function (d) {return d.x0+8;})
+    .attr("y", function (d) {
+      if (d.data.colname == null) {
+        return d.y0+5;
+      }
+      if (d.data.colname == "level2") {
+        return d.y0+15;
+      }
+      if(d.data.colname == "level3") {
+        return d.y0+30;
+      }
+    })
+    .text(function (d) {
+      return d.data.name;
+    })
   
   
 
@@ -143,4 +204,6 @@ function mouseover(event, d) {
 function mouseout(event, d) {
     //svg.select("rect").style("fill", function(d){ return color(d.parent.data.name)})
     console.log("out node: ", d.data);
-  }
+}
+  
+

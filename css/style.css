@@ -30,3 +30,35 @@ body {
   position: absolute;
   text-indent: 2px;
 }
+
+/* TOP MENU */
+.menu {
+  background-color:rgb(224, 224, 224);
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  width: 50%;
+  z-index: 2;
+  transition: top 0.5s;
+}
+
+
+/* Style the links inside the navigation bar */
+.menu a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color when hovering over button*/
+.menu a:hover {
+  color:white;
+  background-color:#5ab4ac;
+}
+
+.container{
+  margin-top: 50px;
+}
