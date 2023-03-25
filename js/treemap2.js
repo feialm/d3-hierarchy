@@ -94,37 +94,47 @@ function update(root){
 
 // ---------------- Brushing and Linking Functions ------------------
 
+function getSiblings(d) {
+    return {first: d.parent.children.length, second: d.parent.children };
+}
+
 
 function mouseover(event, d) {
-  
+   
   console.log("over node: ", d.data.name);
+  var counter = 0;
 
-  while (d.parent) {
-    d3.selectAll("#node" + d.id).style("fill", "red");
-    if (d.parent != "null") {
-      d = d.parent; // iterate thorugh nodes
-    } else { break; }
+  if (d.parent === null) {
+     d3.selectAll("#node" + d.id).style("fill", "red");
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", "red");
+        counter++; // iterate thorugh nodes
+    }
   }
-
-  if (d.data.parent == "null") {
-    d3.selectAll("#node" + d.id).style("fill", "red")
-  }//end if
-
 }
 
 function mouseout(event, d) {
+
   console.log("out node: ", d.data.name);
+  var counter = 0;
 
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
-      if (d.parent != "null") {
-        d = d.parent;//iterate through nodes 
-      } else { break; }
-    }
-
-   if (d.data.parent == "null") {
+  if (d.parent === null) {
      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
-    }//end if
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
+        counter++; // iterate thorugh nodes
+    }
+  }
 }
 
 

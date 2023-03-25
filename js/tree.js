@@ -226,7 +226,7 @@ function update(source) {
     while(d.parent) {
       d3.selectAll("#node" + d.id).style("fill", "yellow")
       if (d.parent != "null") {
-        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);;
+        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);
       }//end if
 
       d = d.parent;//iterate through nodes 
