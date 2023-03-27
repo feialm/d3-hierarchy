@@ -80,74 +80,52 @@ function update(root) {
   text.append("tspan")
     .text(function (d) { return d.data.name; });
 
-  /*
-  const cell = svg
-    .selectAll("g")
-    .data(root.descendants())
-    .join("g")
-    .attr("transform", function (d) { return `translate(${d.y0},${d.x0})`;});
-
-  const rect = cell.append("rect")
-    .attr("width", function (d) { return d.y1 - d.y0 - 1; })
-    .attr("height", function (d) { return rectHeight(d); })
-    .attr("fill-opacity", 1)
-      .attr("fill", function (d) {return color(d.depth);})
-      .style("cursor", "pointer")
-      .on("click", clicked);
-
-  const text = cell.append("text")
-      .style("user-select", "none")
-      .attr("pointer-events", "none")
-      .attr("x", 4)
-      .attr("y", 17)
-    .attr("fill-opacity", function (d) { return +labelVisible(d); });
-
-  text.append("tspan")
-    .text(function (d) { return d.data.name; });*/
-  
-
-  /*const tspan = text.append("tspan")
-      .attr("fill-opacity", d => labelVisible(d) * 0.7)
-    .text(function (d) { return ` ${format(d.value)}`; });*/
-
-  // tooltip
-  // cell.append("title")
-  //   .text(function (d) { return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`; });
 
 };
 
 // ---------------- Brushing and Linking Functions ------------------
 
+function getSiblings(d) {
+    return {first: d.parent.children.length, second: d.parent.children };
+}
+
+
 function mouseover(event, d) {
-  
+   
   console.log("over node: ", d.data.name);
+  var counter = 0;
 
-  while (d.parent) {
-    d3.selectAll("#node" + d.id).style("fill", "red");
-    if (d.parent != "null") {
-      d = d.parent; // iterate through nodes
-    } else { break; }
+  if (d.parent === null) {
+     d3.selectAll("#node" + d.id).style("fill", "red");
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", "red");
+        counter++; // iterate through nodes
+    }
   }
-
-  if (d.data.parent == "null") {
-    d3.selectAll("#node" + d.id).style("fill", "red")
-  }//end if
-
 }
 
 function mouseout(event, d) {
+
   console.log("out node: ", d.data.name);
+  var counter = 0;
 
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
-      if (d.parent != "null") {
-        d = d.parent;//iterate through nodes 
-      } else { break; }
-    }
-
-   if (d.data.parent == "null") {
+  if (d.parent === null) {
      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
-    }//end if
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
+        counter++; // iterate through nodes
+    }
+  }
 }
 
 // ---------------- Other Functions ------------------

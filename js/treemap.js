@@ -102,7 +102,7 @@ function mouseover(event, d) {
   while (d.parent) {
     d3.selectAll("#node" + d.id).style("fill", "red");
     if (d.parent != "null") {
-      d = d.parent; // iterate thorugh nodes
+      d = d.parent; // iterate through nodes
     } else { break; }
   }
 

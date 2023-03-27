@@ -113,7 +113,7 @@ function mouseover(event, d) {
     while (counter < lengthSibling) {
       d = arraySibling[counter];
       d3.selectAll("#node" + d.id).style("fill", "red");
-        counter++; // iterate thorugh nodes
+        counter++; // iterate through nodes
     }
   }
 }
@@ -132,7 +132,7 @@ function mouseout(event, d) {
     while (counter < lengthSibling) {
       d = arraySibling[counter];
       d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
-        counter++; // iterate thorugh nodes
+        counter++; // iterate through nodes
     }
   }
 }
