@@ -3,6 +3,16 @@ export const color = d3.scaleOrdinal()
   .domain(["0", "1", "2"])
   .range(["#2b8cbe", "#a6bddb", "#ece7f2"]);
 
+export var margin = { top: 20, right: 90, bottom: 20, left: 90 };
+
+// a is currently for node-link and treemap
+export var width_a = 960 - margin.left - margin.right;
+export var height_a = 500 - margin.top - margin.bottom;
+
+// b is currently for icicle
+export var width_b = 660 - margin.left - margin.right;
+export var height_b = 900 - margin.top - margin.bottom;
+
 
 export function mouseoverAncestor(event, d) {
   

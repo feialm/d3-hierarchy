@@ -1,25 +1,21 @@
 import * as Module from "./utils/utils.js";
 import * as icicleUtils from "./utils/icicleUtils.js";
 
-var margin = { top: 20, right: 90, bottom: 20, left: 90 };
-var width = 660 - margin.left - margin.right;
-var height = 900 - margin.top - margin.bottom;
 var i = 0;
-
 
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", width + margin.right + margin.left)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", Module.width_b + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_b + Module.margin.top + Module.margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
 
 
 d3.json("data2.json").then(function (data) {
 
   //console.log("DATA: ", data)
-  const root = icicleUtils.partition(data, width, height);
+  const root = icicleUtils.partition(data, Module.width_b, Module.height_b);
   //console.log("ROOT: ", root)
 
   update(root);
@@ -63,7 +59,7 @@ function update(root) {
       .attr("pointer-events", "none")
       .attr("x", 4)
     .attr("y", 17)
-   .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, width); });
+   .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
   
   text.append("tspan")
     .text(function (d) { return d.data.name; });

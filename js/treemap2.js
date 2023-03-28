@@ -1,19 +1,16 @@
 import * as Module from "./utils/utils.js";
 import * as treemapUtils from "./utils/treemapUtils.js";
 
-var margin = { top: 20, right: 90, bottom: 20, left: 90 };
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
 var i = 0;
 var root;
 
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", width + margin.right + margin.left)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", Module.width_a + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_a + Module.margin.top + Module.margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
   
 
 d3.json("data2.json").then(function (data) {
@@ -31,7 +28,7 @@ d3.json("data2.json").then(function (data) {
 
 function update(root){ 
 
-  var tree = d3.treemap().size([width, height])
+  var tree = d3.treemap().size([Module.width_a, Module.height_a])
     .padding(2)(root);
   
   var nodes = tree.descendants();
