@@ -1,3 +1,5 @@
+import * as Module from "./utils/utils.js";
+
 var treeData = {
   name: "Root",
   parent: "null",
@@ -35,28 +37,22 @@ var treeData = {
   ],
 };
 
-
-var margin = { top: 20, right: 90, bottom: 20, left: 90 };
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
-
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
 // move g to top-left-margin
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", width + margin.right + margin.left)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", Module.width_a + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_a + Module.margin.top + Module.margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+  .attr("transform", "translate(" + Module.margin.left + "," + (Module.margin.top+20)+ ")");
 
 var i = 0;
 var root;
 
 // declare tree and its layout --> size
-var treemap = d3.tree().size([height, width]);
+var treemap = d3.tree().size([Module.height_a, Module.width_a]);
 
 // using parent-child relationships to
 // assigns data to hierarchy, parent, child, height, depth
@@ -64,7 +60,7 @@ root = d3.hierarchy(treeData, function (d) {
   return d.children;
 });
 
-root.x0 = height / 2;
+root.x0 = Module.height_a / 2;
 root.y0 = 0;
 
 console.log("ROOT: ", root);
@@ -99,7 +95,7 @@ function update(source) {
     .append("g")
     .attr("class", "node")
     .attr("transform", function (d) {
-      return "translate(" + source.y0 + ", " + source.x0 + ")";
+      return "translate(" + source.x0 + ", " + source.y0 + ")";
     })
     .on("click", click);
 
@@ -133,7 +129,7 @@ function update(source) {
   // update node attributes
   nodeUpdate
     .attr("transform", function (d) {
-      return "translate(" + d.y + ", " + d.x + ")";
+      return "translate(" + d.x/1.5 + ", " + d.y/1.5 + ")";
     });
 
   
@@ -153,10 +149,14 @@ function update(source) {
   // curved diagonal path from parent to child nodes
   // om dy byter plats på x och y --> vertical tree
   function diagonal(s, d) {
-    path = `M ${s.y} ${s.x}
-      C ${(s.y + d.y) / 2} ${s.x}
-        ${(s.y + d.y) / 2} ${d.x}
-        ${d.y} ${d.x}`;
+
+    let sx = s.x / 1.5; let sy = s.y / 1.5;
+    let dy = d.y / 1.5; let dx = d.x / 1.5;
+
+    let path = `M ${sx} ${sy}
+      C ${(sx + dx) / 2} ${sy}
+        ${(sx + dx) / 2} ${dy}
+        ${dx} ${dy}`;
     return path;
   }
 
@@ -176,7 +176,7 @@ function update(source) {
       return("link" + d.parent.id + "-" + d.id);//TEST
     })
     .attr("d", function (d) {
-      var o = { x: source.x0, y: source.y };
+      var o = { x: source.y0/1.5, y: source.x/1.5 };
       return diagonal(o, o);
     });
   
@@ -192,8 +192,8 @@ function update(source) {
   
   // Stores old position for transition
   nodes.forEach(function (d) {
-    d.x0 = d.x;
-    d.y0 = d.y;
+    d.x0 = d.x/1.5;
+    d.y0 = d.y/1.5;
   });
 
 //------------- Functions --------------
