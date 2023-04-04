@@ -49,6 +49,7 @@ function update(root) {
     .attr("width", function (d) { return d.x1 - d.x0; })
     .attr("height", function (d) { return icicleUtils.rectHeight(d); })
     .attr("fill", function (d) { return Module.color(d.depth); })
+    .attr("stroke", "white").attr('stroke-width', '0.4')
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverAncestor)
     .on("mouseout", Module.mouseoutAncestor)

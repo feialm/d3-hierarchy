@@ -30,23 +30,25 @@ export function mousemove(event, d) {
 
 export function mouseoverAncestor(event, d) {
   
-    console.log("over node: ", d.data.name);
-
+  console.log("over node: ", d.data.name);
+  d3.selectAll("rect").style("fill", "#c3c3c3");
+ 
   while (d.parent) {
-    d3.selectAll("#node" + d.id).style("fill", "red");
+    d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
     if (d.parent != "null") {
       d = d.parent; // iterate through nodes
     } else { break; }
   }
 
   if (d.data.parent == "null") {
-    d3.selectAll("#node" + d.id).style("fill", "red")
+    d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
   }//end if
 
 }
 
 export function mouseoutAncestor(event, d) {
-    console.log("out node: ", d.data.name);
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
 
     while(d.parent) {
       d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
@@ -69,17 +71,18 @@ function getSiblings(d) {
 export function mouseoverSiblings(event, d) {
    
   console.log("over node: ", d.data.name);
+  d3.selectAll("rect").style("fill", "#c3c3c3");
   var counter = 0;
 
   if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", "red");
+     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
   } else {
     var lengthSibling = getSiblings(d).first;
     var arraySibling = getSiblings(d).second;
 
     while (counter < lengthSibling) {
       d = arraySibling[counter];
-      d3.selectAll("#node" + d.id).style("fill", "red");
+      d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
         counter++; // iterate through nodes
     }
   }
@@ -87,7 +90,8 @@ export function mouseoverSiblings(event, d) {
 
 export function mouseoutSiblings(event, d) {
 
-  console.log("out node: ", d.data.name);
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
   var counter = 0;
 
   if (d.parent === null) {

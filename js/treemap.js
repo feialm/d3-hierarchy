@@ -62,7 +62,8 @@ function update(root){
     .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d); })
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d); })
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
-    .style("fill", function (d) { return Module.color(d.depth); });
+    .style("fill", function (d) { return Module.color(d.depth); })
+    .attr("stroke", "white").attr('stroke-width', '0.4');;
 
   
   
