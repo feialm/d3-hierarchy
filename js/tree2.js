@@ -1,6 +1,4 @@
-var margin = { top: 20, right: 90, bottom: 20, left: 90 };
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
+import * as Module from "./utils/utils.js";
 
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
@@ -8,10 +6,10 @@ var height = 500 - margin.top - margin.bottom;
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", width + margin.right + margin.left)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", Module.width_d + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_d + Module.margin.top + Module.margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
 
 
 var i = 0;
@@ -26,7 +24,7 @@ root = d3.hierarchy(data, function (d) {
   return d.children;
 });
 
-root.x0 = height / 2;
+root.x0 = Module.height_d / 2;
 root.y0 = 0;
 
 console.log("ROOT: ", root);
@@ -37,7 +35,7 @@ console.log("ROOT: ", root);
 // Update
 function update(source) {
   // declare tree and its layout --> size
-  var treemap = d3.tree().size([height, width]);
+  var treemap = d3.tree().size([Module.height_d, Module.width_d]);
 
   // assign x,y pos for nodes
   var treeData = treemap(root);
@@ -108,6 +106,7 @@ function update(source) {
     .attr("r", 10)//radius 
     .on("mouseout", mouseout)
     .on("mouseover", mouseover)
+    .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 
   
@@ -117,7 +116,7 @@ function update(source) {
   // curved diagonal path from parent to child nodes
   // om dy byter plats på x och y --> vertical tree
   function diagonal(s, d) {
-    path = `M ${s.y} ${s.x}
+    let path = `M ${s.y} ${s.x}
       C ${(s.y + d.y) / 2} ${s.x}
         ${(s.y + d.y) / 2} ${d.x}
         ${d.y} ${d.x}`;

@@ -109,6 +109,7 @@ function update(source) {
     .style("stroke", "steelblue")
     .on("mouseout", mouseout)
     .on("mouseover", mouseover)
+    .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 
 

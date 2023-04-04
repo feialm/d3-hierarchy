@@ -7,17 +7,26 @@ export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
 export var width_b = 660 - margin.left - margin.right;
 export var height_b = 1000 - margin.top - margin.bottom;
-
-
-// c is currently for reemap
+// c is currently for treemap
 export var width_c = 1260 - margin.left - margin.right;
 export var height_c = 800 - margin.top - margin.bottom;
+// d is currently for node-link2
+export var width_d = 960 - margin.left - margin.right;
+export var height_d = 500 - margin.top - margin.bottom;
+
 
 // prepare a color scale
 
 export const color = d3.scaleOrdinal()
   .domain(["4","3", "2", "1", "0"])
   .range(["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]);
+
+
+export function mousemove(event, d) {
+
+  d3.selectAll("#node" + d.id).append("title")
+    .text(d.data.name + "\nLevel: " + (d.depth+1));
+}
 
 export function mouseoverAncestor(event, d) {
   

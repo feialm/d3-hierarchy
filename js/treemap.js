@@ -45,7 +45,11 @@ function update(root){
   var nodeEnter = node
     .enter()
     .append("g")
-    .attr("class", "node");
+    .attr("class", "node")
+    .on("mouseout", Module.mouseoutAncestor)
+    .on("mouseover", Module.mouseoverAncestor)
+    .on("mousemove", Module.mousemove)
+    .attr("cursor", "pointer");
   
   //console.log("nodeEnter: ", nodeEnter);
   
@@ -58,9 +62,8 @@ function update(root){
     .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d); })
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d); })
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
-    .style("fill", function (d) { return Module.color(d.depth); })
-    .on("mouseout", Module.mouseoutAncestor)
-    .on("mouseover", Module.mouseoverAncestor);
+    .style("fill", function (d) { return Module.color(d.depth); });
+
   
   
   // Labels for nodes

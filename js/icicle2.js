@@ -46,12 +46,15 @@ function update(root) {
     .append("rect")
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
-    .attr("width", function (d) { return d.x1 - d.x0 - 1; })
+    .attr("width", function (d) { return d.x1 - d.x0; })
     .attr("height", function (d) { return icicleUtils.rectHeight(d); })
     .attr("fill", function (d) { return Module.color(d.depth); })
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverSiblings)
-    .on("mouseout", Module.mouseoutSiblings);
+    .on("mouseout", Module.mouseoutSiblings)
+    .on("mousemove", Module.mousemove);
+  
+
   
     // Labels for nodes
   const text = nodeEnter.append("text")
