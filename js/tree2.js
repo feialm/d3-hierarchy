@@ -1,43 +1,3 @@
-var treeData = {
-  name: "Root",
-  parent: "null",
-  children: [
-    {
-      name: "A",
-      parent:"Root",
-      children: [
-        {
-        name: "C",
-        parent:"A",
-        children: [
-          {
-            name: "F",
-            parent: "C",
-            children:[]
-          }
-        ]
-        },
-        {
-          name: "D",
-          parent: "A",
-          children:[]
-        },
-      ],
-    },
-    {
-      name: "B",
-      parent:"Root",
-      children: [
-        {
-          name: "E",
-          parent: "B",
-          children:[]
-        },
-      ]
-    },
-  ],
-};
-
 var margin = { top: 20, right: 90, bottom: 20, left: 90 };
 var width = 960 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
@@ -57,13 +17,12 @@ var svg = d3
 var i = 0;
 var root;
 
-// declare tree and its layout --> size
-var treemap = d3.tree().size([height, width]);
 
+d3.json("../data/stockholm.json").then(function (data) {
 
 // using parent-child relationships to
 // assigns data to hierarchy, parent, child, height, depth
-root = d3.hierarchy(treeData, function (d) {
+root = d3.hierarchy(data, function (d) {
   return d.children;
 });
 
@@ -72,11 +31,13 @@ root.y0 = 0;
 
 console.log("ROOT: ", root);
 
-
-update(root);
+  update(root);
+});
 
 // Update
 function update(source) {
+  // declare tree and its layout --> size
+  var treemap = d3.tree().size([height, width]);
 
   // assign x,y pos for nodes
   var treeData = treemap(root);

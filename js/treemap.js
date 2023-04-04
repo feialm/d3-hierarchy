@@ -7,13 +7,13 @@ var root;
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", Module.width_a + Module.margin.right + Module.margin.left)
-  .attr("height", Module.height_a + Module.margin.top + Module.margin.bottom)
+  .attr("width", Module.width_c + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_c + Module.margin.top + Module.margin.bottom)
   .append("g")
   .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
 
 
-d3.json("../data/data2.json").then(function (data) {
+d3.json("../data/stockholm.json").then(function (data) {
 
   //console.log("Data: ", data);
 
@@ -28,7 +28,7 @@ d3.json("../data/data2.json").then(function (data) {
 
 function update(root){ 
 
-  var tree = d3.treemap().size([Module.width_a, Module.height_a])
+  var tree = d3.treemap().size([Module.width_c, Module.height_c])
     .padding(2)(root);
   
   var nodes = tree.descendants();
@@ -59,7 +59,6 @@ function update(root){
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d); })
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
     .style("fill", function (d) { return Module.color(d.depth); })
-    .style("stroke", "orange")
     .on("mouseout", Module.mouseoutAncestor)
     .on("mouseover", Module.mouseoverAncestor);
   
@@ -67,7 +66,7 @@ function update(root){
   // Labels for nodes
   nodeEnter
     .append("text")
-    .attr("dy", ".35em")
+    .attr("dy", "0.35em")
     .attr("x", function (d) {return d.x0+8;})
     .attr("y", function (d) {
       if (d.data.colname == null) {
@@ -77,7 +76,13 @@ function update(root){
         return d.y0+15;
       }
       if(d.data.colname == "level3") {
-        return d.y0+30;
+        return d.y0+20;
+      }
+      if(d.data.colname == "level4") {
+        return d.y0+25;
+      }
+      if(d.data.colname == "level5") {
+        return d.y0+27;
       }
     })
     .text(function (d) {

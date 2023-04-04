@@ -7,13 +7,13 @@ var root;
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", Module.width_a + Module.margin.right + Module.margin.left)
-  .attr("height", Module.height_a + Module.margin.top + Module.margin.bottom)
+  .attr("width", Module.width_c + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_c + Module.margin.top + Module.margin.bottom)
   .append("g")
   .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
   
 
-d3.json("../data/data2.json").then(function (data) {
+d3.json("../data/2dShapes.json").then(function (data) {
 
   //console.log("Data: ", data);
 
@@ -28,7 +28,7 @@ d3.json("../data/data2.json").then(function (data) {
 
 function update(root){ 
 
-  var tree = d3.treemap().size([Module.width_a, Module.height_a])
+  var tree = d3.treemap().size([Module.width_c, Module.height_c])
     .padding(2)(root);
   
   var nodes = tree.descendants();
@@ -60,8 +60,7 @@ function update(root){
     .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d);})
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d);})
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
-    .style("fill", function (d) { return Module.color(d.depth); })
-    .style("stroke", "orange");
+    .style("fill", function (d) { return Module.color(d.depth); });
   
   
   // Labels for nodes

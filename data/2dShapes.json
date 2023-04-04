@@ -1,0 +1,19 @@
+{"children":
+[{"name":"Conic Shapes","children":
+[
+{"name":"ellipse","value":1,"colname":"level3","parent":"Conic Shapes"},
+{"name":"circle","value":1,"colname":"level3","parent":"Conic Shapes"}
+]
+,"colname":"level2","parent":"2D shapes"},
+{"name":"Polygon Shapes","children":
+[
+{"name":"triangle","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"quadrilateral","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"pentagon","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"hexagon","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"heptagon","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"octagon","value":1,"colname":"level3","parent":"Polygon Shapes"},
+{"name":"decagon","value":1,"colname":"level3","parent":"Polygon Shapes"}
+],
+"colname":"level2","parent":"2D shapes"}],
+"name":"2D shapes", "parent": "null"}

@@ -1,42 +1,5 @@
 import * as Module from "./utils/utils.js";
 
-var treeData = {
-  name: "Root",
-  parent: "null",
-  children: [
-    {
-      name: "A",
-      parent:"Root",
-      children: [
-        {
-        name: "C",
-        parent:"A",
-        children: [
-          {
-            name: "F",
-            parent:"C"
-          }
-        ]
-        },
-        {
-        name: "D",
-        parent:"A"
-        },
-      ],
-    },
-    {
-      name: "B",
-      parent:"Root",
-      children: [
-        {
-        name: "E",
-        parent:"B"
-        },
-      ]
-    },
-  ],
-};
-
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
 // move g to top-left-margin
@@ -51,12 +14,12 @@ var svg = d3
 var i = 0;
 var root;
 
-// declare tree and its layout --> size
-var treemap = d3.tree().size([Module.height_a, Module.width_a]);
+
+d3.json("../data/stockholm.json").then(function (data) {
 
 // using parent-child relationships to
 // assigns data to hierarchy, parent, child, height, depth
-root = d3.hierarchy(treeData, function (d) {
+root = d3.hierarchy(data, function (d) {
   return d.children;
 });
 
@@ -65,10 +28,14 @@ root.y0 = 0;
 
 console.log("ROOT: ", root);
 
-update(root);
+  update(root);
+});
+
 
 
 function update(source) {
+  // declare tree and its layout --> size
+  var treemap = d3.tree().size([Module.height_a, Module.width_a]);
 
   // assign x,y pos for nodes
   var treeData = treemap(root);
@@ -111,8 +78,11 @@ function update(source) {
   nodeEnter
     .append("text")
     .attr("dy", ".35em")
-    .attr("x", function (d) {
-      return d.children || d._children ? -13 : 13;
+    .attr("transform", function (d) {
+      return d.children || d._children ? "rotate(0)" : "translate(0,15) rotate(90)";
+    })
+    .attr("y", function (d) {
+      return d.children || d._children ? -13 : 20;
     })
     .attr("text-anchor", function (d) {
       return d.children || d._children ? "end" : "start";
@@ -129,7 +99,7 @@ function update(source) {
   // update node attributes
   nodeUpdate
     .attr("transform", function (d) {
-      return "translate(" + d.x/1.5 + ", " + d.y/1.5 + ")";
+      return "translate(" + d.x*1.5 + ", " + d.y/1.5 + ")";
     });
 
   
@@ -150,8 +120,8 @@ function update(source) {
   // om dy byter plats på x och y --> vertical tree
   function diagonal(s, d) {
 
-    let sx = s.x / 1.5; let sy = s.y / 1.5;
-    let dy = d.y / 1.5; let dx = d.x / 1.5;
+    let sx = s.x*1.5; let sy = s.y / 1.5;
+    let dy = d.y / 1.5; let dx = d.x*1.5;
 
     let path = `M ${sx} ${sy}
       C ${(sx + dx) / 2} ${sy}

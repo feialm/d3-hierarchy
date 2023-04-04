@@ -1,17 +1,23 @@
 
 // variables used in, e.g, svg, d3 object
 export var margin = { top: 20, right: 90, bottom: 20, left: 90 };
-// a is currently for node-link and treemap
-export var width_a = 960 - margin.left - margin.right;
-export var height_a = 500 - margin.top - margin.bottom;
+// a is currently for node-link
+export var width_a = 1560 - margin.left - margin.right;
+export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
 export var width_b = 660 - margin.left - margin.right;
-export var height_b = 900 - margin.top - margin.bottom;
+export var height_b = 1000 - margin.top - margin.bottom;
+
+
+// c is currently for reemap
+export var width_c = 1260 - margin.left - margin.right;
+export var height_c = 800 - margin.top - margin.bottom;
 
 // prepare a color scale
+
 export const color = d3.scaleOrdinal()
-  .domain(["0", "1", "2"])
-  .range(["#2b8cbe", "#a6bddb", "#ece7f2"]);
+  .domain(["4","3", "2", "1", "0"])
+  .range(["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]);
 
 export function mouseoverAncestor(event, d) {
   
@@ -76,14 +82,14 @@ export function mouseoutSiblings(event, d) {
   var counter = 0;
 
   if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
+     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
   } else {
     var lengthSibling = getSiblings(d).first;
     var arraySibling = getSiblings(d).second;
 
     while (counter < lengthSibling) {
       d = arraySibling[counter];
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.data.colname); });
+      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
         counter++; // iterate through nodes
     }
   }

@@ -1,0 +1,446 @@
+{"children":
+[
+{"name":"Botkyrka","children":[
+    {"name":"Alby","children":[],"colname":"level3","value":1,"parent":"Botkyrka"},
+    {"name":"Fittja","children":[],"colname":"level3","value":1,"parent":"Botkyrka"},
+    {"name":"Hallunda-norsborg","children":[],"colname":"level3","value":1,"parent":"Botkyrka"},
+    {"name":"Tulline","children":[],"colname":"level3","value":1,"parent":"Botkyrka"},
+    {"name":"Tumna-Grödinge","children":[],"colname":"level3","value":1,"parent":"Botkyrka"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Danderyd","children":[
+    {"name":"Danderyd","children":[],"colname":"level3","value":1,"parent":"Danderyd"},
+    {"name":"Djursholm","children":[],"colname":"level3","value":1,"parent":"Danderyd"},
+    {"name":"Enebyberg","children":[],"colname":"level3","value":1,"parent":"Danderyd"},
+    {"name":"Stocksund","children":[],"colname":"level3","value":1,"parent":"Danderyd"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Ekerö","children":[
+    {"name":"Adelsö","children":[],"colname":"level3","value":1,"parent":"Ekerö"},
+    {"name":"Ekerö","children":[],"colname":"level3","value":1,"parent":"Ekerö"},
+    {"name":"Färingsö","children":[],"colname":"level3","value":1,"parent":"Ekerö"},
+    {"name":"Lovö","children":[],"colname":"level3","value":1,"parent":"Ekerö"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Haninge","children":[
+    {"name":"Handen","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Jordbro","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Västerhaninge","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Brandbergen","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Vendelsö-Gudö","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Vendelsömalm","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Tungelsta","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Vega","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Norrby","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Dalarö","children":[],"colname":"level3","value":1,"parent":"Haninge"},
+    {"name":"Haninge glesbygd","children":[],"colname":"level3","value":1,"parent":"Haninge"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Huddinge","children":[
+    {"name":"Flemingsberg","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Fullersta","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Gladö-Lissma","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Glömsta, Loviseberg","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Högmora","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Segeltorp, Kungens Kurva","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Sjödalen","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Skogås","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Snättringe","children":[],"colname":"level3","parent":"Huddinge"},
+    {"name":"Stuvsta","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Trångsund","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Vidja-Ågesta","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
+    {"name":"Vårby","children":[],"colname":"level3","value":1,"parent":"Huddinge"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Järfälla","children":[
+    {"name":"Barkarby-Skälby","children":[],"colname":"level3","value":1, "parent":"Järfälla"},
+    {"name":"Jakobsberg","children":[],"colname":"level3","value":1, "parent":"Järfälla"},
+    {"name":"Kallhäll-Stäket","children":[],"colname":"level3","value":1, "parent":"Järfälla"},
+    {"name":"Viksjö","children":[],"colname":"level3","value":1, "parent":"Järfälla"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Lidingö","children":[
+    {"name":"Baggeby","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Bo","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Bosön","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Ekholmsnäs","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Elfvik","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Fjäderholmarna","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Grönsta","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Gångsätra","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Gåshaga","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Hersby","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Islinge","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Killinge","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Koltorp","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Käppala","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Larsberg","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Mosstorp","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Mölna","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Näset","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Rudboda","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Skärsätra","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Norra sticklinge","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Södra sticklinge","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Storholmen","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Södergarn","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Torsvik","children":[],"colname":"level3","value":1, "parent":"Lidingö"},
+    {"name":"Yttringe","children":[],"colname":"level3","value":1, "parent":"Lidingö"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Nacka","children":[
+    {"name":"Sicklaön","children":[],"colname":"level3","value":1, "parent":"Nacka"},
+    {"name":"Boo","children":[],"colname":"level3","value":1, "parent":"Nacka"},
+    {"name":"Älta","children":[],"colname":"level3","value":1, "parent":"Nacka"},
+    {"name":"Saltsjöbaden/Fisksätra","children":[],"colname":"level3","value":1, "parent":"Nacka"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Norrtälje","children":[
+    {"name":"Björkö-Arholma","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Norrtälje","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Blidö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Närtuna","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Edebo","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Riala","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Estuna","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Roslags-Bro","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Fasterna","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Rådmansrö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Frötuna","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Rö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Gottröra","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Singö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Häverö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Söderby-Karl","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Lohärad","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Ununge","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Länna","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Väddö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Malsta","children":[],"colname":"level3","value":1, "parent":"Norrtälje"},
+    {"name":"Vätö","children":[],"colname":"level3","value":1, "parent":"Norrtälje"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Nynäshamn","children":[
+    {"name":"Nynäshamn","children":[],"colname":"level3","value":1, "parent":"Nynäshamn"},
+    {"name":"Sorunda","children":[],"colname":"level3","value":1, "parent":"Nynäshamn"},
+    {"name":"Torö","children":[],"colname":"level3","value":1, "parent":"Nynäshamn"},
+    {"name":"Ösmo","children":[],"colname":"level3","value":1, "parent":"Nynäshamn"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Salem","children":[
+    {"name":"Salem","children":[],"colname":"level3","value":1, "parent":"Salem"},
+    {"name":"Rönninge","children":[],"colname":"level3","value":1, "parent":"Salem"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Sigtuna","children":[
+    {"name":"Haga","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Husby-Ärlinghundra & Odensala","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Norrsunda-Skånela","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Sigtuna","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Sigtuna Sankt Olof","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Sigtuna Sankt Per","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Skepptuna","children":[],"colname":"level3","value":1, "parent":"Sigtuna"},
+    {"name":"Valsta","children":[],"colname":"level3","value":1, "parent":"Sigtuna"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Sollentuna","children":[
+    {"name":"Rotebro","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Viby","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Norrviken","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Vaxmora","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Höggvik","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Edsberg","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Tureberg","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Sjöberg","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Helenelund","children":[],"colname":"level3","value":1, "parent":"Sollentuna"},
+    {"name":"Järvafältet","children":[],"colname":"level3","value":1, "parent":"Sollentuna"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Solna","children":[
+    {"name":"Bergshamra","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Haga","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Hagalund","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Huvudsta","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Järva","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Råsunda","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Skytteholm","children":[],"colname":"level3","value":1, "parent":"Solna"},
+    {"name":"Ulriksdal","children":[],"colname":"level3","value":1, "parent":"Solna"}
+],
+"colname":"level2","parent":"Stockholms län"},
+
+
+
+
+
+
+{"name":"Stockholm","children":[
+    {"name":"Inre staden","children":[
+        {"name":"Kungsholmen","children":[
+            {"name":"Fredhäll","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Kristineberg","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Kungsholmen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Marieberg","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Lilla Essingen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Stora Essingen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
+            {"name":"Stadshagen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"}
+        ],"colname":"level4","parent":"Inre staden"},
+        {"name":"Norrmalm, City","children":[
+            {"name":"Normalm","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
+            {"name":"Skeppsholmen","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
+            {"name":"Vasastaden","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
+            {"name":"Östermalm(norr om Odengatan)","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"}
+        ],"colname":"level4","parent":"Inre staden"},
+        {"name":"Södermalm","children":[
+            {"name":"Gamla Stan","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
+            {"name":"Långholmen","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
+            {"name":"Reimersholme","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
+            {"name":"Riddarholmen","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
+            {"name":"Södermalm","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
+            {"name":"Södra Hammarbyhamnen","children":[],"colname":"level5","value":1, "parent":"Södermalm"}
+        ],"colname":"level4","parent":"Inre staden"},
+        {"name":"Östermalm","children":[
+            {"name":"Djurgården","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
+            {"name":"Hjorthagen","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
+            {"name":"Gärdet","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
+            {"name":"Norra Djurgården","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
+            {"name":"Östermalm","children":[],"colname":"level5","value":1, "parent":"Östermalm"}
+        ],"colname":"level4","parent":"Inre staden"}
+    ],"colname":"level3","parent":"Stockholm"},
+
+
+    {"name":"Söderort","children":[
+        {"name":"Enskede-årsta-vantör","children":[
+            {"name":"Bandhagen","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Enskedefältet","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Enskedegård","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Gamla Enskede","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Hagsätra","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Högdalen","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Johanneshov","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Rågsved","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Stureby","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Årsta","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Örby","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
+            {"name":"Östberga","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"}
+        ],"colname":"level4","parent":"Söderort"},
+        {"name":"Farsta","children":[
+            {"name":"Fagersjö","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Farsta","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Farstanäset","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Farsta strand","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Gubbängen","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Hökarängen","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Larsboda","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Sköndal","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Svedmyra","children":[],"colname":"level5","value":1, "parent":"Farsta"},
+            {"name":"Tallkrogen","children":[],"colname":"level5","value":1, "parent":"Farsta"}
+        ],"colname":"level4","parent":"Söderort"},
+        {"name":"Hägersten-Älvsjö","children":[
+            {"name":"Aspudden","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Fruängen","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Gröndal","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Herrängen","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Hägersten","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Hägerstensåsen","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Liljeholmen","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Liseberg","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Långbro","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Långsjö","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Midsommarkransen","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Mälarhöjden","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Solberga","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Västberga","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Västertorp","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Älvsjö","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"},
+            {"name":"Örby Slott","children":[],"colname":"level5","value":1, "parent":"Hägersten-Älvsjö"}
+        ],"colname":"level4","parent":"Söderort"},
+        {"name":"Skärholmen","children":[
+            {"name":"Bredäng","children":[],"colname":"level5","value":1, "parent":"Skärholmen"},
+            {"name":"Sätra","children":[],"colname":"level5","value":1, "parent":"Skärholmen"},
+            {"name":"Skärholmen","children":[],"colname":"level5","value":1, "parent":"Skärholmen"},
+            {"name":"Vårberg","children":[],"colname":"level5","value":1, "parent":"Skärholmen"}
+        ],"colname":"level4","parent":"Söderort"},
+        {"name":"Skarpnäck","children":[
+            {"name":"Hammarbyhöjden","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Björkhagen","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Enskededalen","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Kärrtorp","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Bagarmossen","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Skarpnäcks gård","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Flaten","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Orhem","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"},
+            {"name":"Skrubba","children":[],"colname":"level5","value":1, "parent":"Skarpnäck"}
+        ],"colname":"level4","parent":"Söderort"}
+    ],"colname":"level3","parent":"Stockholm"},
+
+
+    {"name":"Västerort","children":[
+        {"name":"Bromma","children":[
+            {"name":"Abrahamsberg","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Alvik","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Beckomberga","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Blackeberg","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Bromma Kyrka","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Bällsta","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Eneby","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Höglandet","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Nockeby","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Nockebyhov","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Norra Ängby","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Olovslund","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Riksby","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Smedslätten","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Stora Mossen","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Södra Ängby","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Traneberg","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Ulvslunda","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Ulvslunda industriområde","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Åkeshov","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Åkeslund","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Ålsten","children":[],"colname":"level5","value":1, "parent":"Bromma"},
+            {"name":"Äppelviken","children":[],"colname":"level5","value":1, "parent":"Bromma"}
+        ],"colname":"level4","parent":"Västerort"},
+        {"name":"Hässelby-Vällingby","children":[
+            {"name":"Grimsta","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Hässelby Gård","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Hässelby strand","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Hässelby villastad","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Kälvesta","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Nälsta","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Råcksta","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Vinsta","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"},
+            {"name":"Vällingby","children":[],"colname":"level5","value":1, "parent":"Hässelby-Vällingby"}
+        ],"colname":"level4","parent":"Västerort"},
+        {"name":"Rinkeby-Kista","children":[
+            {"name":"Rinkeby","children":[],"colname":"level5","value":1, "parent":"Rinkeby-Kista"},
+            {"name":"Akalla","children":[],"colname":"level5","value":1, "parent":"Rinkeby-Kista"},
+            {"name":"Husby","children":[],"colname":"level5","value":1, "parent":"Rinkeby-Kista"},
+            {"name":"Kista","children":[],"colname":"level5","value":1, "parent":"Rinkeby-Kista"},
+            {"name":"Hansta","children":[],"colname":"level5","value":1, "parent":"Rinkeby-Kista"}
+        ],"colname":"level4","parent":"Västerort"},
+        {"name":"Spånga-Tensta","children":[
+            {"name":"Bromsten","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"},
+            {"name":"Flysta","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"},
+            {"name":"Solhem","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"},
+            {"name":"Lunda","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"},
+            {"name":"Sundby","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"},
+            {"name":"Tensta","children":[],"colname":"level5","value":1, "parent":"Spånga-Tensta"}
+        ],"colname":"level4","parent":"Västerort"}
+    ],"colname":"level3","parent":"Stockholm"}
+],
+
+
+
+
+
+
+
+
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Sundbyberg","children":[
+    {"name":"Centrala Sundby","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Rissne","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Hallonbergen","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Lilla Alby","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Storskogen","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Duvbo","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Ör","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Stora Ursvik","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Lilla Ursvik","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
+    {"name":"Brotorp/Järvastaden","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Södertälje","children":[
+    {"name":"Enhörna","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Hölö","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Mörkö","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Södertälje","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Tveta","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Vårdinge","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Västertälje","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Ytterjärna","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Östertälje","children":[],"colname":"level3","value":1, "parent":"Södertälje"},
+    {"name":"Överjärna","children":[],"colname":"level3","value":1, "parent":"Södertälje"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Tyresö","children":[
+    {"name":"Bollmora","children":[],"colname":"level3","value":1, "parent":"Tyresö"},
+    {"name":"Trollbäcken","children":[],"colname":"level3","value":1, "parent":"Tyresö"},
+    {"name":"Tyresö strand","children":[],"colname":"level3","value":1, "parent":"Tyresö"},
+    {"name":"Östra Tyresö","children":[],"colname":"level3","value":1, "parent":"Tyresö"},
+    {"name":"Tyresö nationalpark & naturreservat","children":[],"colname":"level3","value":1, "parent":"Tyresö"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Täby","children":[
+    {"name":"Arninge","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Broby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Ella gård","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Ella park","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Ensta","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Fällbro","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Gribbylund","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Hagby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Hägernäs","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Karby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Lahäll","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Löttinge","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Näsbypark","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Roslags Näsby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Rönninge","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Skarpnäck","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Skålhamra","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Såsta","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Tibble","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Täby kyrkby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Valla","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Viggbyholm","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Vågsjö","children":[],"colname":"level3","value":1, "parent":"Täby"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Upplands Väsby","children":[
+    {"name":"Ed","children":[],"colname":"level3","value":1, "parent":"Upplands Väsby"},
+    {"name":"Fredstra","children":[],"colname":"level3","value":1, "parent":"Upplands Väsby"},
+    {"name":"Hammarby","children":[],"colname":"level3","value":1, "parent":"Upplands Väsby"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Upplands-Bro","children":[
+    {"name":"Bro","children":[],"colname":"level3","value":1, "parent":"Upplands-Bro"},
+    {"name":"Håbo-Tibble","children":[],"colname":"level3","value":1, "parent":"Upplands-Bro"},
+    {"name":"Håtunga","children":[],"colname":"level3","value":1, "parent":"Upplands-Bro"},
+    {"name":"Kungsängen-västra Ryd","children":[],"colname":"level3","value":1, "parent":"Upplands-Bro"},
+    {"name":"Låssa","children":[],"colname":"level3","value":1, "parent":"Upplands-Bro"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Vallentuna","children":[
+    {"name":"Angarn","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Frösunda","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Kårsta","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Markim","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Orkestra","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Vada","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Vallentuna","children":[],"colname":"level3","value":1, "parent":"Vallentuna"},
+    {"name":"Össeby-Gam","children":[],"colname":"level3","value":1, "parent":"Vallentuna"}
+
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Vaxholm","children":[
+
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Värmdö","children":[
+    {"name":"Djurö","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
+    {"name":"Gustavsberg","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
+    {"name":"Ingarö","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
+    {"name":"Möja","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
+    {"name":"Nämdö","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
+    {"name":"Värmdö","children":[],"colname":"level3","value":1, "parent":"Värmdö"}
+],
+"colname":"level2","parent":"Stockholms län"},
+{"name":"Österåker","children":[
+    {"name":"Roslags-kull & Ljusterö","children":[],"colname":"level3","value":1, "parent":"Österåker"},
+    {"name":"Österåker-Östra Ryd","children":[],"colname":"level3","value":1, "parent":"Österåker"},
+    {"name":"Ryd","children":[],"colname":"level3","value":1, "parent":"Österåker"}
+],
+"colname":"level2","parent":"Stockholms län"}
+],
+"name":"Stockholms län", "parent": "null"}
