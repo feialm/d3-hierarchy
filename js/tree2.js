@@ -87,7 +87,7 @@ function update(source) {
       // place of text depending on if node has children or not (leaf node)
     })
     .text(function (d) {
-      return d.data.name;//hämtar namnet på noden
+      return d.children || d._children ? d.data.name : "";//hämtar namnet på noden
     });
 
   
