@@ -2,7 +2,7 @@
 // variables used in, e.g, svg, d3 object
 export var margin = { top: 20, right: 90, bottom: 20, left: 90 };
 // a is currently for node-link
-export var width_a = 1560 - margin.left - margin.right;
+export var width_a = 2560 - margin.left - margin.right;
 export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
 export var width_b = 660 - margin.left - margin.right;

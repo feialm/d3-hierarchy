@@ -1,7 +1,8 @@
 .node circle {
-  fill: steelblue;
+  /*fill: steelblue;
   stroke: steelblue;
   stroke-width: 3px;
+  */
 }
 
 .node text {
