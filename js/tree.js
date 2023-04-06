@@ -1,4 +1,5 @@
 import * as Module from "./utils/utils.js";
+import * as nodeLink from "./utils/node-linkUtils.js";
 
 
 // append svg-object to container in html-file
@@ -64,7 +65,7 @@ function update(source) {
     .attr("transform", function (d) {
       return "translate(" + source.x0 + ", " + source.y0 + ")";
     })
-    .on("click", click);
+    .on("click", Module.click);
 
   // node attribute/style
   nodeEnter
@@ -97,8 +98,8 @@ function update(source) {
   
   nodeUpdate
     .select("circle.node")
-    .on("mouseout", mouseout)
-    .on("mouseover", mouseover)
+    .on("mouseout", nodeLink.mouseoutAncestor)
+    .on("mouseover", nodeLink.mouseoverAncestor)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 
@@ -156,53 +157,6 @@ function update(source) {
     .attr("y1", function (d) { return d.y/1.5; })
     .attr("x2", function (d) { return d.parent.x*2; })
     .attr("y2", function (d) { return d.parent.y/1.5; });
-
-
-//------------- Functions --------------
-
-
-  function mouseover(event, d) {
-    console.log("over node: ", d.data.name);
-    //reset all nodes color
-    d3.selectAll("circle").style("fill", "#c3c3c3");// alla noder som inte select, grå
-    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
-    
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", "#ff7f00")
-      if (d.parent != "null") {
-        // links between nodes --> highlight
-        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#ff7f00").style("stroke-width", 3);
-      }//end if
-
-      d = d.parent;//iterate through nodes  
-    }
-
-    if (d.data.parent == "null") {
-      d3.selectAll("#node" + d.id).style("fill", "#ff7f00")
-    }//end if
-  }
-
-  function mouseout(event,d){
-    console.log("out node: ", d.data.name);
-     d3.selectAll("circle").style("fill", "#045a8d");
-
-    while(d.parent) {
-      //d3.selectAll("#node" + d.id).style("fill", "yellow")
-      if (d.parent != "null") {
-        d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);
-      }//end if
-
-      d = d.parent;//iterate through nodes 
-    }
-
-    if (d.data.parent == "null") {
-      d3.selectAll("#node" + d.id).style("fill", "#045a8d")
-    }//end if
-  }
-
-
-  // new children toogle, onclik on node
-  function click(event, d) {
-    console.log("CLICK ", d.data.name);
-  }
+  
 }
+

@@ -11,8 +11,8 @@ export var height_b = 1000 - margin.top - margin.bottom;
 export var width_c = 1260 - margin.left - margin.right;
 export var height_c = 800 - margin.top - margin.bottom;
 // d is currently for node-link2
-export var width_d = 960 - margin.left - margin.right;
-export var height_d = 500 - margin.top - margin.bottom;
+export var width_d = 2560 - margin.left - margin.right;
+export var height_d = 1000 - margin.top - margin.bottom;
 
 
 // prepare a color scale
@@ -106,4 +106,10 @@ export function mouseoutSiblings(event, d) {
         counter++; // iterate through nodes
     }
   }
+}
+
+
+// new children toogle, onclik on node
+export function click(event, d) {
+  console.log("CLICK ", d.data.name);
 }

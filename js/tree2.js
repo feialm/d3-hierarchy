@@ -1,4 +1,5 @@
 import * as Module from "./utils/utils.js";
+import * as nodeLink from "./utils/node-linkUtils.js";
 
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
@@ -14,7 +15,6 @@ var svg = d3
 
 var i = 0;
 var root;
-
 
 d3.json("../data/stockholm.json").then(function (data) {
 
@@ -63,29 +63,23 @@ function update(source) {
     .append("g")
     .attr("class", "node")
     .attr("transform", function (d) {
-      return "translate(" + source.y0 + ", " + source.x0 + ")";
+      return "translate(" + source.x0 + ", " + source.y0 + ")";
     })
-    .on("click", click);
+    .on("click", Module.click);
 
   // node attribute/style
   nodeEnter
     .append("circle")
     .attr("class", "node")
     .attr("id", function(d){return "node" + d.id})//TEST
-    .attr("r", 0)
-    .style("fill", "steelblue");
+    .style("fill", "#045a8d");
 
   // Labels for nodes
   nodeEnter
     .append("text")
     .attr("dy", ".35em")
-    .attr("x", function (d) {
-      return d.children || d._children ? -13 : 13;
-    })
-    .attr("text-anchor", function (d) {
-      return d.children || d._children ? "end" : "start";
-      // place of text depending on if node has children or not (leaf node)
-    })
+    .attr("x", -13)
+    .attr("text-anchor", "end")
     .text(function (d) {
       return d.children || d._children ? d.data.name : "";//hämtar namnet på noden
     });
@@ -97,32 +91,20 @@ function update(source) {
   // update node attributes
   nodeUpdate
     .attr("transform", function (d) {
-      return "translate(" + d.y + ", " + d.x + ")";
+      return "translate(" + d.x*2 + ", " + d.y/1.5 + ")";
     });
 
   
   nodeUpdate
     .select("circle.node")
-    .attr("r", 10)//radius 
-    .on("mouseout", mouseout)
-    .on("mouseover", mouseover)
+    .attr("r", 4)//radius 
+    .on("mouseout", nodeLink.mouseoutDescendants)
+    .on("mouseover", nodeLink.mouseoverDescendants)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 
   
   //----------------- Links -----------------------
-
-  // links
-  // curved diagonal path from parent to child nodes
-  // om dy byter plats på x och y --> vertical tree
-  function diagonal(s, d) {
-    let path = `M ${s.y} ${s.x}
-      C ${(s.y + d.y) / 2} ${s.x}
-        ${(s.y + d.y) / 2} ${d.x}
-        ${d.y} ${d.x}`;
-    return path;
-  }
-
 
   var links = treeData.descendants().slice(1);
   
@@ -133,89 +115,24 @@ function update(source) {
 
   var linkEnter = link
     .enter()
-    .insert("path", "g")
+    .insert("line", "g")
     .attr("class", "link")
     .attr("id", function(d){
       return("link" + d.parent.id + "-" + d.id);//TEST
     })
-    .attr("d", function (d) {
-      var o = { x: source.x0, y: source.y };
-      return diagonal(o, o);
-    });
+    .attr("x1", function (d) { return d.x*2; })
+    .attr("y1", function (d) { return d.y/1.5; })
+    .attr("x2", function (d) { return d.parent.x*2; })
+    .attr("y2", function (d) { return d.parent.y/1.5; });
   
   // update link
   var linkUpdate = linkEnter.merge(link);
 
   // transition back to parent element position
   linkUpdate
-    .attr("d", function (d) {
-      return diagonal(d, d.parent);
-    });
+    .attr("x1", function (d) { return d.x*2; })
+    .attr("y1", function (d) { return d.y/1.5; })
+    .attr("x2", function (d) { return d.parent.x*2; })
+    .attr("y2", function (d) { return d.parent.y/1.5; });
 
-  
-  // Stores old position for transition
-  nodes.forEach(function (d) {
-    d.x0 = d.x;
-    d.y0 = d.y;
-  });
-
-  //------------- Functions --------------
-
-  function getAscendants(d) {
-    const name_ = d.data.name;
-    var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
-    return myNodeSelection.datum().descendants().reverse();
-  }
-
-
-  function mouseover(event, d) {
-    console.log("over node: ", d.data.name);
-
-    //reset all nodes color
-    d3.selectAll("circle").style("fill", "green");// alla noder som inte select, green
-    d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå 
-
-    var ascendants = getAscendants(d);
-
-    node.style("fill", (d => ascendants.includes(d) ? "pink" : null));
-    node.select("circle").style("stroke", (d => ascendants.includes(d) ? "yellow" : null));
-
-    const length = ascendants.length;
-    var j = 0;
-    d = ascendants[0];
-
-      while (j < length) {  
-        d3.selectAll("#node" + d.id).style("fill", "pink");
-        if (d.data.parent != " null" && j <length-1) {
-          d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "pink").style("stroke-width", 4);
-        }
-        d = ascendants[++j]//iterate through nodes
-      }// end while
-    
-  }
-
-  function mouseout(event, d) {
-    console.log("out node: ", d.data.name);
-
-    var ascendants = getAscendants(d);
-
-    const length = ascendants.length;
-    var j = 0;
-    d = ascendants[0];
-
-      while (j < length) {       
-        d3.selectAll("#node" + d.id).style("fill", "yellow");
-        if (d.data.parent != " null" && j <length-1) {
-          d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#c3c3c3").style("stroke-width", 2);
-        }
-        d = ascendants[++j]//iterate through nodes
-      }// end while
-  }
-
-
-  // new children toogle (expand/collapse), onclik on node
-  function click(event, d) {
-    console.log("CLICK ", d.data.name);
-    update(d);
-  }
 }
