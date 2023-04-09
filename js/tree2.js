@@ -1,20 +1,21 @@
 import * as Module from "./utils/utils.js";
 import * as nodeLink from "./utils/node-linkUtils.js";
 
+
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
 // move g to top-left-margin
 var svg = d3
   .select(".container")
   .append("svg")
-  .attr("width", Module.width_d + Module.margin.right + Module.margin.left)
-  .attr("height", Module.height_d + Module.margin.top + Module.margin.bottom)
+  .attr("width", Module.width_a + Module.margin.right + Module.margin.left)
+  .attr("height", Module.height_a + Module.margin.top + Module.margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
-
+  .attr("transform", "translate(" + Module.margin.left + "," + (Module.margin.top+20)+ ")");
 
 var i = 0;
 var root;
+
 
 d3.json("../data/stockholm.json").then(function (data) {
 
@@ -24,7 +25,7 @@ root = d3.hierarchy(data, function (d) {
   return d.children;
 });
 
-root.x0 = Module.height_d / 2;
+root.x0 = Module.height_a / 2;
 root.y0 = 0;
 
 console.log("ROOT: ", root);
@@ -32,10 +33,10 @@ console.log("ROOT: ", root);
   update(root);
 });
 
-// Update
+
 function update(source) {
   // declare tree and its layout --> size
-  var treemap = d3.tree().size([Module.height_d, Module.width_d]);
+  var treemap = d3.tree().size([Module.height_a, Module.width_a]);
 
   // assign x,y pos for nodes
   var treeData = treemap(root);
@@ -43,7 +44,6 @@ function update(source) {
   // tree layout
   // nodes
   var nodes = treeData.descendants();
-
 
   // normalize, fixed depth
   nodes.forEach(function (d) {
@@ -57,7 +57,7 @@ function update(source) {
     return d.id || (d.id = ++i);
   });
 
-  // enter new nodes at parents previous pos, grouping on DOM
+  // enter new nodes at parents previous pos
   var nodeEnter = node
     .enter()
     .append("g")
@@ -71,14 +71,15 @@ function update(source) {
   nodeEnter
     .append("circle")
     .attr("class", "node")
-    .attr("id", function(d){return "node" + d.id})//TEST
-    .style("fill", "#045a8d");
+    .attr("id", function (d) { return "node" + d.id })//TEST
+    .attr("fill","#045a8d")
+    .attr("r", 4);//radius
 
   // Labels for nodes
   nodeEnter
     .append("text")
     .attr("dy", ".35em")
-    .attr("x", -13)
+    .attr("y", -13)
     .attr("text-anchor", "end")
     .text(function (d) {
       if (d.parent == null) {
@@ -100,13 +101,12 @@ function update(source) {
   
   nodeUpdate
     .select("circle.node")
-    .attr("r", 4)//radius 
     .on("mouseout", nodeLink.mouseoutDescendants)
     .on("mouseover", nodeLink.mouseoverDescendants)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 
-  
+
   //----------------- Links -----------------------
 
   var links = treeData.descendants().slice(1);
@@ -120,14 +120,15 @@ function update(source) {
     .enter()
     .insert("line", "g")
     .attr("class", "link")
-    .attr("id", function(d){
-      return("link" + d.parent.id + "-" + d.id);//TEST
+    .attr("id", function (d) {
+      return ("link" + d.parent.id + "-" + d.id);//TEST
     })
     .attr("x1", function (d) { return d.x*2; })
     .attr("y1", function (d) { return d.y/1.5; })
     .attr("x2", function (d) { return d.parent.x*2; })
     .attr("y2", function (d) { return d.parent.y/1.5; });
-  
+
+
   // update link
   var linkUpdate = linkEnter.merge(link);
 
@@ -137,5 +138,6 @@ function update(source) {
     .attr("y1", function (d) { return d.y/1.5; })
     .attr("x2", function (d) { return d.parent.x*2; })
     .attr("y2", function (d) { return d.parent.y/1.5; });
-
+  
 }
+

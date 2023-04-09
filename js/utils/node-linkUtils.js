@@ -121,18 +121,18 @@ export function mouseoverSiblings(event, d) {
 export function mouseoutSiblings(event, d) {
 
   //console.log("out node: ", d.data.name);
-  d3.selectAll("circle").style("fill", function (d) { return color(d.depth); });
+  d3.selectAll("circle").style("fill", "#045a8d");
   var counter = 0;
 
   if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
+     d3.selectAll("#node" + d.id).style("fill", "#045a8d");
   } else {
     var lengthSibling = getSiblings(d).first;
     var arraySibling = getSiblings(d).second;
 
     while (counter < lengthSibling) {
       d = arraySibling[counter];
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
+      d3.selectAll("#node" + d.id).style("fill", "#045a8d");
         counter++; // iterate through nodes
     }
   }
