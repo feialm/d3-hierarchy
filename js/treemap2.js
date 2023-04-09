@@ -65,26 +65,51 @@ function update(root){
     .style("fill", function (d) { return Module.color(d.depth); })
     .attr("stroke", "white").attr('stroke-width', '0.4');
   
-  
-  // Labels for nodes
-  nodeEnter
+  // text labels on node
+  node
+    .enter()
     .append("text")
-    .attr("dy", ".35em")
-    .attr("x", function (d) {return d.x0+8;})
+    .attr("class", "node")
+    .attr("x", function (d) { return d.x0 + 8; })
     .attr("y", function (d) {
       if (d.data.colname == null) {
-        return d.y0+5;
+        return d.y0 + 5;
       }
       if (d.data.colname == "level2") {
-        return d.y0+15;
+        return d.y0 + 13;
       }
-      if(d.data.colname == "level3") {
-        return d.y0+30;
+      if (d.data.colname == "level3") {
+        return d.y0 + 20;
       }
+    })
+    .attr("dy", "0.35em")
+    .style("font", function (d) {
+      if (d.children) {
+        if (d.data.colname == null) {
+          return "12px sans-serif";
+        }
+        if (d.data.colname == "level2") {
+          return "10px sans-serif";
+        }
+      } else {
+        return "10px sans-serif"
+      }
+    })
+    .style("font-weight", function (d) {
+      if (d.data.colname == null) {
+        return "600";
+      }
+      if (d.data.colname == "level2") {
+        return "500";
+      }
+      if (d.data.colname == "level3") {
+        return "400";
+      }
+      return "normal";
     })
     .text(function (d) {
       return d.data.name;
-    })
+    });
   
 }
 

@@ -45,7 +45,7 @@
     {"name":"Segeltorp, Kungens Kurva","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
     {"name":"Sjödalen","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
     {"name":"Skogås","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
-    {"name":"Snättringe","children":[],"colname":"level3","parent":"Huddinge"},
+    {"name":"Snättringe","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
     {"name":"Stuvsta","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
     {"name":"Trångsund","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
     {"name":"Vidja-Ågesta","children":[],"colname":"level3","value":1,"parent":"Huddinge"},
@@ -423,10 +423,7 @@
 
 ],
 "colname":"level2","parent":"Stockholms län"},
-{"name":"Vaxholm","children":[
-
-],
-"colname":"level2","parent":"Stockholms län"},
+{"name":"Vaxholm","children":[],"colname":"level2","value":1,"parent":"Stockholms län"},
 {"name":"Värmdö","children":[
     {"name":"Djurö","children":[],"colname":"level3","value":1, "parent":"Värmdö"},
     {"name":"Gustavsberg","children":[],"colname":"level3","value":1, "parent":"Värmdö"},

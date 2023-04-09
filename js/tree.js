@@ -82,7 +82,10 @@ function update(source) {
     .attr("y", -13)
     .attr("text-anchor", "end")
     .text(function (d) {
-      return d.children || d._children ? d.data.name : "";//hämtar namnet på noden
+      if (d.parent == null) {
+        return d.data.name;
+      }
+      return d.children || d._children ? Module.splitString(d) : "";//hämtar namnet på noden
     });
 
   

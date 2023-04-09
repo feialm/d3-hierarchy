@@ -30,7 +30,7 @@ export function mousemove(event, d) {
 
 export function mouseoverAncestor(event, d) {
   
-  console.log("over node: ", d.data.name);
+  //console.log("over node: ", d.data.name);
   d3.selectAll("rect").style("fill", "#c3c3c3");
  
   while (d.parent) {
@@ -70,7 +70,7 @@ function getSiblings(d) {
 
 export function mouseoverSiblings(event, d) {
    
-  console.log("over node: ", d.data.name);
+  //console.log("over node: ", d.data.name);
   d3.selectAll("rect").style("fill", "#c3c3c3");
   var counter = 0;
 
@@ -112,4 +112,59 @@ export function mouseoutSiblings(event, d) {
 // new children toogle, onclik on node
 export function click(event, d) {
   console.log("CLICK ", d.data.name);
+}
+
+
+
+// cut a too long string, showing first characters + adding ... 
+// to indicate there is more text
+export function cutString(d, nameList,command) {
+  var name = "";
+   if (nameList[0].length > 8) {
+          var middle = Math.floor(nameList[0].length / 2);
+          var before = nameList[0].lastIndexOf('', middle);
+          var after = nameList[0].indexOf('', middle + 1);
+
+          if (middle - before < after - middle) {
+            middle = before;
+          } else {
+            middle = after;
+          }
+
+          name = nameList[0].substr(0, middle) + "...";
+        } else {
+        if (command == "add") {
+            name = nameList[0]+"...";
+        } else {
+           name = nameList[0];
+        }
+   }  
+  return name;
+};//end cutString
+
+
+// split string on separator
+export function splitString(d) {
+      var nameList;
+      let name = "";
+      if (d.data.name.includes("/")) {
+        nameList = d.data.name.split("/");
+      }
+      else if (d.data.name.includes("-")) {
+        nameList = d.data.name.split("-");
+      }
+      else if (d.data.name.includes("(")) {
+        nameList = d.data.name.split("(");
+      }
+      else {
+        nameList = d.data.name.split(" ");    
+      }
+      
+      if (nameList.length > 1 && !d.children) {
+        name = cutString(d, nameList, "add");
+      } else {
+        name = cutString(d, nameList, "noAdd");
+      }
+      //console.log("ANDRA: ", name);
+      return name;
 }
