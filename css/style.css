@@ -24,8 +24,7 @@ body {
 }
 
 .node {
-  border: solid 1px white;
-  font: 10px sans-serif;
+  border: solid 1px rgb(255, 255, 255);
   line-height: 12px;
   overflow: hidden;
   position: absolute;
@@ -37,8 +36,9 @@ body {
   background-color:rgb(224, 224, 224);
   position: fixed;
   overflow: hidden;
+  font: 14px sans-serif;
   top: 0;
-  width: 50%;
+  width: 75%;
   z-index: 2;
   transition: top 0.5s;
 }
@@ -57,7 +57,7 @@ body {
 /* Change color when hovering over button*/
 .menu a:hover {
   color:white;
-  background-color:#5ab4ac;
+  background-color:#74a9cf;
 }
 
 .container{

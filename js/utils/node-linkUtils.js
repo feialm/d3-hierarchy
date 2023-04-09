@@ -38,7 +38,6 @@ export function mouseoutAncestor(event,d){
 }
 
 
-
 export function getAscendants(d) {
   const name_ = d.data.name;
   var myNodeSelection = d3.selectAll("circle.node").filter(d => d.data.name === name_);
@@ -90,5 +89,53 @@ export function mouseoutDescendants(event, d) {
     }// end while
 }
 
+
+
+
+function getSiblings(d) {
+    return {first: d.parent.children.length, second: d.parent.children };
+}
+
+
+export function mouseoverSiblings(event, d) {
+   
+  //console.log("over node: ", d.data.name);
+  d3.selectAll("circle").style("fill", "#c3c3c3");
+  var counter = 0;
+
+  if (d.parent === null) {
+     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+        counter++; // iterate through nodes
+    }
+  }
+}
+
+
+export function mouseoutSiblings(event, d) {
+
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("circle").style("fill", function (d) { return color(d.depth); });
+  var counter = 0;
+
+  if (d.parent === null) {
+     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
+  } else {
+    var lengthSibling = getSiblings(d).first;
+    var arraySibling = getSiblings(d).second;
+
+    while (counter < lengthSibling) {
+      d = arraySibling[counter];
+      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
+        counter++; // iterate through nodes
+    }
+  }
+}
 
 

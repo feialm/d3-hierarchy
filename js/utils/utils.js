@@ -22,6 +22,10 @@ export const color = d3.scaleOrdinal()
   .range(["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]);
 
 
+
+
+// ----- brushing and linking functions
+
 export function mousemove(event, d) {
 
   d3.selectAll("#node" + d.id).append("title")
@@ -107,6 +111,57 @@ export function mouseoutSiblings(event, d) {
     }
   }
 }
+
+
+export function getAscendants(d) {
+  const name_ = d.data.name;
+  var myNodeSelection = d3.selectAll("rect.node").filter(d => d.data.name === name_);
+  return myNodeSelection.datum().descendants().reverse();
+}
+
+
+export function mouseoverDescendants(event, d) {
+  console.log("over node: ", d.data.name);
+
+  //reset all nodes color
+  d3.selectAll("rect").style("fill", "#c3c3c3");// alla noder som inte select, green
+ 
+  var ascendants = getAscendants(d);
+
+  const length = ascendants.length;
+  var j = 0;
+  d = ascendants[0];
+
+    while (j < length) {  
+      d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+      d = ascendants[++j]//iterate through nodes
+    }// end while
+}
+
+export function mouseoutDescendants(event, d) {
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("rect").style("fill", "#045a8d");
+
+  var ascendants = getAscendants(d);
+
+  const length = ascendants.length;
+  var j = 0;
+  d = ascendants[0];
+
+    while (j < length) {       
+      d3.selectAll("#node" + d.id).style("fill", "#045a8d");
+      d = ascendants[++j]//iterate through nodes
+    }// end while
+}
+
+
+
+
+
+
+
+
+// ------  other functions ------
 
 
 // new children toogle, onclik on node
