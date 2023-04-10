@@ -1,6 +1,6 @@
 
 export function mouseoverAncestor(event, d) {
-console.log("over node: ", d.data.name);
+////console.log("over node: ", d.data.name);
 //reset all nodes color
 d3.selectAll("circle").style("fill", "#c3c3c3");// alla noder som inte select, grå
 d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
@@ -21,7 +21,7 @@ if (d.data.parent == "null") {
 }
 
 export function mouseoutAncestor(event,d){
-    //console.log("out node: ", d.data.name);
+    ////console.log("out node: ", d.data.name);
      d3.selectAll("circle").style("fill", "#045a8d");
 
     while(d.parent) {
@@ -46,7 +46,7 @@ export function getAscendants(d) {
 
 
 export function mouseoverDescendants(event, d) {
-  console.log("over node: ", d.data.name);
+  //console.log("over node: ", d.data.name);
 
   //reset all nodes color
   d3.selectAll("circle").style("fill", "#c3c3c3");// alla noder som inte select, green
@@ -71,7 +71,7 @@ export function mouseoverDescendants(event, d) {
 }
 
 export function mouseoutDescendants(event, d) {
-  //console.log("out node: ", d.data.name);
+  ////console.log("out node: ", d.data.name);
   d3.selectAll("circle").style("fill", "#045a8d");
 
   var ascendants = getAscendants(d);
@@ -99,7 +99,7 @@ function getSiblings(d) {
 
 export function mouseoverSiblings(event, d) {
    
-  //console.log("over node: ", d.data.name);
+  ////console.log("over node: ", d.data.name);
   d3.selectAll("circle").style("fill", "#c3c3c3");
   var counter = 0;
 
@@ -120,7 +120,7 @@ export function mouseoverSiblings(event, d) {
 
 export function mouseoutSiblings(event, d) {
 
-  //console.log("out node: ", d.data.name);
+  ////console.log("out node: ", d.data.name);
   d3.selectAll("circle").style("fill", "#045a8d");
   var counter = 0;
 

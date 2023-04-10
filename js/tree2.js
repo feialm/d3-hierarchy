@@ -16,7 +16,6 @@ var svg = d3
 var i = 0;
 var root;
 
-
 d3.json("../data/stockholm.json").then(function (data) {
 
 // using parent-child relationships to
@@ -95,7 +94,26 @@ function update(source) {
   // update node attributes
   nodeUpdate
     .attr("transform", function (d) {
-      return "translate(" + d.x*2 + ", " + d.y/1.5 + ")";
+      //console.log("STATUS:",sthlmNode, "NODE:", d.data.name, "\nPARENT:", d.data.parent, "\nLevel:", d.depth)
+      if (d.data.name == "Stockholm") {
+        return "translate(" + d.x*1.7 + ", " + d.y/1.5 + ")";
+      }
+      if (d.data.name == "Inre staden") {
+        return "translate(" + d.x*2.1 + ", " + d.y/1.5 + ")";
+      }
+      if (d.data.name == "Söderort") {
+        return "translate(" + d.x*1.8 + ", " + d.y/1.5 + ")";
+      }
+      if (d.data.name == "Västerort") {
+        return "translate(" + d.x*1.5 + ", " + d.y/1.5 + ")";
+      }
+      if (Module.sameName(d.data.parent) && d.depth == 2) {
+        return "translate(" + d.x*1.65 + ", " + d.y / 1.5 + ")";
+      }
+      if (Module.sameName(d.data.name) && d.depth == 1) {
+        return "translate(" + d.x*1.65 + ", " + d.y/1.5 + ")";
+      }
+      return "translate(" + d.x * 2+ ", " + d.y / 1.5 + ")";
     });
 
   
@@ -122,11 +140,7 @@ function update(source) {
     .attr("class", "link")
     .attr("id", function (d) {
       return ("link" + d.parent.id + "-" + d.id);//TEST
-    })
-    .attr("x1", function (d) { return d.x*2; })
-    .attr("y1", function (d) { return d.y/1.5; })
-    .attr("x2", function (d) { return d.parent.x*2; })
-    .attr("y2", function (d) { return d.parent.y/1.5; });
+    });
 
 
   // update link
@@ -134,9 +148,48 @@ function update(source) {
 
   // transition back to parent element position
   linkUpdate
-    .attr("x1", function (d) { return d.x*2; })
+    .attr("x1", function (d) {
+      //console.log("NODE:", d.data.name, "\nPARENT:", d.data.parent, "\nLevel:", d.depth);
+      if (d.data.name == "Stockholm") {
+        //console.log("------------------------------------------------------------------------------")
+        return d.x*1.7;
+      }
+      if (d.data.name == "Inre staden") {
+        return d.x*2.1;
+      }
+      if (d.data.name == "Söderort") {
+        return d.x*1.8;
+      }
+      if (d.data.name == "Västerort") {
+        return d.x*1.5;
+      }
+      if (Module.sameName(d.data.name) && d.depth == 1) {
+        return d.x*1.65;
+      }
+      if (Module.sameName(d.data.parent) && d.depth == 2) {
+        return d.x*1.65;
+      }
+      return d.x*2;
+    })
     .attr("y1", function (d) { return d.y/1.5; })
-    .attr("x2", function (d) { return d.parent.x*2; })
+    .attr("x2", function (d) {
+      if (d.data.parent == "Stockholm") {
+        return d.parent.x*1.7;
+      }
+      if (d.data.parent == "Inre staden") {
+        return d.parent.x*2.1;
+      }
+      if (d.data.parent == "Söderort") {
+        return d.parent.x*1.8;
+      }
+      if (d.data.parent == "Västerort") {
+        return d.parent.x*1.5;
+      }
+      if (Module.sameName(d.data.parent) && d.depth == 2) {
+        return d.parent.x*1.65;
+      }
+      return d.parent.x * 2;
+    })
     .attr("y2", function (d) { return d.parent.y/1.5; });
   
 }

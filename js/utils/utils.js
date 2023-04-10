@@ -169,6 +169,17 @@ export function click(event, d) {
   console.log("CLICK ", d.data.name);
 }
 
+// to check node name, hard coding for a specific case
+  export var alignment = ["Sundbyberg","Södertälje","Tyresö","Täby","Upplands Väsby","Upplands-Bro","Vallentuna","Vaxholm","Värmdö","Österåker"];
+
+  export function sameName(name) {
+    for (let i = 0; i < alignment.length; i++) {
+      if (alignment[i]== name) {
+        return true;
+      }
+    }
+    return false;
+};
 
 
 // cut a too long string, showing first characters + adding ... 
