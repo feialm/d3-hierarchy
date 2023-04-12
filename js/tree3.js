@@ -28,7 +28,7 @@ root = d3.hierarchy(data, function (d) {
 root.x0 = Module.height_a / 2;
 root.y0 = 0;
 
-console.log("ROOT: ", root);
+//console.log("ROOT: ", root);
 
   update(root);
 });
@@ -122,11 +122,7 @@ function update(source) {
     .attr("class", "link")
     .attr("id", function (d) {
       return ("link" + d.parent.id + "-" + d.id);//TEST
-    })
-    .attr("x1", function (d) { return d.x*2; })
-    .attr("y1", function (d) { return d.y/1.5; })
-    .attr("x2", function (d) { return d.parent.x*2; })
-    .attr("y2", function (d) { return d.parent.y/1.5; });
+    });
 
 
   // update link

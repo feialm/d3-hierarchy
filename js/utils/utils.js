@@ -29,7 +29,7 @@ export const color = d3.scaleOrdinal()
 export function mousemove(event, d) {
 
   d3.selectAll("#node" + d.id).append("title")
-    .text(d.data.name + "\nLevel: " + (d.depth+1));
+    .text(d.data.name + "\nLevel: " + d.depth);
 }
 
 export function mouseoverAncestor(event, d) {
@@ -186,7 +186,7 @@ export function click(event, d) {
 // to indicate there is more text
 export function cutString(d, nameList,command) {
   var name = "";
-   if (nameList[0].length > 8) {
+   if (nameList[0].length > 7) {
           var middle = Math.floor(nameList[0].length / 2);
           var before = nameList[0].lastIndexOf('', middle);
           var after = nameList[0].indexOf('', middle + 1);
