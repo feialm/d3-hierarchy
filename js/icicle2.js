@@ -40,13 +40,13 @@ function update(root) {
     .append("g")
     .attr("class", "node")
     .join("g")
-   .attr("transform", function (d) { return `translate(${d.x0},${d.y0})`;});
+   .attr("transform", function (d) { return `translate(${d.x0/1.5},${d.y0/2})`;});
   
   nodeEnter
     .append("rect")
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
-    .attr("width", function (d) { return d.x1 - d.x0; })
+    .attr("width", function (d) { return icicleUtils.rectWidth(d); })
     .attr("height", function (d) { return icicleUtils.rectHeight(d); })
     .attr("fill", function (d) { return Module.color(d.depth); })
     .attr("stroke", "white").attr('stroke-width', '0.4')

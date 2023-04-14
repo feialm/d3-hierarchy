@@ -1,14 +1,14 @@
 
 // variables used in, e.g, svg, d3 object
-export var margin = { top: 20, right: 90, bottom: 20, left: 90 };
+export var margin = { top: 20, right: 20, bottom: 20, left: 20 };
 // a is currently for node-link
 export var width_a = 2560 - margin.left - margin.right;
 export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
-export var width_b = 660 - margin.left - margin.right;
-export var height_b = 1000 - margin.top - margin.bottom;
+export var width_b = 800 - margin.left - margin.right;
+export var height_b = 1200 - margin.top - margin.bottom;
 // c is currently for treemap
-export var width_c = 1260 - margin.left - margin.right;
+export var width_c = 1200 - margin.left - margin.right;
 export var height_c = 800 - margin.top - margin.bottom;
 // d is currently for node-link2
 export var width_d = 2560 - margin.left - margin.right;
@@ -140,7 +140,8 @@ export function mouseoverDescendants(event, d) {
 
 export function mouseoutDescendants(event, d) {
   //console.log("out node: ", d.data.name);
-  d3.selectAll("rect").style("fill", "#045a8d");
+  //d3.selectAll("rect").style("fill", "#045a8d");
+  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
 
   var ascendants = getAscendants(d);
 
@@ -149,7 +150,7 @@ export function mouseoutDescendants(event, d) {
   d = ascendants[0];
 
     while (j < length) {       
-      d3.selectAll("#node" + d.id).style("fill", "#045a8d");
+      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
       d = ascendants[++j]//iterate through nodes
     }// end while
 }

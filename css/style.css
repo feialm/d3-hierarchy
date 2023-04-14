@@ -20,7 +20,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
   position: relative;
-  width: 960px;
+  width: 100%;
 }
 
 .node {
@@ -38,7 +38,7 @@ body {
   overflow: hidden;
   font: 14px sans-serif;
   top: 0;
-  width: 75%;
+  width: 100%;
   z-index: 2;
   transition: top 0.5s;
 }
