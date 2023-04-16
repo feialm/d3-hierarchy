@@ -72,57 +72,10 @@ function update(root){
     .append("text")
     .attr("class", "node")
     .attr("x", function (d) { return d.x0 + 8; })
-    .attr("y", function (d) {
-      if (d.data.colname == null) {
-        return d.y0 + 5;
-      }
-      if (d.data.colname == "level2") {
-        return d.y0 + 10;
-      }
-      if (d.data.colname == "level3") {
-        return d.y0 + 15;
-      }
-      if (d.data.colname == "level4") {
-        return d.y0 + 20;
-      }
-      if (d.data.colname == "level5") {
-        return d.y0 + 27;
-      }
-    })
+    .attr("y", treemapUtils.y)
     .attr("dy", "0.35em")
-    .style("font", function (d) {
-      if (d.children) {
-        if (d.data.colname == null) {
-          return "12px sans-serif";
-        }
-        if (d.data.colname == "level2") {
-          return "10px sans-serif";
-        }
-        if (d.data.colname == "level3") {
-          return "8px sans-serif";
-        }
-        if (d.data.colname == "level4") {
-          return "8px sans-serif";
-        }
-        if (d.data.colname == "level5") {
-          return "7px sans-serif";
-        }
-      } else {
-        return "7px sans-serif"
-      }
-    })
-    .style("font-weight", function (d) {
-      if (d.data.colname == null) {
-        return "600";
-      }
-      if (d.data.colname == "level2") {
-        return "500";
-      }
-      if (d.data.colname == "level3") {
-        return "400";
-      }
-      return "normal";
-    })
+    .style("font", treemapUtils.font)
+    .style("font-weight", treemapUtils.fontWeight)
     .text(function (d) {
       return Module.splitString(d)
     });

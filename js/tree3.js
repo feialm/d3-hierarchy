@@ -16,7 +16,6 @@ var svg = d3
 var i = 0;
 var root;
 
-
 d3.json("../data/stockholm.json").then(function (data) {
 
 // using parent-child relationships to
@@ -73,7 +72,7 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("fill","#045a8d")
-    .attr("r", 4);//radius
+    .attr("r", 3);//radius
 
   // Labels for nodes
   nodeEnter
@@ -94,9 +93,7 @@ function update(source) {
 
   // update node attributes
   nodeUpdate
-    .attr("transform", function (d) {
-      return "translate(" + d.x*2 + ", " + d.y/1.5 + ")";
-    });
+    .attr("transform", nodeLink.tranformSthlmData);
 
   
   nodeUpdate
@@ -130,9 +127,9 @@ function update(source) {
 
   // transition back to parent element position
   linkUpdate
-    .attr("x1", function (d) { return d.x*2; })
+    .attr("x1", nodeLink.x1)
     .attr("y1", function (d) { return d.y/1.5; })
-    .attr("x2", function (d) { return d.parent.x*2; })
+    .attr("x2", nodeLink.x2)
     .attr("y2", function (d) { return d.parent.y/1.5; });
   
 }

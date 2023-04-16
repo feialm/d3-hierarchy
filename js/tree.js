@@ -73,7 +73,7 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("fill","#045a8d")
-    .attr("r", 4);//radius
+    .attr("r", 3);//radius
 
   // Labels for nodes
   nodeEnter

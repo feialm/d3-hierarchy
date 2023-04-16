@@ -33,12 +33,15 @@ var userAnswers = [];
 function onPageLoad(){
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
+	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
 	document.getElementById("statement").innerHTML = allStatements[testPosition];
 	document.getElementById("likert").style.display = "none";
 	document.getElementById("yesNo").style.display = "none";
 	document.getElementById("demographics").style.display = "none";
 	document.getElementById("evaluation").style.display = "none";
 	document.getElementById("freetext").style.display = "none";
+	document.getElementById("survey").style.display = "none";
+	document.getElementById("iframe").style.display = "none";
 }
 
 
@@ -52,6 +55,7 @@ function saveUserData(){
 
 function changeQuestionnaireSubmitButton(){
 	document.getElementById("button").style.color = "#000";
+	document.getElementById("button").style.backgroundColor = "#74a9cf";
 }
 
 
@@ -61,14 +65,15 @@ function advanceTest(){
 	var c = document.getElementById("button").style.color;
 	var rgb = c.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
 
-	console.log("testPosition: ",testPosition);
+	console.log("testPosition: ", testPosition);
 
 	if (rgb[0] == 0) {
 		var currentTime = Date.now();
 		var date = new Date(currentTime);
 		var datevalues = [date.getHours(),date.getMinutes(),date.getSeconds()];
 		
-		document.getElementById("button").style.color = "#a6a6a6";//reset button color
+		document.getElementById("button").style.backgroundColor = "#a6a6a6";//reset button color
+		document.getElementById("button").style.color ="#909090"
 		saveUserAnswers(datevalues);
 		unCheckRadios1();
 		unCheckRadios2();
@@ -78,14 +83,18 @@ function advanceTest(){
 		document.getElementById("statement").innerHTML = allStatements[testPosition];
 	}
 	else {
-		alert("Please fill in an answer to proceed");
+		alert("Please fill in an answer to proceed!");
+	} if (allStatements[testPosition] !== "") {
+		document.getElementById("iframe").style.display = "inline-block";
 	}
 	if (testPosition > 0) {
 		document.getElementById("intro").style.display = "none";
+		document.getElementById("survey").style.display = "inline-block";
 	}
 	if (testPosition === 1) {
 		document.getElementById("demographics").style.display = "inline-block";
 		document.getElementById("button").style.color = "#000";
+		document.getElementById("button").style.backgroundColor = "#74a9cf";
 	} else {
 		document.getElementById("demographics").style.display = "none";
 	}
@@ -102,6 +111,7 @@ function advanceTest(){
 	if (testPosition === 4) {
 		document.getElementById("evaluation").style.display = "inline-block";
 		document.getElementById("button").style.color = "#000";
+		document.getElementById("button").style.backgroundColor = "#74a9cf";
 	} else {
 		document.getElementById("evaluation").style.display = "none";
 	}
@@ -155,3 +165,5 @@ function saveUserAnswers(recordTimeBtn){
 	
 	userAnswers.push(answer);
 }
+
+

@@ -103,7 +103,7 @@ function update(root){
         return "500";
       }
       if (d.data.colname == "level3") {
-        return "400";
+        return "normal";
       }
       return "normal";
     })
