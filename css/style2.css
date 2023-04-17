@@ -19,17 +19,12 @@ body {
 }
 
 .prePage p{
-	font-size: 0.9em;
-}
-
-.prePage h3{
 	font-size: 1.0em;
-	font-weight: normal;
 }
 
 h1 {
 	font-weight: medium;
-	font-size: 1.0em;
+	font-size: 1.2em;
 	margin-top: 0.75em;
 	margin-bottom: 0;
 }

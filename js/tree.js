@@ -109,21 +109,6 @@ function update(source) {
 
   //----------------- Links -----------------------
 
-  // links
-  // curved diagonal path from parent to child nodes
-  // om dy byter plats på x och y --> vertical tree
-  /*function diagonal(s, d) {
-
-    let sx = s.x*2; let sy = s.y / 1.5;
-    let dy = d.y / 1.5; let dx = d.x*2;
-
-    let path = `M ${sx} ${sy}
-      C ${(sx + dx) / 2} ${sy}
-        ${(sx + dx) / 2} ${dy}
-        ${dx} ${dy}`;
-    return path;
-  }*/
-
   var links = treeData.descendants().slice(1);
   
   // Updates links
@@ -145,9 +130,6 @@ function update(source) {
 
   // transition back to parent element position
   linkUpdate
-    /*.attr("d", function (d) {
-      return diagonal(d, d.parent);
-    })*/
     .attr("x1", function (d) { return d.x*2; })
     .attr("y1", function (d) { return d.y/1.5; })
     .attr("x2", function (d) { return d.parent.x*2; })

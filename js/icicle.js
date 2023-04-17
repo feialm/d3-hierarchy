@@ -67,38 +67,4 @@ function update(root) {
   text.append("tspan")
     .text(function (d) { return d.data.name; });
 
-  /*
-  const cell = svg
-    .selectAll("g")
-    .data(root.descendants())
-    .join("g")
-    .attr("transform", function (d) { return `translate(${d.y0},${d.x0})`;});
-
-  const rect = cell.append("rect")
-    .attr("width", function (d) { return d.y1 - d.y0 - 1; })
-    .attr("height", function (d) { return rectHeight(d); })
-    .attr("fill-opacity", 1)
-      .attr("fill", function (d) {return color(d.depth);})
-      .style("cursor", "pointer")
-      .on("click", clicked);
-
-  const text = cell.append("text")
-      .style("user-select", "none")
-      .attr("pointer-events", "none")
-      .attr("x", 4)
-      .attr("y", 17)
-    .attr("fill-opacity", function (d) { return +labelVisible(d); });
-
-  text.append("tspan")
-    .text(function (d) { return d.data.name; });*/
-  
-
-  /*const tspan = text.append("tspan")
-      .attr("fill-opacity", d => labelVisible(d) * 0.7)
-    .text(function (d) { return ` ${format(d.value)}`; });*/
-
-  // tooltip
-  // cell.append("title")
-  //   .text(function (d) { return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`; });
-
 };
