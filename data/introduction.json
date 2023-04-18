@@ -1,0 +1,16 @@
+{"children":
+[{"name":"B","children":
+[
+{"name":"D","value":1,"colname":"level3","parent":"B"},
+{"name":"E","value":1,"colname":"level3","parent":"B"}
+]
+,"colname":"level2","parent":"A"},
+{"name":"C","children":
+[
+{"name":"F","value":1,"colname":"level3","parent":"C"},
+{"name":"G","value":1,"colname":"level3","parent":"C"},
+{"name":"H","value":1,"colname":"level3","parent":"C"},
+{"name":"I","value":1,"colname":"level3","parent":"C"}
+],
+"colname":"level2","parent":"A"}],
+"name":"A", "parent": "null"}

@@ -12,7 +12,7 @@ var svg = d3
   .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
 
 
-d3.json("../data/2dShapes.json").then(function (data) {
+d3.json("../data/introduction.json").then(function (data) {
 
   //console.log("DATA: ", data)
   const root = icicleUtils.partition(data, Module.width_b, Module.height_b);

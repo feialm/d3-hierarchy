@@ -167,3 +167,13 @@ function saveUserAnswers(recordTimeBtn){
 }
 
 
+// POP-up window for Help page
+function on() {
+	document.getElementById("introPOP").style.display = "block";
+}
+
+function off() {
+	document.getElementById("introPOP").style.display = "none";
+}
+
+
