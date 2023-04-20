@@ -16,7 +16,7 @@ var svg = d3
 var i = 0;
 var root;
 
-d3.json("../data/introduction.json").then(function (data) {
+d3.json("../data/stockholm.json").then(function (data) {
 
 // using parent-child relationships to
 // assigns data to hierarchy, parent, child, height, depth

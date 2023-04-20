@@ -209,7 +209,7 @@
 
 
     {"name":"Söderort","children":[
-        {"name":"Enskede-årsta-vantör","children":[
+        {"name":"Enskede-Årsta-Vantör","children":[
             {"name":"Bandhagen","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
             {"name":"Enskedefältet","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
             {"name":"Enskedegård","children":[],"colname":"level5","value":1, "parent":"Enskede-årsta-vantör"},
@@ -377,17 +377,21 @@
     {"name":"Ella gård","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Ella park","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Ensta","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Fittja","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Fällbro","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Gribbylund","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Hagby","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Hägernäs","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Karby","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Litsby","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Lahäll","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Löttinge","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Näsbypark","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Prästgården","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Roslags Näsby","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Rönninge","children":[],"colname":"level3","value":1, "parent":"Täby"},
-    {"name":"Skarpnäck","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Skarpäng","children":[],"colname":"level3","value":1, "parent":"Täby"},
+    {"name":"Skogberga","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Skålhamra","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Såsta","children":[],"colname":"level3","value":1, "parent":"Täby"},
     {"name":"Tibble","children":[],"colname":"level3","value":1, "parent":"Täby"},

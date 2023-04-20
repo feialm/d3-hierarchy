@@ -1,10 +1,25 @@
+<?php
+    // count how mnay particpants
+	// issue different versions of tests where the order of the questions has been changed
+	$countParticipant = fopen('C:/xampp/htdocs/d3-hierarchy/countParticipant/countParticipant.txt', 'r+');
+	if($countParticipant){
+		$count = file_get_contents('C:/xampp/htdocs/d3-hierarchy/countParticipant/countParticipant.txt');
+		$newCount = intval($count) + 1;
+		fwrite($countParticipant, $newCount);
+	}
+	fclose($countParticipant);
+?>
+
+<script>
+    var hej = '<?php echo $count; ?>';
+</script>
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="./css/style2.css">
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
-		<script type="text/javascript" src="./js/functions.js"></script>
 		<title>Query for vis</title>
 	</head>
 	<body onload="onPageLoad();">
@@ -88,7 +103,7 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
-
+<script type="text/javascript" src="./js/functions.js"></script>
 
 	</body>
 </html>

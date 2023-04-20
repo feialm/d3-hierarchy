@@ -201,9 +201,13 @@ export function cutString(d, nameList,command) {
           name = nameList[0].substr(0, middle) + "...";
         } else {
         if (command == "add") {
-            name = nameList[0]+"...";
-        } else {
-           name = nameList[0];
+          name = nameList[0]+"...";
+        }
+        else if (nameList.length > 1) {
+          name = nameList[0]+"...";
+        }
+        else {
+          name = nameList[0];
         }
    }  
   return name;

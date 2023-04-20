@@ -3,34 +3,17 @@ var allStatements = ["",
 	"Do you have color blindness visual impairment?",
 	"What is your current experience and or knowledge of information visualization?",
 	"",
-	"Does node X and Node Y have the same parent?"/*,
-	"How many ancestor does node X have?",
-	"What node or nodes have the highest number of ancestors?",
-	"Can you name and order all the ancestor node X have? Starting with the parent and then its parent.",
-	"Order the nodes X, Y, Z, depending on how many ancestor they have. Starting with lowest number first.",
-	"Is node X parent to node Y?",
-	"How many siblings does node X have?",
-	"Does node Y have more or less siblings than node X?",
-	"What node or nodes have the highest number of siblings?",
-	"Order the nodes X, Y, Z, depending on how many siblings they have. Starting with lowest number first.",
-	"Is node X and node Y siblings?",
-	"How many children does node X have?",
-	"How many descendants does node X have?",
-	"Does node Y have more or less children than node X?",
-	"What node or nodes have the highest number of children?",
-	"What node or nodes have the highest number of children?",
-	"Order the nodes X, Y, Z, depending on how children ancestor they have. Starting with lowest number first.",
-	"Is node X child to node Y?",
-	"Name the child nodes to node x?"*/
+	"Does node X and Node Y have the same parent?"
 	]
 
 var testPosition = 0;
 
 var userAnswers = [];
+var a = [];
 
 
 // update page with with the current question + reset button
-function onPageLoad(){
+function onPageLoad() {
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
@@ -42,12 +25,15 @@ function onPageLoad(){
 	document.getElementById("freetext").style.display = "none";
 	document.getElementById("survey").style.display = "none";
 	document.getElementById("iframe").style.display = "none";
+	
+	a.push(hej);
+	console.log("Test Participant: ", hej);
+	permuationsOfQuestions(parseInt(hej,10));
 }
 
 
-
-function saveUserData(){
-	$.post("savedata.php", { userAnswers: userAnswers });
+function saveUserData() {		
+	$.post("savedata.php", { userAnswers: userAnswers, a:a});
 }
 
 
@@ -65,7 +51,7 @@ function advanceTest(){
 	var c = document.getElementById("button").style.color;
 	var rgb = c.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
 
-	console.log("testPosition: ", testPosition);
+	//console.log("testPosition: ", testPosition);
 
 	if (rgb[0] == 0) {
 		var currentTime = Date.now();
@@ -174,6 +160,51 @@ function on() {
 
 function off() {
 	document.getElementById("introPOP").style.display = "none";
+}
+
+
+
+// psuedo code for 12 permutations of the test
+function permuationsOfQuestions(c) {
+
+	var mod = c % 12;
+
+	if (mod === 1) {
+		console.log("1 and: ", c);
+	}
+	if (mod === 2) {
+		console.log("2 and: ", c);
+	}
+	if (mod === 3) {
+		console.log("3 and: ", c);
+	}
+	if (mod === 4) {
+		console.log("4 and: ", c);
+	}
+	if (mod === 5) {
+		console.log("5 and: ", c);
+	}
+	if (mod === 6) {
+		console.log("6 and: ", c);
+	}
+	if (mod === 7) {
+		console.log("7 and: ", c);
+	}
+	if (mod === 8) {
+		console.log("8 and: ", c);
+	}
+	if (mod === 9) {
+		console.log("9 and: ", c);
+	}
+	if (mod === 10) {
+		console.log("10 and: ", c);
+	}
+	if (mod === 11) {
+		console.log("11 and: ", c);
+	}
+	if (mod === 0) {
+		console.log("12 and: ", c);
+	}
 }
 
 
