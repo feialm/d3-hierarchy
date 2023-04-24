@@ -4,8 +4,8 @@
     $countArray = array();
     $count="undefined";
 
-    if(isset($_POST['a'])){
-        $countArray = $_POST['a'];
+    if(isset($_POST['currentUser'])){
+        $countArray = $_POST['currentUser'];
 
         for ($x = 0; $x < sizeof($countArray); $x++) {
             $count = $countArray[$x];
@@ -15,7 +15,7 @@
     if (isset($_POST['userAnswers'])) {
         $userAnswers = $_POST['userAnswers'];
 
-        $stringToSave = "hh:mm:ss\tY/N\tRating\tFreetext\n";
+        $stringToSave = "hh:mm:ss\tY/N\tL/M\tRating\tText\tHM\n";
 
         for ($x = 0; $x < sizeof($userAnswers); $x++) {
             $stringToSave = $stringToSave . $userAnswers[$x] . "\n";

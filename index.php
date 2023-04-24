@@ -11,7 +11,7 @@
 ?>
 
 <script>
-    var hej = '<?php echo $count; ?>';
+    var userVar = '<?php echo $count; ?>';
 </script>
 
 <!doctype html>
@@ -80,10 +80,13 @@
 					<input type='radio' name='yesNo' id='yes' value='yes' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='yesNo' id='no' value='no' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 				No</span><br>
+				<span id='lessMore'>Less
+					<input type='radio' name='lessMore' id='less' value='l' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
+					<input type='radio' name='lessMore' id='more' value='m' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
+				More</span><br>
 				<span id='likert'>
 				Very Poor
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-					</label>
 					<input type='radio' name='query' id='radio2' value='2' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio3' value='3' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio4' value='4' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -91,7 +94,8 @@
 				Very Good</span>
 			</p>
 			<p>
-				<textarea name="freetext" id="freetext" placeholder="Optional free-text answer. Please answer in English or Swedish."></textarea>
+				<textarea name="freetext" id="freetext" placeholder="Please answer in English or Swedish."></textarea>
+				<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>
             </p>
 		</form>
 	</div>
@@ -103,7 +107,15 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
-<script type="text/javascript" src="./js/functions.js"></script>
+	<script type="text/javascript" src="./js/functions.js"></script>
+	<script language="javascript">
+	function checkNumber(object) {
+		var invalidChars = /[^0-9]/gi
+		if(invalidChars.test(object.value)) {
+			alert("Enter a number instead of text please");
+			object.value = object.value.replace(invalidChars,"");
+		}
+	}</script>
 
 	</body>
 </html>
