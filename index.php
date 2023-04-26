@@ -85,13 +85,13 @@
 					<input type='radio' name='lessMore' id='more' value='m' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 				More</span><br>
 				<span id='likert'>
-				Very Poor
+				Very Poor Knowledge and/or Experience
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio2' value='2' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio3' value='3' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio4' value='4' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='query' id='radio5' value='5' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				Very Good</span>
+				Very Good Knowledge and/or Experience</span>
 			</p>
 			<p>
 				<textarea name="freetext" id="freetext" placeholder="Please answer in English or Swedish."></textarea>
