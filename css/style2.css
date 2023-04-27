@@ -10,8 +10,12 @@ body {
 	padding: 5px;
 }
 
+#qq{
+	font-size:0.7em ;
+}
+
 #survey{
-	font-size:0.8em ;
+	font-size:1.0em ;
 }
 
 .prePage{

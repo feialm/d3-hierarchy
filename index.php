@@ -45,7 +45,7 @@
 	</div>
 	
 	<!------------- Main pages ------------->
-	<h1>Brushing and Linking on Hierarchical data</h1><br>
+	<h1>Brushing and Linking on Hierarchical data</h1><p><span id='qq'></span><br>
 	<div class="prePage" id="intro">
 	<p>Hello,<br>
 	Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
@@ -139,7 +139,7 @@
 
 	<div id="button" onclick="advanceTest();">Continue</div>
 
-	<div>
+	<div class="iframe">
 		<!-- sibling, ancestor,  descendant -->
 		<!-- Large dataset -->
 		<iframe id="S1L" type="text/html" src="./html/tree3.html">
@@ -151,6 +151,15 @@
 		<iframe id="D1L" type="text/html" src="./html/tree2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
+		<iframe id="S1S" type="text/html" src="./html/tree4.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A1S" type="text/html" src="./html/tree5.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D1S" type="text/html" src="./html/tree6.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
 		<iframe id="S2L" type="text/html" src="./html/treemap2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
@@ -160,6 +169,15 @@
 		<iframe id="D2L" type="text/html" src="./html/treemap3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
+		<iframe id="S2S" type="text/html" src="./html/treemap4.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A2S" type="text/html" src="./html/treemap5.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D2S" type="text/html" src="./html/treemap5.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
 		<iframe id="S3L" type="text/html" src="./html/icicle2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
@@ -167,6 +185,15 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 		<iframe id="D3L" type="text/html" src="./html/icicle3.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="S3S" type="text/html" src="./html/icicle4.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A3S" type="text/html" src="./html/icicle5.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D3S" type="text/html" src="./html/icicle6.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>

@@ -101,8 +101,8 @@ function update(source) {
   
   nodeUpdate
     .select("circle.node")
-    .on("mouseout", nodeLink.mouseoutSiblings)
-    .on("mouseover", nodeLink.mouseoverSiblings)
+    .on("mouseout", nodeLink.mouseoutDescendants)
+    .on("mouseover", nodeLink.mouseoverDescendants)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
 

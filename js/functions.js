@@ -2,10 +2,52 @@ var allStatements = [{ q: "undefined", id: "I1", iframe:null, type: "info" },
     { q: "undefined", id: "I2", iframe:null, type: "info" }
 ]
 
+var iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
+    "S2L", "A2L", "D2L", "S2S", "A2S", "D2S",
+    "S3L", "A3L", "D3L","S3S", "A3S", "D3S",
+    
+];
+
+
+var otherDisplays = ["likert", "yesNo", "lessMore", "demographics", "evaluation", "freetext",
+    "survey", "howmany", "theory"];
+
+
 
 var testPosition = 0;
 var userAnswers = [];
 var currentUser = [];
+
+
+function hideIFRAMES() {
+    for (let i = 0; i < iframeArray.length; i++){
+        let getIFRAME = iframeArray[i];
+        document.getElementById(getIFRAME).style.display = "none";
+    }  
+};
+
+function showIFRAME(iframe) {
+
+    if (iframe === null) {
+        return;
+    }
+
+    hideIFRAMES();//reset iframes
+    
+    for (let i = 0; i < iframeArray.length; i++){
+        if (iframe === iframeArray[i]) {
+            document.getElementById(iframe).style.display = "inline-block";
+        }
+    } 
+};
+
+
+function hideOtherDisplays() {
+    for (let i = 0; i < otherDisplays.length; i++){
+        let getItem = otherDisplays[i];
+        document.getElementById(getItem).style.display = "none";
+    }  
+};
 
 
 // update page with with the current question + reset button
@@ -13,18 +55,14 @@ function onPageLoad() {
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
-	document.getElementById("statement").innerHTML = allStatements[testPosition].q;
-	document.getElementById("likert").style.display = "none";
-	document.getElementById("yesNo").style.display = "none";
-	document.getElementById("lessMore").style.display = "none";
-	document.getElementById("demographics").style.display = "none";
-	document.getElementById("evaluation").style.display = "none";
-	document.getElementById("freetext").style.display = "none";
-	document.getElementById("survey").style.display = "none";
-	document.getElementById("iframe").style.display = "none";
-    document.getElementById("howmany").style.display = "none";
-    document.getElementById("theory").style.display = "none";
-	
+    document.getElementById("statement").innerHTML = allStatements[testPosition].q;
+
+    pageCount = testPosition + 1;
+    document.getElementById("qq").innerHTML = "Page: " + (testPosition+1) +"/92";
+    
+    hideOtherDisplays();
+    hideIFRAMES();
+
 	currentUser.push(userVar);
 	//console.log("Test Participant: ", userVar);
     //permuationsOfQuestions(parseInt(userVar, 10));
@@ -69,18 +107,20 @@ function advanceTest(){
 		document.getElementById("freetext").value = "";
 		document.getElementById("howmany").value = "";
 
-		testPosition++;
-		document.getElementById("statement").innerHTML = allStatements[testPosition].q;
+        testPosition++;
+        pageCount++;
+        document.getElementById("statement").innerHTML = allStatements[testPosition].q;
+        document.getElementById("qq").innerHTML = "Page: " +  (testPosition+1) +"/92";
 	}
 	else {
 		alert("Please fill in an answer to proceed!");
     }
-    if (allStatements[testPosition].q !== "") {
-        document.getElementById("iframe").style.display = "inline-block";
+    if (allStatements[testPosition].q !== "" || allStatements[testPosition].type !== "info") {
         document.getElementById("survey").style.display = "inline-block";
+    } else {
+        document.getElementById("survey").style.display = "none";
     }
     if (allStatements[testPosition].type == "info") {
-        document.getElementById("iframe").style.display = "inline-block";
         document.getElementById("button").style.color = "#000";
         document.getElementById("button").style.backgroundColor = "#74a9cf";
     }
@@ -130,6 +170,7 @@ function advanceTest(){
         document.getElementById("theory").style.display = "none";
     }
 
+    showIFRAME(allStatements[testPosition].iframe);
 
 	if (testPosition == allStatements.length) {
 		document.getElementById("statement").innerHTML = "Thank you for participating in this survey! :)";
@@ -211,8 +252,8 @@ function off() {
 var introQ = [   
     { q: "", id: "I1", iframe:null, type: "info" },
     { q: "", id: "I2", iframe:null, type: "info" },
-    { q: "Do you have color blindness iframeual impairment?", id: "I3", iframe:null, type: "yes/no" },
-    { q: "What is your current experience and or knowledge of information iframeualization?", id: "I4", iframe:null, type: "likert" },
+    { q: "Do you have color blindness visual impairment?", id: "I3", iframe:null, type: "yes/no" },
+    { q: "What is your current experience and or knowledge of information visualization?", id: "I4", iframe:null, type: "likert" },
     { q: "", id: "I5", iframe:null, type: "info" },
     { q: "", id: "I6", iframe:null, type: "info" }
 ];
@@ -222,7 +263,7 @@ var introQ = [
 // 4 questions    
 var endingQ = [
     {
-        q: "The following 3 questions requires longer answers.\nYou will see a still image and one of the three iframeualizations at once.\nPlay around in the iframeualization interface and answer the question.",
+        q: "The following 3 questions requires longer answers.\nYou will see a still image and one of the three visualizations at once.\nPlay around in the visualization interface and answer the question.",
         id: "CMV",
         iframe:null,
         type: "info"
@@ -237,9 +278,9 @@ var endingQ = [
 
 
 // Small dataset 36 questions
-var iframeQ1 = [
+var visQ1 = [
     {//node-link
-        q: "To answer the following questions, you will see a dataset iframeualized in a node-link diagram. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "To answer the following questions, you will see a dataset visualized in a node-link diagram. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe: null,
         type: "info",
@@ -268,7 +309,7 @@ var iframeQ1 = [
         ]
     },
     {//treemap
-        q: "To answer the following questions, you will see a dataset iframeualized in a treemap. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "To answer the following questions, you will see a dataset visualized in a treemap. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe: null,
         type: "info",
@@ -297,7 +338,7 @@ var iframeQ1 = [
         ]
     },
     {//icicle plot
-        q: "To answer the following questions, you will see a dataset iframeualized in an icicle plot. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "To answer the following questions, you will see a dataset visualized in an icicle plot. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe: null,
         type: "info",
@@ -330,9 +371,9 @@ var iframeQ1 = [
 
 
 // Large dataset 46 questions
-var iframeQ2 = [
+var visQ2 = [
     {//node-link
-        q: "You will see a dataset iframeualized in a node-link diagram again.\nThis time the dataset is larger.\nClick on Continue to proceed.",
+        q: "You will see a dataset visualized in a node-link diagram again.\nThis time the dataset is larger.\nClick on Continue to proceed.",
         id: "",
         iframe: null,
         type: "info",
@@ -396,7 +437,7 @@ var iframeQ2 = [
         ]
     },
     {//icicle plot
-        q: "You will see a dataset iframeualized in an icicle plot.\nThis time the dataset is larger.\nClick on Continue to proceed.",
+        q: "You will see a dataset visualized in an icicle plot.\nThis time the dataset is larger.\nClick on Continue to proceed.",
         id: "",
         iframe: null,
         type: "info",
@@ -484,7 +525,6 @@ function getQuestions() {
             }
         }
     }
-
 
 
     for (let i = 0; i < arrayVis.length; i++) {
