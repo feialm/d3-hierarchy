@@ -94,7 +94,9 @@ function update(source) {
 
   // update node attributes
   nodeUpdate
-    .attr("transform", nodeLink.tranformSthlmData);
+    .attr("transform", function (d) {
+      return "translate(" + d.x*2 + ", " + d.y/1.5 + ")";
+    });
 
   
   nodeUpdate
@@ -128,9 +130,9 @@ function update(source) {
 
   // transition back to parent element position
   linkUpdate
-    .attr("x1", nodeLink.x1)
+    .attr("x1", function (d) { return d.x*2; })
     .attr("y1", function (d) { return d.y/1.5; })
-    .attr("x2", nodeLink.x2)
+    .attr("x2", function (d) { return d.parent.x*2; })
     .attr("y2", function (d) { return d.parent.y/1.5; });
   
 }

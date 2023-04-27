@@ -11,7 +11,7 @@ var svg = d3
   .attr("height", Module.height_c + Module.margin.top + Module.margin.bottom)
   .append("g")
   .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
-
+  
 
 d3.json("../data/stockholm.json").then(function (data) {
 
@@ -46,8 +46,8 @@ function update(root){
     .enter()
     .append("g")
     .attr("class", "node")
-    .on("mouseout", Module.mouseoutDescendants)
-    .on("mouseover", Module.mouseoverDescendants)
+    .on("mouseout", Module.mouseoutSiblings)
+    .on("mouseover", Module.mouseoverSiblings)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
   
@@ -59,12 +59,11 @@ function update(root){
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("x", function (d) { return treemapUtils.getMeasurments2("x", d); })
-    .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d); })
-    .attr("width", function (d) { return treemapUtils.getMeasurments("width", d); })
+    .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d);})
+    .attr("width", function (d) { return treemapUtils.getMeasurments("width", d);})
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
     .style("fill", function (d) { return Module.color(d.depth); })
     .attr("stroke", "white").attr('stroke-width', '0.4');
-  
   
   // text labels on node
   node
@@ -72,14 +71,46 @@ function update(root){
     .append("text")
     .attr("class", "node")
     .attr("x", function (d) { return d.x0 + 8; })
-    .attr("y", treemapUtils.y)
+    .attr("y", function (d) {
+      if (d.data.colname == null) {
+        return d.y0 + 5;
+      }
+      if (d.data.colname == "level2") {
+        return d.y0 + 13;
+      }
+      if (d.data.colname == "level3") {
+        return d.y0 + 20;
+      }
+    })
     .attr("dy", "0.35em")
-    .style("font", treemapUtils.font)
-    .style("font-weight", treemapUtils.fontWeight)
+    .style("font", function (d) {
+      if (d.children) {
+        if (d.data.colname == null) {
+          return "12px sans-serif";
+        }
+        if (d.data.colname == "level2") {
+          return "10px sans-serif";
+        }
+      } else {
+        return "10px sans-serif"
+      }
+    })
+    .style("font-weight", function (d) {
+      if (d.data.colname == null) {
+        return "600";
+      }
+      if (d.data.colname == "level2") {
+        return "500";
+      }
+      if (d.data.colname == "level3") {
+        return "normal";
+      }
+      return "normal";
+    })
     .text(function (d) {
-      return Module.splitString(d)
+      return d.data.name;
     });
+  
 }
-
 
 

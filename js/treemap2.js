@@ -13,7 +13,7 @@ var svg = d3
   .attr("transform", "translate(" + Module.margin.left + "," + Module.margin.top + ")");
   
 
-d3.json("../data/introduction.json").then(function (data) {
+d3.json("../data/stockholm.json").then(function (data) {
 
   //console.log("Data: ", data);
 
@@ -71,44 +71,12 @@ function update(root){
     .append("text")
     .attr("class", "node")
     .attr("x", function (d) { return d.x0 + 8; })
-    .attr("y", function (d) {
-      if (d.data.colname == null) {
-        return d.y0 + 5;
-      }
-      if (d.data.colname == "level2") {
-        return d.y0 + 13;
-      }
-      if (d.data.colname == "level3") {
-        return d.y0 + 20;
-      }
-    })
+    .attr("y", treemapUtils.y)
     .attr("dy", "0.35em")
-    .style("font", function (d) {
-      if (d.children) {
-        if (d.data.colname == null) {
-          return "12px sans-serif";
-        }
-        if (d.data.colname == "level2") {
-          return "10px sans-serif";
-        }
-      } else {
-        return "10px sans-serif"
-      }
-    })
-    .style("font-weight", function (d) {
-      if (d.data.colname == null) {
-        return "600";
-      }
-      if (d.data.colname == "level2") {
-        return "500";
-      }
-      if (d.data.colname == "level3") {
-        return "normal";
-      }
-      return "normal";
-    })
+    .style("font", treemapUtils.font)
+    .style("font-weight", treemapUtils.fontWeight)
     .text(function (d) {
-      return d.data.name;
+      return Module.splitString(d)
     });
   
 }

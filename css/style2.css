@@ -4,7 +4,7 @@ body {
 	width: 95%;
 	border: 2px solid #d1d9df;
 	border-radius: 10px;
-  	margin: auto;
+  margin: auto;
 	margin-top: 1%;
 	margin-bottom: 1%;
 	padding: 5px;
@@ -110,4 +110,43 @@ iframe {
   padding: 10px;
   margin: auto;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* Theory page */
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+  height: 300px;
+  border: 2px solid #ffffff;
+  background-color: #d1d9df;
+}
+
+#shorter{
+  height: 200px;
+}
+
+.img:hover {
+  transform: scale(2.5);
+  cursor: zoom-in;
+  position: center;
+  display: block;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+#img1:hover{
+  margin-left: 50%;
+}
+
+#img3:hover{
+  margin-left: -50%;
+}
+
+/* Clear floats */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

@@ -45,7 +45,7 @@
 	</div>
 	
 	<!------------- Main pages ------------->
-	<h1>Brushing and Linking on hierarchical data</h1><br>
+	<h1>Brushing and Linking on Hierarchical data</h1><br>
 	<div class="prePage" id="intro">
 	<p>Hello,<br>
 	Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
@@ -71,8 +71,45 @@
 		<h3>Evaluation</h3>
 		<p>The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s).<br>
 			Click on Continue to proceed.</p>
-		</p>
 	</div>
+
+
+	<div class="prePage" id="theory">
+		<h3>Theory</h3>
+		<p>Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
+		When you have read and understood the theory, click on Continue to proceed. Ask the test leader if anything is unclear.
+		</p>
+		<div class="row">
+			<div class="column">
+				<h2>Icicle Plot</h2>
+				<img class="img" id="img1" src="./images/icicle.PNG" style="width:60%">			
+			</div>
+			<div class="column">
+				<h2>Treemap</h2>
+				<img class="img" src="./images/treemap.PNG" style="width:70%">
+			</div>
+			<div class="column">
+				<h2>Node-Link diagram</h2>
+				<img class="img" id="img3" src="./images/nodelink.PNG" style="width:80%">
+			</div>
+			<div class="column"id="shorter">
+				<p>Icicle Plots are often read from left-to-right or from top-to-bottom.
+				This graph is read from the top-to-bottom.<br><br>
+				The vertical and horizontal lines are used to section up the data.
+				Each row is representing one level in the hierarchy from the dataset. Each column in an row is an individual node.	</p>
+			</div>
+			<div class="column" id="shorter">
+				<p>The descendant nodes are placed in and on top of the ancestor node, so-called nestled treemap.<br><br>
+				Vertical and horizontal lines are used to section up the data and distinguish the individual nodes in the layers.
+				The deepest nodes are on top.</p>
+			</div>
+			<div class="column" id="shorter">
+				<p>This node-link diagram is read from the top-to-bottom. Each circle is a node. The lines between two nodes indicates that they have a ancestral-descendant relationship.<br><br>
+				The shallowest levels in the hierarchy are in the top and the further down the graph they are placed, the deeper level a node belongs to. All nodes that are are aligend on the same height belongs to the same level in the hierarchy.	</p>
+			</div>
+		</div>
+	</div>
+
 	<div>
 		<form id="survey" method="post" name="surveyForm"><br>
 			<p><span id='statement'></span><br>
@@ -94,7 +131,7 @@
 				Very Good Knowledge and/or Experience</span>
 			</p>
 			<p>
-				<textarea name="freetext" id="freetext" placeholder="Please answer in English or Swedish."></textarea>
+				<textarea name="freetext" id="freetext" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
 				<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>
             </p>
 		</form>
@@ -103,7 +140,33 @@
 	<div id="button" onclick="advanceTest();">Continue</div>
 
 	<div>
-		<iframe id="iframe" type="text/html"src="./html/icicle.html">
+		<!-- sibling, ancestor,  descendant -->
+		<!-- Large dataset -->
+		<iframe id="S1L" type="text/html" src="./html/tree3.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A1L" type="text/html" src="./html/tree.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D1L" type="text/html" src="./html/tree2.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="S2L" type="text/html" src="./html/treemap2.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A2L" type="text/html" src="./html/treemap.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D2L" type="text/html" src="./html/treemap3.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="S3L" type="text/html" src="./html/icicle2.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A3L" type="text/html" src="./html/icicle.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D3L" type="text/html" src="./html/icicle3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
@@ -114,6 +177,8 @@
 		if(invalidChars.test(object.value)) {
 			alert("Enter a number instead of text please");
 			object.value = object.value.replace(invalidChars,"");
+		}else{
+			changeQuestionnaireSubmitButton();
 		}
 	}</script>
 
