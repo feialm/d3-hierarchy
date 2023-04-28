@@ -1,38 +1,46 @@
-var allStatements = [{ q: "undefined", id: "I1", iframe:null, type: "info" },
-    { q: "undefined", id: "I2", iframe:null, type: "info" }
+var allStatements = [{ q: "undefined", id: "I1", iframe:"no", type: "info" },
+    { q: "undefined", id: "I2", iframe:"no", type: "info" }
 ]
 
-var iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
+const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
     "S2L", "A2L", "D2L", "S2S", "A2S", "D2S",
-    "S3L", "A3L", "D3L","S3S", "A3S", "D3S",];
+    "S3L", "A3L", "D3L", "S3S", "A3S", "D3S",
+    "CMV1", "CMV2", "CMV3"];
 
-var inputArray = ["likert", "yesNo", "lessMore", "textfield", "howmany"];
+const inputArray = ["likert", "yesNo", "lessMore", "textfield", "howmany"];
 
-var otherDisplays = ["demographics", "evaluation", 
+const pageArray = ["demographics", "evaluation", 
     "survey", "theory", "CMV"];
 
-var radios = ["query", "yesNo", "lessMore"];
+const radios = ["query", "yesNo", "lessMore"];
 
 
+var datevalues = [];
 var testPosition = 0;
 var userAnswers = [];
 var currentUser = [];
 
+class date_ {
+    constructor(hh, mm, ss) {
+        this.hh = hh;
+        this.mm = mm;
+        this.ss = ss;
+    }
+}
 
-function hideIFRAMES() {
-    for (let i = 0; i < iframeArray.length; i++){
-        let getIFRAME = iframeArray[i];
-        document.getElementById(getIFRAME).style.display = "none";
+
+function hideIT(thatArray) {
+    
+    for (let i = 0; i < thatArray.length; i++){
+        let getItem = thatArray[i];
+        document.getElementById(getItem).style.display = "none";
     }  
-};
+}
+
 
 function showIFRAME(iframe) {
 
-    if (iframe === null) {
-        return;
-    }
-
-    hideIFRAMES();//reset iframes
+    hideIT(iframeArray);//reset iframes
     
     for (let i = 0; i < iframeArray.length; i++){
         if (iframe === iframeArray[i]) {
@@ -44,7 +52,7 @@ function showIFRAME(iframe) {
 
 function showINPUT(type) {
 
-    hideINPUT();//reset inputs
+    hideIT(inputArray);//reset inputs
     
     for (let i = 0; i < inputArray.length; i++){
         if (type === inputArray[i]) {
@@ -54,20 +62,6 @@ function showINPUT(type) {
 };
 
 
-function hideOtherDisplays() {
-    for (let i = 0; i < otherDisplays.length; i++){
-        let getItem = otherDisplays[i];
-        document.getElementById(getItem).style.display = "none";
-    }  
-};
-
-
-function hideINPUT() {
-    for (let i = 0; i < inputArray.length; i++){
-        let getItem = inputArray[i];
-        document.getElementById(getItem).style.display = "none";
-    }  
-};
 
 
 // update page with with the current question + reset button
@@ -78,9 +72,8 @@ function onPageLoad() {
     document.getElementById("statement").innerHTML = allStatements[testPosition].q;
     document.getElementById("qq").innerHTML = "Page: " + (testPosition+1) +"/92";
     
-    hideOtherDisplays();
-    hideIFRAMES();
-    hideINPUT();
+    hideIT(pageArray);
+    hideIT(iframeArray);
 
 	currentUser.push(userVar);
 	//console.log("Test Participant: ", userVar);    
@@ -100,6 +93,40 @@ function changeQuestionnaireSubmitButton(){
 }
 
 
+function durationTime() {
+
+    let prevTime = datevalues[testPosition - 1];
+    let thisTime = datevalues[testPosition];
+    let hh = -1;//default, easy debugg
+    let mm = -1;
+    let ss = -1;
+
+    // same hour
+    if (prevTime.hh === thisTime.hh) {
+        hh = 0;
+    } else if (thisTime.hh > prevTime.hh) {
+        //does not take case into account for if the testparticipant perform test during midnight, will not happen
+        hh = prevTime.hh - thisTime.hh;
+    }
+
+    if (prevTime.mm === thisTime.mm) {
+        mm = 0;
+    } else if (thisTime.mm > prevTime.mm) {
+        mm = thisTime.mm - prevTime.mm;
+    } else if (thisTime.mm < prevTime.mm) {
+        mm = 60 - (prevTime.mm - thisTime.mm);
+    }
+    if (prevTime.ss === thisTime.ss) {
+        ss = 0;
+    } else if (thisTime.ss > prevTime.ss) {
+        ss = thisTime.ss - prevTime.ss;
+    } else if (thisTime.ss < prevTime.ss) {
+        ss = 60 - (prevTime.ss - thisTime.ss);
+    }
+
+    return [hh, mm, ss];
+}
+
 
 // take you to the next question
 function advanceTest(){
@@ -110,16 +137,35 @@ function advanceTest(){
 
 	if (rgb[0] == 0) {
 		var currentTime = Date.now();
-		var date = new Date(currentTime);
-		var datevalues = [date.getHours(),date.getMinutes(),date.getSeconds()];
-		
+        var date = new Date(currentTime);
+        datevalues.push(new date_(date.getHours(), date.getMinutes(), date.getSeconds()));
+
 		document.getElementById("button").style.backgroundColor = "#a6a6a6";//reset button color
-		document.getElementById("button").style.color ="#909090"
-		saveUserAnswers(datevalues);
+        document.getElementById("button").style.color = "#909090"
+        
+        if (allStatements[testPosition].type !== "info") {
+            
+            var saveDate = [-1, -1, -1];
+
+            if (allStatements[testPosition].type === "howmany" || allStatements[testPosition].type === "yesNo" && 
+            (allStatements[testPosition].id !== "I3" || allStatements[testPosition].id !== "I4")
+            ) {
+                saveDate = durationTime();
+            }
+           
+            saveUserAnswers(saveDate); // save answers 
+        }
+		
         unCheckRadios();
 		document.getElementById("textfield").value = "";
 		document.getElementById("howmany").value = "";
 
+        /*if (testPosition === 0) {
+            testPosition = testPosition + 87; // jump direct to question, test/debugg things
+        }
+        else {
+            testPosition++;
+        }*/
         testPosition++;
         document.getElementById("statement").innerHTML = allStatements[testPosition].q;
         document.getElementById("qq").innerHTML = "Page: " +  (testPosition+1) +"/92";
@@ -127,12 +173,21 @@ function advanceTest(){
 	else {
 		alert("Please fill in an answer to proceed!");
     }
+    if (testPosition == allStatements.length-1) {
+        document.getElementById("button").style.display = "none";
+        hideIT(iframeArray);
+        hideIT(inputArray);
+        hideIT(pageArray);
+
+        saveUserData();
+        console.log(datevalues);
+	}
     if (allStatements[testPosition].q !== "" || allStatements[testPosition].type !== "info") {
         document.getElementById("survey").style.display = "inline-block";
     } else {
         document.getElementById("survey").style.display = "none";
     }
-    if (allStatements[testPosition].type == "info") {
+    if (allStatements[testPosition].type === "info") {
         document.getElementById("button").style.color = "#000";
         document.getElementById("button").style.backgroundColor = "#74a9cf";
     }
@@ -159,16 +214,6 @@ function advanceTest(){
 
     showINPUT(allStatements[testPosition].type);
     showIFRAME(allStatements[testPosition].iframe);
-
-	if (testPosition == allStatements.length) {
-        document.getElementById("statement").innerHTML = "Thank you for participating in this survey! :)";
-        document.getElementById("button").style.display = "none";
-        hideIFRAMES();
-        hideINPUT();
-        hideOtherDisplays();
-
-		saveUserData();
-	}
 }
 
 
@@ -215,28 +260,29 @@ function off() {
 
 
 // 6 questions
-var introQ = [   
-    { q: "", id: "I1", iframe:null, type: "info" },
-    { q: "", id: "I2", iframe:null, type: "info" },
-    { q: "Do you have color blindness visual impairment?", id: "I3", iframe:null, type: "yesNo" },
-    { q: "What is your current experience and or knowledge of information visualization?", id: "I4", iframe:null, type: "likert" },
-    { q: "", id: "I5", iframe:null, type: "info" },
-    { q: "", id: "I6", iframe:null, type: "info" }
+const introQ = [   
+    { q: "", id: "I1", iframe:"no", type: "info" },
+    { q: "", id: "I2", iframe:"no", type: "info" },
+    { q: "Do you have color blindness visual impairment?", id: "I3", iframe:"no", type: "yesNo" },
+    { q: "What is your current experience and or knowledge of information visualization?", id: "I4", iframe:"no", type: "likert" },
+    { q: "", id: "I5", iframe:"no", type: "info" },
+    { q: "", id: "I6", iframe:"no", type: "info" }
 ];
 
 
     
 // 4 questions    
-var endingQ = [
+const endingQ = [
     {
-        q: "The following 3 questions requires longer answers.\nYou will see a still image and one of the three visualizations at once.\nPlay around in the visualization interface and answer the question.",
+        q: "The following 3 questions requires longer answers.\nYou will see a still image and one of the three visualizations at once.\nPlay around in the visualization interface, compare the techniques that are available in the menu and then answer the question.",
         id: "CMV",
-        iframe:null,
+        iframe:"no",
         type: "info"
     },
     { q: "What would you like to happen in the table when interacting with the node-link diagram or vice versa?", id: "CMV1", iframe:"CMV1", type: "textfield" },
     { q: "What would you like to happen in the table when interacting with the treemap or vice versa?", id: "CMV2", iframe:"CMV2", type: "textfield" },
-    { q: "What would you like to happen in the table when interacting with the icicle plot or vice versa?", id: "CMV3", iframe:"CMV3", type: "textfield" }
+    { q: "What would you like to happen in the table when interacting with the icicle plot or vice versa?", id: "CMV3", iframe: "CMV3", type: "textfield" },
+    { q: "Thank you for participating in this survey! :)", id:"", iframe:"no", type:"info"}
 ];
 
 
@@ -244,11 +290,11 @@ var endingQ = [
 
 
 // Small dataset 36 questions
-var visQ1 = [
+const visQ1 = [
     {//node-link
         q: "To answer the following questions, you will see a dataset visualized in a node-link diagram. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions    
@@ -277,7 +323,7 @@ var visQ1 = [
     {//treemap
         q: "To answer the following questions, you will see a dataset visualized in a treemap. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions
@@ -306,7 +352,7 @@ var visQ1 = [
     {//icicle plot
         q: "To answer the following questions, you will see a dataset visualized in an icicle plot. You are free to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions
@@ -337,11 +383,11 @@ var visQ1 = [
 
 
 // Large dataset 46 questions
-var visQ2 = [
+const visQ2 = [
     {//node-link
         q: "You will see a dataset visualized in a node-link diagram again.\nThis time the dataset is larger.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions    
@@ -350,7 +396,7 @@ var visQ2 = [
                 { q: "How many ancestors does node Stockholms län have?", id: "S1L1", iframe:"S1L", type: "howmany" },
                 { q: "Is node Norrmalm, City parent to node Reimerholme?", id: "S1L2", iframe:"S1L", type: "lessMore" },
                 { q: "Does node Gamla stan have more or less ancestors than node Kungsholmen?", id: "S1L3", iframe:"S1L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L4", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L4", iframe:"no", type: "textfield" }
             ],
             // ancestors
             [
@@ -358,7 +404,7 @@ var visQ2 = [
                 { q: "How many ancestors does node Stockholms län have?", id: "A1L2", iframe:"A1L", type: "howmany" },
                 { q: "Is node Norrmalm, City parent to node Reimerholme?", id: "A1L3", iframe:"A1L", type: "yesNo" },
                 { q: "Does node Gamla stan have more or less ancestors than node Kungsholmen?", id: "A1L4", iframe:"A1L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L5", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L5", iframe:"no", type: "textfield" }
             ],
             // descendants
             [
@@ -366,14 +412,14 @@ var visQ2 = [
                 { q: "How many descendants does node Söderort have?", id: "D1L2", iframe:"D1L", type: "howmany" },
                 { q: "Does node Upplands Väsby have more or less children than node Upplands-Bro? (children = one level down in hierarchy)", id: "D1L3", iframe:"D1L", type: "lessMore" },
                 { q: "Is node Hölö child to node Södertälje? (children = one level down in hierarchy)", id: "D1L4", iframe:"D1L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L5", iframe:null, type: "textfield" }
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L5", iframe:"no", type: "textfield" }
             ]
         ]
     },
     {//treemap
         q: "You will see a dataset qualized in a treemap again.\nThis time the dataset is larger.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions
@@ -382,7 +428,7 @@ var visQ2 = [
                 { q: "How many siblings does node Viksjö have?", id: "S2L1", iframe:"S2L", type: "howmany" },
                 { q: "Does node Hässelby-Vällingby have more or less siblings than node Enskede-Årsta-Vantör?", id: "S2L2", iframe:"S2L", type: "lessMore" },
                 { q: "Is node Järva and node Haga siblings?", id: "S2L3", iframe:"S2L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L4", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L4", iframe:"no", type: "textfield" }
             ],
             //ancestors
             [
@@ -390,7 +436,7 @@ var visQ2 = [
                 { q: "How many ancestors does node Traneberg have?", id: "A2L2", iframe:"A2L", type: "howmany" },
                 { q: "Is node Västerort parent to node Alvik?", id: "A2L3", iframe:"A2L", type: "yesNo" },
                 { q: "Does node Valsta have more or less ancestors than node Botkyrka?", id: "A2L4", iframe:"A2L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L5", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L5", iframe:"no", type: "textfield" }
             ],
             //descendants
             [
@@ -398,14 +444,14 @@ var visQ2 = [
                 { q: "How many descendants does node Inre Staden have?", id: "D2L2", iframe:"D2L", type: "howmany" },
                 { q: "Does node Danderyd have more or less children than node Salem? (children = one level down in hierarchy)", id: "D2L3", iframe:"D2L", type: "lessMore" },
                 { q: "Is node Tveta child to node Sundbyberg?(children = one level down in hierarchy)", id: "D2L4", iframe:"D2L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L5", iframe:null, type: "textfield" }
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L5", iframe:"no", type: "textfield" }
             ]
         ]
     },
     {//icicle plot
         q: "You will see a dataset visualized in an icicle plot.\nThis time the dataset is larger.\nClick on Continue to proceed.",
         id: "",
-        iframe: null,
+        iframe:"no",
         type: "info",
         questions: [
             // questions
@@ -414,7 +460,7 @@ var visQ2 = [
                 { q: "How many siblings does node Täby have?", id: "S3L1", iframe:"S3L", type: "howmany" },
                 { q: "Does node Enhörna have more or less siblings than node Haga?", id: "S3L2", iframe:"S3L", type: "lessMore" },
                 { q: "Is node Botkyrka and node Lidingö siblings?", id: "S3L3", iframe:"S3L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L4", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L4", iframe:"no", type: "textfield" }
             ],
             // ancestors
             [
@@ -422,7 +468,7 @@ var visQ2 = [
                 { q: "How many ancestors does node Bromma have?", id: "A3L2", iframe:"A3L", type: "howmany" },
                 { q: "Is node Sundbyberg parent to node Sigtuna?", id: "A3L3", iframe:"A3L", type: "yesNo" },
                 { q: "Does node Aspudden have more or less ancestors than node Täby?", id: "A3L4", iframe:"A3L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L5", iframe:null, type: "textfield" }
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L5", iframe:"no", type: "textfield" }
             ],
             // descendants
             [
@@ -430,7 +476,7 @@ var visQ2 = [
                 { q: "How many descendants does node Västerort have?", id: "D3L2", iframe:"D3L", type: "howmany" },
                 { q: "Does node Stockholm have more or less children than node Sollentuna? (children = one level down in hierarchy)", id: "D3L3", iframe:"D3L", type: "lessMore" },
                 { q: "Is node Sätra child to node Skarpnäck?(children = one level down in hierarchy)", id: "D3L4", iframe:"D3L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L5", iframe:null, type: "textfield" }
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L5", iframe:"no", type: "textfield" }
             ]
         ]
     },
@@ -438,7 +484,7 @@ var visQ2 = [
 
 
 // visualization order
-let visSeq = [[0, 1, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0], [1, 0, 2], [0, 2, 1]];
+const visSeq = [[0, 1, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0], [1, 0, 2], [0, 2, 1]];
 
 
 function addQuestions(arrayVis, arrayTeq, visQ) {
@@ -470,9 +516,6 @@ function getQuestions() {
     let randVis = Math.floor(Math.random() * 6);// random number 0-5
     let randTech = Math.floor(Math.random() * 2);//random number 0-1, sad or sda order brushing and linking
 
-    console.log("Math random n: ", randVis);
-    console.log("Math random m: ", randTech);
-
     //console.log("visSeq: ", visSeq[randVis]);
     var arrayVis = [];
 
@@ -491,15 +534,14 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
 
-    addQuestions(arrayVis, arrayTeq, visQ1);
-    addQuestions(arrayVis, arrayTeq, visQ2);
+    /*addQuestions(arrayVis, arrayTeq, visQ1);
+    addQuestions(arrayVis, arrayTeq, visQ2);*/
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
     }
 
     console.log("Ending: ", allStatements);
-
 }
 
 

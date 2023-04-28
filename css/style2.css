@@ -110,7 +110,7 @@ iframe {
   display: none; /* Hidden by default */
   background-color: rgba(255, 255, 255, 255);
   z-index: 2;
-  font-size: 24px;
+  font-size: 20px;
   width: 90%;
   height: 80%;
   border: 2px solid #d1d9df;
@@ -118,6 +118,10 @@ iframe {
   padding: 10px;
   margin: auto;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bolded{
+  font-weight: bold;
 }
 
 

@@ -31,17 +31,19 @@
 		<div class="menu">
 		<a onclick="off();">X</a>
 		</div>
+	<p class="prePage">
 	The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
 	To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
 	The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
 	You will be asked to perform tasks and answer questions regarding the data and the visualizations.The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
 	Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br><br>
-	You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is not possible to change an answer afterwards.
+	You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is <span class="bolded">not</span> possible to change an answer afterwards.
 	<br><br>
 	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
 	name or contact information to keep the answers anonymized when showing the results.<br><br>
 	The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.
-	However, the test leader will now help you fulfill the tasks and questions by giving any answers or hints.
+	However, the test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints.
+	</p>
 	</div>
 	
 	<!------------- Main pages ------------->
@@ -58,7 +60,7 @@
 	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
 	name or contact information to keep the answers anonymized when showing the results.<br><br>
 	The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.
-	However, the test leader will now help you fulfill the tasks and questions by giving any answers or hints.
+	However, the test leader will not help you fulfill the tasks and questions by giving any answers or hints.
 	<br><br>
 	Let's begin by click on the Continue-button!</p>
 	</div>
@@ -118,15 +120,15 @@
 
 	<div>
 		<form class="margin" id="survey" method="post" name="surveyForm"><br>
-			<p><span id='statement'></span><br>
+			<p><span id='statement'></span><br><br>
 				<span id='yesNo'>Yes
 					<input type='radio' name='yesNo' id='yes' value='yes' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='yesNo' id='no' value='no' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				No</span><br>
+				No</span>
 				<span id='lessMore'>Less
 					<input type='radio' name='lessMore' id='less' value='l' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='lessMore' id='more' value='m' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				More</span><br>
+				More</span>
 				<span id='likert'>
 				Very Poor Knowledge and/or Experience
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -200,6 +202,15 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 		<iframe id="D3S" type="text/html" src="./html/icicle6.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="CMV1" type="text/html" src="./html/CMV/CMV1_S.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="CMV2" type="text/html" src="./html/CMV/CMV2_S.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="CMV3" type="text/html" src="./html/CMV/CMV3_S.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
