@@ -24,7 +24,7 @@
 	</head>
 	<body onload="onPageLoad();">
 	<!------------ Help page ------------->
-	<div class="menu">
+	<div class="menu"> <div>
       <a onclick="on();">?</a>
     </div>
 	<div onclick="off()" id="introPOP">
@@ -45,7 +45,7 @@
 	</div>
 	
 	<!------------- Main pages ------------->
-	<h1>Brushing and Linking on Hierarchical data</h1><p><span id='qq'></span><br>
+	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='qq'></span><br>
 	<div class="prePage" id="intro">
 	<p>Hello,<br>
 	Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
@@ -110,8 +110,14 @@
 		</div>
 	</div>
 
+
+	<div class="prePage" id="CMV">
+		<img id="CMV_table" src="./images/table.PNG" style="width:50%">
+	</div>
+
+
 	<div>
-		<form id="survey" method="post" name="surveyForm"><br>
+		<form class="margin" id="survey" method="post" name="surveyForm"><br>
 			<p><span id='statement'></span><br>
 				<span id='yesNo'>Yes
 					<input type='radio' name='yesNo' id='yes' value='yes' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -131,13 +137,13 @@
 				Very Good Knowledge and/or Experience</span>
 			</p>
 			<p>
-				<textarea name="freetext" id="freetext" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
+				<textarea name="textfield" id="textfield" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
 				<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>
             </p>
 		</form>
 	</div>
 
-	<div id="button" onclick="advanceTest();">Continue</div>
+	<div class="margin" id="button" onclick="advanceTest();">Continue</div>
 
 	<div class="iframe">
 		<!-- sibling, ancestor,  descendant -->
