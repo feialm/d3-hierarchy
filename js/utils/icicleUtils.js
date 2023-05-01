@@ -16,12 +16,12 @@ export var format = d3.format(",d");
 
 // height/width of node
 export function rectHeight(d) {
-    return (d.y1 - d.y0 - Math.min(1, (d.y1 - d.y0) / 2))/2;
+    return (d.y1 - d.y0 - Math.min(1, (d.y1 - d.y0) / 2))/4;
 }
   
 // height/width of node
 export function rectWidth(d) {
-    return (d.x1 - d.x0)/1.5;
+    return (d.x1 - d.x0)*2;
   }
 
 export function labelVisible(d, width) {

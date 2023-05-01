@@ -40,7 +40,7 @@ function update(root) {
     .append("g")
     .attr("class", "node")
     .join("g")
-   .attr("transform", function (d) { return `translate(${d.x0/1.5},${d.y0/2})`;});
+   .attr("transform", function (d) { return `translate(${d.x0*2},${d.y0/4})`;});
   
   nodeEnter
     .append("rect")

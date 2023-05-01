@@ -32,17 +32,19 @@
 		<a onclick="off();">X</a>
 		</div>
 	<p class="prePage">
-	The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
+	<span class="bolded"> The aim: </span> The research study is to investigate what techniques are most suitable for exploring the structure and details of hierarchical data.
 	To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
-	The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
-	You will be asked to perform tasks and answer questions regarding the data and the visualizations.The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
-	Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br><br>
-	You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is <span class="bolded">not</span> possible to change an answer afterwards.
-	<br><br>
+	
+	<span class="bolded">The set up: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations.The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
+	Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br>
 	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
 	name or contact information to keep the answers anonymized when showing the results.<br><br>
-	The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.
-	However, the test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints.
+	<span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
+	You are also free to use the mouse to zoom in/out in the user idnerface.<br><br>
+	<span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
+	It is <span class="bolded">not</span> possible to change an answer afterwards.<br><br>
+	<span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.<br><br>
+	<span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.
 	</p>
 	</div>
 	
@@ -72,6 +74,7 @@
 	<div class="prePage" id="evaluation">
 		<h3>Evaluation</h3>
 		<p>The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s).<br>
+		You are recommended to to <span class="bolded">interact and play around</span> in the visualization.<br>
 			Click on Continue to proceed.</p>
 	</div>
 

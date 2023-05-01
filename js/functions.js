@@ -78,7 +78,6 @@ function onPageLoad() {
 	currentUser.push(userVar);
 	//console.log("Test Participant: ", userVar);    
     getQuestions();
-    console.log("Length: ",allStatements.length);
 }
 
 
@@ -133,7 +132,7 @@ function advanceTest(){
 	var c = document.getElementById("button").style.color;
 	var rgb = c.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
 
-	console.log("testPosition: ", testPosition);
+	console.log("testPosition: ", testPosition, "id", allStatements[testPosition].id);
 
 	if (rgb[0] == 0) {
 		var currentTime = Date.now();
@@ -145,15 +144,16 @@ function advanceTest(){
         
         if (allStatements[testPosition].type !== "info") {
             
-            var saveDate = [-1, -1, -1];
+            var saveDate = "";
 
-            if (allStatements[testPosition].type === "howmany" || allStatements[testPosition].type === "yesNo" && 
-            (allStatements[testPosition].id !== "I3" || allStatements[testPosition].id !== "I4")
-            ) {
-                saveDate = durationTime();
+            if (allStatements[testPosition].id === "I3" || allStatements[testPosition].id === "I4" ||
+                allStatements[testPosition].type === "textfield") {
+                saveUserAnswers(saveDate); // save answers 
             }
-           
-            saveUserAnswers(saveDate); // save answers 
+            else if(allStatements[testPosition].type === "howmany" || allStatements[testPosition].type === "yesNo"){
+                saveDate = durationTime();
+                saveUserAnswers(saveDate); // save answers 
+            }
         }
 		
         unCheckRadios();
@@ -202,14 +202,22 @@ function advanceTest(){
         document.getElementById("demographics").style.display = "none";
     }
     if (allStatements[testPosition].id === "I5") {
+        document.getElementById("theory").style.display = "inline-block";
+    } else {
+        document.getElementById("theory").style.display = "none";
+    }
+    if (allStatements[testPosition].id === "I6") {
         document.getElementById("evaluation").style.display = "inline-block";
     } else {
         document.getElementById("evaluation").style.display = "none";
     }
-    if (allStatements[testPosition].id === "I6") {
-        document.getElementById("theory").style.display = "inline-block";
+    if (allStatements[testPosition].id === "CMV1" ||
+        allStatements[testPosition].id === "CMV2" ||
+        allStatements[testPosition].id === "CMV3"
+    ) {
+        document.getElementById("CMV").style.display = "inline-block";
     } else {
-        document.getElementById("theory").style.display = "none";
+        document.getElementById("CMV").style.display = "none";
     }
 
     showINPUT(allStatements[testPosition].type);
@@ -239,11 +247,11 @@ function saveUserAnswers(recordTimeBtn){
 	var answer;
 
 	if (allStatements[testPosition] !== "") {
-		answer = recordTimeBtn + "\t" + " " + formElements.elements["yesNo"].value + "\t" + formElements.elements["lessMore"].value + "\t" + formElements.elements["query"].value + "\t" + document.getElementById("textfield").value + "\t" + document.getElementById("howmany").value;
-	} else {
-		answer = recordTimeBtn + "\t" +" "+ "--" + "\t" + "---" + "\t" + "---" + "\t" + " ---" + "\t" + " ----";
-	}
-	
+        answer = allStatements[testPosition].id + "\t" + " " + recordTimeBtn + "\t" + " " +
+            formElements.elements["yesNo"].value + "\t" + formElements.elements["lessMore"].value +
+            "\t" + formElements.elements["query"].value + "\t" + document.getElementById("textfield").value
+            + "\t" + document.getElementById("howmany").value;
+    }
 	userAnswers.push(answer);
 }
 
@@ -292,7 +300,7 @@ const endingQ = [
 // Small dataset 36 questions
 const visQ1 = [
     {//node-link
-        q: "To answer the following questions, you will see a dataset visualized in a node-link diagram. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "You will now see a dataset visualized in a node-link diagram. It is recommended to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe:"no",
         type: "info",
@@ -321,7 +329,7 @@ const visQ1 = [
         ]
     },
     {//treemap
-        q: "To answer the following questions, you will see a dataset visualized in a treemap. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "You will now see a dataset visualized in a treemap. It is recommended to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe:"no",
         type: "info",
@@ -350,7 +358,7 @@ const visQ1 = [
         ]
     },
     {//icicle plot
-        q: "To answer the following questions, you will see a dataset visualized in an icicle plot. You are free to interact and play around in it.\nClick on Continue to proceed.",
+        q: "You will now see a dataset visualized in an icicle plot. It is recommended to interact and play around in it.\nClick on Continue to proceed.",
         id: "",
         iframe:"no",
         type: "info",
@@ -374,7 +382,7 @@ const visQ1 = [
                 { q: "How many children does node Polygon Shapes have? (children = one level down in hierarchy)", id: "D3S1", iframe:"D3S", type: "howmany" },
                 { q: "How many descendants does node 2D Shapes have?", id: "D3S2", iframe:"D3S", type: "howmany" },
                 { q: "Does node Polygon Shapes have more or less children than node decagon? (children = one level down in hierarchy)", id: "D3S3", iframe: "D3S", type: "lessMore" },
-                { q: "Is node deceagon child to node Conic Shapes? (children = one level down in hierarchy)", id: "D3S4", iframe:"D3S", type: "yesNo" }
+                { q: "Is node decagon child to node Conic Shapes? (children = one level down in hierarchy)", id: "D3S4", iframe:"D3S", type: "yesNo" }
             ]
         ]
     },
@@ -393,9 +401,9 @@ const visQ2 = [
             // questions    
             // siblings
             [
-                { q: "How many ancestors does node Stockholms län have?", id: "S1L1", iframe:"S1L", type: "howmany" },
-                { q: "Is node Norrmalm, City parent to node Reimerholme?", id: "S1L2", iframe:"S1L", type: "lessMore" },
-                { q: "Does node Gamla stan have more or less ancestors than node Kungsholmen?", id: "S1L3", iframe:"S1L", type: "yesNo" },
+                { q: "How many siblings does node Norrby have?", id: "S1L1", iframe:"S1L", type: "howmany" },
+                { q: "Does node Markim have more or less siblings than node Djurö?", id: "S1L2", iframe:"S1L", type: "lessMore" },
+                { q: "Is node Rådmansrö and node Helenelund siblings?", id: "S1L3", iframe:"S1L", type: "yesNo" },
                 { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L4", iframe:"no", type: "textfield" }
             ],
             // ancestors

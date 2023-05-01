@@ -5,7 +5,7 @@ export var margin = { top: 20, right: 20, bottom: 20, left: 20 };
 export var width_a = 2560 - margin.left - margin.right;
 export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
-export var width_b = 1000 - margin.left - margin.right;
+export var width_b = 2000 - margin.left - margin.right;
 export var height_b = 900 - margin.top - margin.bottom;
 // c is currently for treemap
 export var width_c = 1150 - margin.left - margin.right;
@@ -121,7 +121,7 @@ export function getAscendants(d) {
 
 
 export function mouseoverDescendants(event, d) {
-  console.log("over node: ", d.data.name);
+  //console.log("over node: ", d.data.name);
 
   //reset all nodes color
   d3.selectAll("rect").style("fill", "#c3c3c3");// alla noder som inte select, green
