@@ -10,7 +10,7 @@ body {
 	padding: 5px;
 }
 
-#qq{
+#currentPage{
 	font-size:0.7em ;
 }
 
@@ -65,6 +65,7 @@ textarea {
 	height: 150px;
 }
 
+/* - - - IFRAME - -  */
 iframe {
 	margin: auto;
 	margin-top: 10px;

@@ -26,6 +26,7 @@ d3.json("../data/stockholm.json").then(function (data) {
 });
 
 
+
 function update(root){ 
 
   var tree = d3.treemap().size([Module.width_c, Module.height_c])
@@ -64,8 +65,8 @@ function update(root){
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
     .style("fill", function (d) { return Module.color(d.depth); })
     .attr("stroke", "white").attr('stroke-width', '0.4');
-  
-  
+
+
   // text labels on node
   node
     .enter()

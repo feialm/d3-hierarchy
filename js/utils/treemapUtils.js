@@ -24,41 +24,41 @@ export function getMeasurments2(type, d) {
 // ------ functions to align and set layout of labels for stockholm.json-data --------
 export function y(d) {
    if (d.data.colname == null) {
-        return d.y0 + 4;
+        return d.y0 + 5;
       }
       if (d.data.colname == "level2") {
-        return d.y0 + 10;
+        return d.y0 + 17;
       }
       if (d.data.colname == "level3") {
-        return d.y0 + 15;
+        return d.y0 + 27;
       }
       if (d.data.colname == "level4") {
-        return d.y0 + 20;
+        return d.y0 + 34;
       }
       if (d.data.colname == "level5") {
-        return d.y0 + 27;
+        return d.y0 + 40;
       }
 }
 
 export function font(d) {
     if (d.children) {
       if (d.data.colname == null) {
-        return "11px sans-serif";
+        return "14px sans-serif";
       }
       if (d.data.colname == "level2") {
-        return "10px sans-serif";
+        return "13px sans-serif";
       }
       if (d.data.colname == "level3") {
-        return "9px sans-serif";
+        return "12px sans-serif";
       }
       if (d.data.colname == "level4") {
-        return "8px sans-serif";
+        return "11px sans-serif";
       }
       if (d.data.colname == "level5") {
-        return "7px sans-serif";
+        return "10px sans-serif";
       }
     } else {
-      return "7px sans-serif"
+      return "10px sans-serif"
     }
 }
 

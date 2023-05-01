@@ -5,10 +5,10 @@ export var margin = { top: 20, right: 20, bottom: 20, left: 20 };
 export var width_a = 2560 - margin.left - margin.right;
 export var height_a = 1000 - margin.top - margin.bottom;
 // b is currently for icicle
-export var width_b = 2000 - margin.left - margin.right;
+export var width_b = 1900 - margin.left - margin.right;
 export var height_b = 900 - margin.top - margin.bottom;
 // c is currently for treemap
-export var width_c = 1150 - margin.left - margin.right;
+export var width_c = 1700 - margin.left - margin.right;
 export var height_c = 800 - margin.top - margin.bottom;
 // d is currently for node-link2
 export var width_d = 2560 - margin.left - margin.right;

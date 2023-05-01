@@ -40,7 +40,7 @@
 	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
 	name or contact information to keep the answers anonymized when showing the results.<br><br>
 	<span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
-	You are also free to use the mouse to zoom in/out in the user idnerface.<br><br>
+	You are also free to use the mouse to zoom in/out in the user interface.<br><br>
 	<span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
 	It is <span class="bolded">not</span> possible to change an answer afterwards.<br><br>
 	<span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.<br><br>
@@ -49,7 +49,7 @@
 	</div>
 	
 	<!------------- Main pages ------------->
-	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='qq'></span><br>
+	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='currentPage'></span><br>
 	<div class="prePage" id="intro">
 	<p>Hello,<br>
 	Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
@@ -66,24 +66,15 @@
 	<br><br>
 	Let's begin by click on the Continue-button!</p>
 	</div>
-	<div class="prePage" id="demographics">
-		<h3>Personal info</h3>
-		<p>The following questions are asked to obtain a demographic view of the participants and to see if the results differ by demographics or not.<br>
-			Click on Continue to proceed.</p>
-	</div>
-	<div class="prePage" id="evaluation">
-		<h3>Evaluation</h3>
-		<p>The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s).<br>
-		You are recommended to to <span class="bolded">interact and play around</span> in the visualization.<br>
-			Click on Continue to proceed.</p>
-	</div>
 
 
 	<div class="prePage" id="theory">
 		<h3>Theory</h3>
 		<p>Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
-		When you have read and understood the theory, click on Continue to proceed. Ask the test leader if anything is unclear.
-		</p>
+		Read the theory, ask the test leader if anything is unclear.<br>
+		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s).<br>
+		You are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
+	</p>
 		<div class="row">
 			<div class="column">
 				<h2>Icicle Plot</h2>
@@ -227,7 +218,8 @@
 		}else{
 			changeQuestionnaireSubmitButton();
 		}
-	}</script>
+	}
+	</script>
 
 	</body>
 </html>
