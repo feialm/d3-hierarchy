@@ -628,7 +628,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1, "visQ1");
+    addQuestions(arrayVis, arrayTeq, visQ1, "visQ1");
     //allStatements.push(visQmiddle[0]);
     //addQuestions(arrayVis, arrayTeq, visQ2, "visQ2");
 

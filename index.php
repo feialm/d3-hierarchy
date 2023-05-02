@@ -144,58 +144,58 @@
 	<div class="iframe">
 		<!-- sibling, ancestor,  descendant -->
 		<!-- Large dataset -->
-		<iframe id="S1L" type="text/html" src="./html/tree3.html">
+		<iframe id="S1L" type="text/html" src="./html/nodelink/tree3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A1L" type="text/html" src="./html/tree.html">
+		<iframe id="A1L" type="text/html" src="./html/nodelink/tree.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D1L" type="text/html" src="./html/tree2.html">
+		<iframe id="D1L" type="text/html" src="./html/nodelink/tree2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="S1S" type="text/html" src="./html/tree4.html">
+		<iframe id="S1S" type="text/html" src="./html/nodelink/tree4.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A1S" type="text/html" src="./html/tree5.html">
+		<iframe id="A1S" type="text/html" src="./html/nodelink/tree5.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D1S" type="text/html" src="./html/tree6.html">
+		<iframe id="D1S" type="text/html" src="./html/nodelink/tree6.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="S2L" type="text/html" src="./html/treemap2.html">
+		<iframe id="S2L" type="text/html" src="./html/treemap/treemap2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A2L" type="text/html" src="./html/treemap.html">
+		<iframe id="A2L" type="text/html" src="./html/treemap/treemap.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D2L" type="text/html" src="./html/treemap3.html">
+		<iframe id="D2L" type="text/html" src="./html/treemap/treemap3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="S2S" type="text/html" src="./html/treemap4.html">
+		<iframe id="S2S" type="text/html" src="./html/treemap/treemap4.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A2S" type="text/html" src="./html/treemap5.html">
+		<iframe id="A2S" type="text/html" src="./html/treemap/treemap5.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D2S" type="text/html" src="./html/treemap5.html">
+		<iframe id="D2S" type="text/html" src="./html/treemap/treemap5.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="S3L" type="text/html" src="./html/icicle2.html">
+		<iframe id="S3L" type="text/html" src="./html/icicle/icicle2.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A3L" type="text/html" src="./html/icicle.html">
+		<iframe id="A3L" type="text/html" src="./html/icicle/icicle.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D3L" type="text/html" src="./html/icicle3.html">
+		<iframe id="D3L" type="text/html" src="./html/icicle/icicle3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="S3S" type="text/html" src="./html/icicle4.html">
+		<iframe id="S3S" type="text/html" src="./html/icicle/icicle4.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="A3S" type="text/html" src="./html/icicle5.html">
+		<iframe id="A3S" type="text/html" src="./html/icicle/icicle5.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D3S" type="text/html" src="./html/icicle6.html">
+		<iframe id="D3S" type="text/html" src="./html/icicle/icicle6.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 		<iframe id="CMV1" type="text/html" src="./html/CMV/CMV1_S.html">
