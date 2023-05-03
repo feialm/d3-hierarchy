@@ -72,8 +72,7 @@
 		<h3>Theory</h3>
 		<p>Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
 		Read the theory, ask the test leader if anything is unclear.<br>
-		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s).<br>
-		You are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
+		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s) where you are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
 	</p>
 		<div class="row">
 			<div class="column">
@@ -116,13 +115,9 @@
 		<form class="margin" id="survey" method="post" name="surveyForm"><br>
 			<p><span id='statement'></span><br><br>
 				<span id='yesNo'>Yes
-					<input type='radio' name='yesNo' id='yes' value='yes' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-					<input type='radio' name='yesNo' id='no' value='no' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				No</span>
-				<span id='lessMore'>Less
-					<input type='radio' name='lessMore' id='less' value='l' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-					<input type='radio' name='lessMore' id='more' value='m' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				More</span>
+					<input type='radio' name='yesNo' id='yes' value='Y' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
+					<input type='radio' name='yesNo' id='no' value='N' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
+				No</span><br><br>
 				<span id='likert'>
 				Very Poor Knowledge and/or Experience
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -134,7 +129,7 @@
 			</p>
 			<p>
 				<textarea name="textfield" id="textfield" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
-				<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>
+				<!--<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>-->
             </p>
 		</form>
 	</div>
@@ -209,7 +204,7 @@
 		</iframe>
 	</div>
 	<script type="text/javascript" src="./js/functions.js"></script>
-	<script language="javascript">
+	<!--<script language="javascript">
 	function checkNumber(object) {
 		var invalidChars = /[^0-9]/gi
 		if(invalidChars.test(object.value)) {
@@ -219,7 +214,7 @@
 			changeQuestionnaireSubmitButton();
 		}
 	}
-	</script>
+	</script>-->
 
 	</body>
 </html>

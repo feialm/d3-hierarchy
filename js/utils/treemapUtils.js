@@ -27,16 +27,16 @@ export function y(d) {
         return d.y0 + 5;
       }
       if (d.data.colname == "level2") {
-        return d.y0 + 17;
+        return d.y0 + 15;
       }
       if (d.data.colname == "level3") {
-        return d.y0 + 27;
+        return d.y0 + 22;
       }
       if (d.data.colname == "level4") {
-        return d.y0 + 34;
+        return d.y0 + 27;
       }
       if (d.data.colname == "level5") {
-        return d.y0 + 40;
+        return d.y0 + 33;
       }
 }
 

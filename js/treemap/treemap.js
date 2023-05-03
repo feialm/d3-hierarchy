@@ -1,6 +1,7 @@
 import * as Module from "../utils/utils.js";
 import * as treemapUtils from "../utils/treemapUtils.js";
 
+console.log(radios)
 var i = 0;
 var root;
 

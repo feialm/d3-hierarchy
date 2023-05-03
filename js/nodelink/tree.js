@@ -1,7 +1,6 @@
 import * as Module from "../utils/utils.js";
 import * as nodeLink from "../utils/node-linkUtils.js";
 
-
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
 // move g to top-left-margin

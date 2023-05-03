@@ -7,11 +7,11 @@ const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
     "S3L", "A3L", "D3L", "S3S", "A3S", "D3S",
     "CMV1", "CMV2", "CMV3"];
 
-const inputArray = ["likert", "yesNo", "lessMore", "textfield", "howmany"];
+const inputArray = ["likert", "yesNo", "textfield"];
 
 const pageArray = ["survey", "theory", "CMV"];
 
-const radios = ["query", "yesNo", "lessMore"];
+const radios = ["query", "yesNo"];
 
 
 var datevalues = [];
@@ -68,8 +68,7 @@ function onPageLoad() {
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
-    document.getElementById("statement").innerHTML = allStatements[testPosition].q;
-    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/89";
+    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/56";
     
     hideIT(pageArray);
     hideIT(iframeArray);
@@ -122,7 +121,30 @@ function durationTime() {
         ss = 60 - (prevTime.ss - thisTime.ss);
     }
 
-    return [hh, mm, ss];
+    if (hh < 10) {
+        hh = "0" + hh;
+    }
+    if (mm < 10) {
+        mm = "0" + mm;
+    }
+    if (ss < 10) {
+        ss = "0" + ss;
+    }
+    
+    return [hh+":"+mm+":"+ss];
+}
+
+
+function checkFacit() {
+    var formElements = document.getElementById('survey');
+    
+    if (formElements.elements["yesNo"].value === allStatements[testPosition].facit
+     ) {
+        return "T";
+    }
+    else {
+        return "F";
+    }
 }
 
 
@@ -149,7 +171,7 @@ function advanceTest(){
                 allStatements[testPosition].type === "textfield") {
                 saveUserAnswers(saveDate); // save answers 
             }
-            else if(allStatements[testPosition].type === "howmany" || allStatements[testPosition].type === "yesNo"){
+            else if(allStatements[testPosition].type === "yesNo"){
                 saveDate = durationTime();
                 saveUserAnswers(saveDate); // save answers 
             }
@@ -157,14 +179,7 @@ function advanceTest(){
 		
         unCheckRadios();
 		document.getElementById("textfield").value = "";
-		document.getElementById("howmany").value = "";
-
-        /*if (testPosition === 0) {
-            testPosition = testPosition + 87; // jump direct to question, test/debugg things
-        }
-        else {
-            testPosition++;
-        }*/
+        
         testPosition++;
         document.getElementById("statement").innerHTML = allStatements[testPosition].q;
         document.getElementById("currentPage").innerHTML = "Page: " +  (testPosition+1) +"/89";
@@ -231,15 +246,15 @@ function unCheckRadios(){
 
 
 // save answers in .txt file, send to php-file
-function saveUserAnswers(recordTimeBtn){
+function saveUserAnswers(recordTimeBtn, facit){
 	var formElements = document.getElementById('survey');
 	var answer;
 
 	if (allStatements[testPosition] !== "") {
-        answer = allStatements[testPosition].id + "\t" + " " + recordTimeBtn + "\t" + " " +
-            formElements.elements["yesNo"].value + "\t" + formElements.elements["lessMore"].value +
+        answer = allStatements[testPosition].id + "\t" + recordTimeBtn + "\t" +
+            formElements.elements["yesNo"].value +
             "\t" + formElements.elements["query"].value + "\t" + document.getElementById("textfield").value
-            + "\t" + document.getElementById("howmany").value;
+            + "\t" + facit;
     }
 	userAnswers.push(answer);
 }
@@ -265,7 +280,6 @@ const introQ = [
 ];
 
 
-    
 // 4 questions    
 const endingQ = [
     {
@@ -277,104 +291,75 @@ const endingQ = [
     { q: "What would you like to happen in the table when interacting with the node-link diagram or vice versa?", id: "CMV1", iframe:"CMV1", type: "textfield" },
     { q: "What would you like to happen in the table when interacting with the treemap or vice versa?", id: "CMV2", iframe:"CMV2", type: "textfield" },
     { q: "What would you like to happen in the table when interacting with the icicle plot or vice versa?", id: "CMV3", iframe: "CMV3", type: "textfield" },
-    { q: "Any other thoughts about the visualizations in the study? Something that can be improved?", id: "other", iframe: "no", type: "textfield" },
+    { q: "Do you have any thought on how the techniques that can be improved for explore and understand a node's relationships to other nodes?", id: "other", iframe: "no", type: "textfield" },
     { q: "Thank you for participating in this survey! :)", id:"", iframe:"no", type:"info"}
 ];
 
 
-
-
-
-// Small dataset 36 questions
+// Small dataset 33 questions
 const visQ1 = [
     {//node-link
-        q: "You will now see a dataset visualized in a node-link diagram.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
         questions: [
             // questions    
             // siblings
             [
-                { q: "How many siblings does node Polygon Shapes have?", id: "S1S1", iframe:"S1S", type: "howmany" },
-                { q: "Does node triangle have more or less siblings than node Conic Shapes?", id: "S1S2", iframe:"S1S", type: "lessMore" },
-                { q: "Is node Conic Shapes and node Polygon Shapes siblings?", id: "S1S3", iframe:"S1S", type: "yesNo" }
+                { q: "Is Polygon Shapes sibling to circle?", facit:"N", id: "S1S1", iframe:"S1S", type: "yesNo" },
+                { q: "Is Conic Shapes sibling to Polygon Shapes?", facit:"Y", id: "S1S2", iframe:"S1S", type: "yesNo" }
             ],
             // ancestors
             [
-                { q: "Does node hexagon and node octagon have the same parent?", id: "A1S1", iframe:"A1S", type: "yesNo" },
-                { q: "How many ancestor does node 2D Shapes have?", id: "A1S2", iframe:"A1S", type: "howmany" },
-                { q: "Is node Polygon Shapes parent to node hexagon?", id: "A1S3", iframe:"A1S", type: "yesNo" },
-                { q: "Does node Polygon Shapes have more or less ancestor than node circle?", id: "A1S4", iframe:"A1S", type: "lessMore" },
+                { q: "Does hexagon and octagon have the same parent?", facit:"Y", id: "A1S1", iframe:"A1S", type: "yesNo" },
+                { q: "Is Polygon Shapes parent to hexagon?", facit:"Y", id: "A1S2", iframe:"A1S", type: "yesNo" },
             ],
             // descendants
             [
-                { q: "How many children does node triangle have? (children = one level down in hierarchy)", id: "D1S1", iframe:"D1S", type: "howmany" },
-                { q: "How many descendants does node Conic Shapes have?", id: "D1S2", iframe:"D1S", type: "howmany" },
-                { q: "Does node Conic Shapes have more or less children than node Polygon Shapes? (children = one level down in hierarchy)", id: "D1S3", iframe:"D1S", type: "lessMore" },
-                { q: "Is node circle child to node Conic Shapes? (children = one level down in hierarchy)", id: "D1S4", iframe:"D1S", type: "yesNo" }
+                { q: "Is deacagon a descendant to 2D shapes?", facit:"Y", id: "D1S2", iframe:"D1S", type: "yesNo" },
+                { q: "Is circle child to Conic Shapes? (children = one level down in hierarchy)", facit:"Y", id: "D1S2", iframe:"D1S", type: "yesNo" }
             ]
         ]
     },
     {//treemap
-        q: "You will now see a dataset visualized in a treemap.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
         questions: [
             // questions
             // siblings
             [
-                { q: "How many siblings does hexagon have?", id: "S2S1", iframe:"S2S", type: "howmany" },
-                { q: "Does node pentagon have more or less siblings than node circle?", id: "S2S2", iframe:"S2S", type: "lessMore" },
-                { q: "Is node Conic Shapes and node 2D Shapes siblings?", id: "S2S3", iframe:"S2S", type: "yesNo" }
+                { q: "Is Polygon Shapes sibling to pentagon?", facit:"N", id: "S2S1", iframe:"S2S", type: "yesNo" },
+                { q: "Is Conic Shapes sibling to 2D Shapes?", facit:"N", id: "S2S2", iframe:"S2S", type: "yesNo" }
             ],
             //ancestors
             [
-                { q: "Does node heptagon and node circle have the same parent?", id: "A2S1", iframe:"A2S", type: "yesNo" },
-                { q: "How many ancestors does node octagon have?", id: "A2S2", iframe:"A2S", type: "howmany" },
-                { q: "Is node Polygon Shapes parent to node triangle?", id: "A2S3", iframe:"A2S", type: "yesNo" },
-                { q: "Does node Conic Shapes have more or less ancestors than node quadtrilateral?", id: "A2S4", iframe:"A2S", type: "lessMore" }
+                { q: "Does heptagon and circle have the same parent?", facit:"N", id: "A2S1", iframe:"A2S", type: "yesNo" },
+                { q: "Is Polygon Shapes parent to triangle?", facit:"Y", id: "A2S2", iframe:"A2S", type: "yesNo" },
             ],
             //descendants
             [
-                { q: "How many children does node 2D Shapes have? (children = one level down in hierarchy)", id: "D2S1", iframe:"D2S", type: "howmany" },
-                { q: "How many descendants does node Polygon Shapes have?", id: "D2S2", iframe:"D2S", type: "howmany" },
-                { q: "Does node Polygon Shapes have more or less children than node ellipse? (children = one level down in hierarchy)", id: "D2S3", iframe:"D2S", type: "lessMore" },
-                { q: "Is node circle child to node 2D Shapes? (children = one level down in hierarchy)", id: "D2S4", iframe:"D2S", type: "yesNo" }
+                { q: "Is deacagon a descendant to Conic shapes?", facit:"N", id: "D2S2", iframe:"D2S", type: "yesNo" },
+                { q: "Is circle child to 2D Shapes? (children = one level down in hierarchy)", facit:"N", id: "D2S2", iframe:"D2S", type: "yesNo" }
             ]
         ]
     },
     {//icicle plot
-        q: "You will now see a dataset visualized in an icicle plot.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
         questions: [
             // questions
             // siblings
             [
-                { q: "How many siblings does node 2D Shapes have?", id: "S3S1", iframe:"S3S", type: "howmany" },
-                { q: "Does node Polygon Shapes have more or less siblings than node heptagon?", id: "S3S2", iframe:"S3S", type: "lessMore" },
-                { q: "Is node Conic Shapes and node octagon siblings?", id: "S3S3", iframe:"S3S", type: "yesNo" },
+                { q: "Is circle sibling to ellipse?", facit:"Y", id: "S3S1", iframe:"S3S", type: "yesNo" },
+                { q: "Is Conic Shapes sibling to octagon?", facit:"N", id: "S3S2", iframe:"S3S", type: "yesNo" },
             ],
             // ancestors
             [
-                { q: "Does node heptagon and node circle have the same parent?", id: "A3S1", iframe:"A3S", type: "yesNo" },
-                { q: "How many ancestors does node circle have?", id: "A3S2", iframe:"A3S", type: "howmany" },
-                { q: "Is node Polygon Shapes parent to node triangle?", id: "A3S3", iframe:"A3S", type: "yesNo" },
-                { q: "Does node Conic Shapes have more or less ancestors than node 2D Shapes?", id: "A3S4", iframe:"A3S", type: "lessMore" }
+                { q: "Does heptagon and circle have the same parent?", facit:"N", id: "A3S1", iframe:"A3S", type: "yesNo" },
+                { q: "Is Polygon Shapes parent to triangle?", facit:"N", id: "A3S2", iframe:"A3S", type: "yesNo" },
             ],
             // descendants
             [
-                { q: "How many children does node Polygon Shapes have? (children = one level down in hierarchy)", id: "D3S1", iframe:"D3S", type: "howmany" },
-                { q: "How many descendants does node 2D Shapes have?", id: "D3S2", iframe:"D3S", type: "howmany" },
-                { q: "Does node Polygon Shapes have more or less children than node decagon? (children = one level down in hierarchy)", id: "D3S3", iframe: "D3S", type: "lessMore" },
-                { q: "Is node decagon child to node Conic Shapes? (children = one level down in hierarchy)", id: "D3S4", iframe:"D3S", type: "yesNo" }
+                { q: "Is heptagon a descendant to 2D shapes?", facit:"Y", id: "D3S2", iframe:"D3S", type: "yesNo" },
+                { q: "Is decagon child to Conic Shapes? (children = one level down in hierarchy)", facit:"N", id: "D3S2", iframe:"D3S", type: "yesNo" }
             ]
         ]
     },
 ];
+
 
 const visQmiddle = [{
     q: "Great, you're about halfway there now! :) You will now be able to perform similar tasks on the same visualizations and techniques as before but on a larger dataset this time.\nClick on Continue to proceed.",
@@ -384,136 +369,29 @@ const visQmiddle = [{
 }
 ];
 
-/*
-// Large dataset 46 questions
-const visQ2 = [
-    {//node-link
-        q: "The following questions is about node-link diagrams.\nThis time the dataset is larger.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
-        questions: [
-            // questions    
-            // siblings
-            [
-                { q: "How many siblings does node Norrby have?", id: "S1L1", iframe:"S1L", type: "howmany" },
-                { q: "Does node Markim have more or less siblings than node Djurö?", id: "S1L2", iframe:"S1L", type: "lessMore" },
-                { q: "Is node Rådmansrö and node Helenelund siblings?", id: "S1L3", iframe:"S1L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L4", iframe:"no", type: "textfield" }
-            ],
-            // ancestors
-            [
-                { q: "Does node Rissne and node Duvbo have the same parent?", id: "A1L1", iframe:"A1L", type: "yesNo" },
-                { q: "How many ancestors does node Stockholms län have?", id: "A1L2", iframe:"A1L", type: "howmany" },
-                { q: "Is node Norrmalm, City parent to node Reimerholme?", id: "A1L3", iframe:"A1L", type: "yesNo" },
-                { q: "Does node Gamla stan have more or less ancestors than node Kungsholmen?", id: "A1L4", iframe:"A1L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L5", iframe:"no", type: "textfield" }
-            ],
-            // descendants
-            [
-                { q: "How many children does node Järfälla have? (children = one level down in hierarchy)", id: "D1L1", iframe:"D1L", type: "howmany" },
-                { q: "How many descendants does node Söderort have?", id: "D1L2", iframe:"D1L", type: "howmany" },
-                { q: "Does node Upplands Väsby have more or less children than node Upplands-Bro? (children = one level down in hierarchy)", id: "D1L3", iframe:"D1L", type: "lessMore" },
-                { q: "Is node Hölö child to node Södertälje? (children = one level down in hierarchy)", id: "D1L4", iframe:"D1L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L5", iframe:"no", type: "textfield" }
-            ]
-        ]
-    },
-    {//treemap
-        q: "The following questions is about treemaps.\nThis time the dataset is larger.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
-        questions: [
-            // questions
-            // siblings
-            [
-                { q: "How many siblings does node Viksjö have?", id: "S2L1", iframe:"S2L", type: "howmany" },
-                { q: "Does node Hässelby-Vällingby have more or less siblings than node Enskede-Årsta-Vantör?", id: "S2L2", iframe:"S2L", type: "lessMore" },
-                { q: "Is node Järva and node Haga siblings?", id: "S2L3", iframe:"S2L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L4", iframe:"no", type: "textfield" }
-            ],
-            //ancestors
-            [
-                { q: "Does node Vega and node Skogås have the same parent?", id: "A2L1", iframe:"A2L", type: "yesNo" },
-                { q: "How many ancestors does node Traneberg have?", id: "A2L2", iframe:"A2L", type: "howmany" },
-                { q: "Is node Västerort parent to node Alvik?", id: "A2L3", iframe:"A2L", type: "yesNo" },
-                { q: "Does node Valsta have more or less ancestors than node Botkyrka?", id: "A2L4", iframe:"A2L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L5", iframe:"no", type: "textfield" }
-            ],
-            //descendants
-            [
-                { q: "How many children does node Västerort have? (children = one level down in hierarchy)", id: "D2L1", iframe:"D2L", type: "howmany" },
-                { q: "How many descendants does node Inre Staden have?", id: "D2L2", iframe:"D2L", type: "howmany" },
-                { q: "Does node Danderyd have more or less children than node Salem? (children = one level down in hierarchy)", id: "D2L3", iframe:"D2L", type: "lessMore" },
-                { q: "Is node Tveta child to node Sundbyberg?(children = one level down in hierarchy)", id: "D2L4", iframe:"D2L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L5", iframe:"no", type: "textfield" }
-            ]
-        ]
-    },
-    {//icicle plot
-        q: "The following questions is about icicle plots.\nThis time the dataset is larger.\nClick on Continue to proceed.",
-        id: "",
-        iframe:"no",
-        type: "info",
-        questions: [
-            // questions
-            // siblings
-            [
-                { q: "How many siblings does node Täby have?", id: "S3L1", iframe:"S3L", type: "howmany" },
-                { q: "Does node Enhörna have more or less siblings than node Haga?", id: "S3L2", iframe:"S3L", type: "lessMore" },
-                { q: "Is node Botkyrka and node Lidingö siblings?", id: "S3L3", iframe:"S3L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L4", iframe:"no", type: "textfield" }
-            ],
-            // ancestors
-            [
-                { q: "Does node Hägersten-Älvsjö and node Västerort have the same parent?", id: "A3L1", iframe:"A3L", type: "yesNo" },
-                { q: "How many ancestors does node Bromma have?", id: "A3L2", iframe:"A3L", type: "howmany" },
-                { q: "Is node Sundbyberg parent to node Sigtuna?", id: "A3L3", iframe:"A3L", type: "yesNo" },
-                { q: "Does node Aspudden have more or less ancestors than node Täby?", id: "A3L4", iframe:"A3L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L5", iframe:"no", type: "textfield" }
-            ],
-            // descendants
-            [
-                { q: "How many children does node Inre staden have? (children = one level down in hierarchy)", id: "D3L1", iframe:"D3L", type: "howmany" },
-                { q: "How many descendants does node Västerort have?", id: "D3L2", iframe:"D3L", type: "howmany" },
-                { q: "Does node Stockholm have more or less children than node Sollentuna? (children = one level down in hierarchy)", id: "D3L3", iframe:"D3L", type: "lessMore" },
-                { q: "Is node Sätra child to node Skarpnäck?(children = one level down in hierarchy)", id: "D3L4", iframe:"D3L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L5", iframe:"no", type: "textfield" }
-            ]
-        ]
-    },
-];*/
 
-
-
-// Large dataset 46 questions
+// Large dataset 42 questions
 const visQ2 = [
     {//node-link
         questions: [
             // questions    
             // siblings
             [
-                { q: "How many siblings does node Norrby have?", id: "S1L1", iframe:"S1L", type: "howmany" },
-                { q: "Does node Markim have more or less siblings than node Djurö?", id: "S1L2", iframe:"S1L", type: "lessMore" },
-                { q: "Is node Rådmansrö and node Helenelund siblings?", id: "S1L3", iframe:"S1L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L4", iframe:"no", type: "textfield" }
+                { q: "Is Norrby sibling to Handen?", facit:"Y", id: "S1L1", iframe:"S1L", type: "yesNo" },
+                { q: "Is Rådmansrö sibling to Helenelund?", facit:"N", id: "S1L2", iframe:"S1L", type: "yesNo" },
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S1L2", iframe:"no", type: "textfield" }
             ],
             // ancestors
             [
-                { q: "Does node Rissne and node Duvbo have the same parent?", id: "A1L1", iframe:"A1L", type: "yesNo" },
-                { q: "How many ancestors does node Stockholms län have?", id: "A1L2", iframe:"A1L", type: "howmany" },
-                { q: "Is node Norrmalm, City parent to node Reimerholme?", id: "A1L3", iframe:"A1L", type: "yesNo" },
-                { q: "Does node Gamla stan have more or less ancestors than node Kungsholmen?", id: "A1L4", iframe:"A1L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L5", iframe:"no", type: "textfield" }
+                { q: "Does Rissne and Duvbo have the same parent?", facit:"Y", id: "A1L1", iframe:"A1L", type: "yesNo" },
+                { q: "Is Norrmalm, City parent to Reimersholme?", facit:"N", id: "A1L2", iframe:"A1L", type: "yesNo" },
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L3", iframe:"no", type: "textfield" }
             ],
             // descendants
             [
-                { q: "How many children does node Järfälla have? (children = one level down in hierarchy)", id: "D1L1", iframe:"D1L", type: "howmany" },
-                { q: "How many descendants does node Söderort have?", id: "D1L2", iframe:"D1L", type: "howmany" },
-                { q: "Does node Upplands Väsby have more or less children than node Upplands-Bro? (children = one level down in hierarchy)", id: "D1L3", iframe:"D1L", type: "lessMore" },
-                { q: "Is node Hölö child to node Södertälje? (children = one level down in hierarchy)", id: "D1L4", iframe:"D1L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L5", iframe:"no", type: "textfield" }
+                { q: "Is Högdalen a descendant to Söderort?", facit:"Y", id: "D1L1", iframe:"D1L", type: "yesNo" },
+                { q: "Is Hölö child to Södertälje? (children = one level down in hierarchy)", facit:"Y", id: "D1L2", iframe:"D1L", type: "yesNo" },
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L3", iframe:"no", type: "textfield" }
             ]
         ]
     },
@@ -522,26 +400,21 @@ const visQ2 = [
             // questions
             // siblings
             [
-                { q: "How many siblings does node Viksjö have?", id: "S2L1", iframe:"S2L", type: "howmany" },
-                { q: "Does node Hässelby-Vällingby have more or less siblings than node Enskede-Årsta-Vantör?", id: "S2L2", iframe:"S2L", type: "lessMore" },
-                { q: "Is node Järva and node Haga siblings?", id: "S2L3", iframe:"S2L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L4", iframe:"no", type: "textfield" }
+                { q: "Is Viksjö sibling to Huddinge?", facit:"N", id: "S2L1", iframe:"S2L", type: "yesNo" },
+                { q: "Is Järva sibling to Haga?", facit:"Y", id: "S2L2", iframe:"S2L", type: "yesNo" },
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L3", iframe:"no", type: "textfield" }
             ],
             //ancestors
             [
-                { q: "Does node Vega and node Skogås have the same parent?", id: "A2L1", iframe:"A2L", type: "yesNo" },
-                { q: "How many ancestors does node Traneberg have?", id: "A2L2", iframe:"A2L", type: "howmany" },
-                { q: "Is node Västerort parent to node Alvik?", id: "A2L3", iframe:"A2L", type: "yesNo" },
-                { q: "Does node Valsta have more or less ancestors than node Botkyrka?", id: "A2L4", iframe:"A2L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L5", iframe:"no", type: "textfield" }
+                { q: "Does Vega and Skogås have the same parent?", facit:"N", id: "A2L1", iframe:"A2L", type: "yesNo" },
+                { q: "Is Västerort parent to Alvik?", facit:"N", id: "A2L2", iframe:"A2L", type: "yesNo" },
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L3", iframe:"no", type: "textfield" }
             ],
             //descendants
             [
-                { q: "How many children does node Västerort have? (children = one level down in hierarchy)", id: "D2L1", iframe:"D2L", type: "howmany" },
-                { q: "How many descendants does node Inre Staden have?", id: "D2L2", iframe:"D2L", type: "howmany" },
-                { q: "Does node Danderyd have more or less children than node Salem? (children = one level down in hierarchy)", id: "D2L3", iframe:"D2L", type: "lessMore" },
-                { q: "Is node Tveta child to node Sundbyberg?(children = one level down in hierarchy)", id: "D2L4", iframe:"D2L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L5", iframe:"no", type: "textfield" }
+                { q: "Is Långholmen a descendant to Inre Staden?", facit:"No", id: "D2L1", iframe:"D2L", type: "yesNo" },
+                { q: "Is Tveta child to Sundbyberg?(children = one level down in hierarchy)", facit:"N", id: "D2L2", iframe:"D2L", type: "yesNo" },
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L3", iframe:"no", type: "textfield" }
             ]
         ]
     },
@@ -550,26 +423,21 @@ const visQ2 = [
             // questions
             // siblings
             [
-                { q: "How many siblings does node Täby have?", id: "S3L1", iframe:"S3L", type: "howmany" },
-                { q: "Does node Enhörna have more or less siblings than node Haga?", id: "S3L2", iframe:"S3L", type: "lessMore" },
-                { q: "Is node Botkyrka and node Lidingö siblings?", id: "S3L3", iframe:"S3L", type: "yesNo" },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L4", iframe:"no", type: "textfield" }
+                { q: "Is Täby sibling to Arninge?", facit:"N", id: "S3L1", iframe:"S3L", type: "yesNo" },
+                { q: "Is Botkyrka silbing to Lidingö?", facit:"Y", id: "S3L2", iframe:"S3L", type: "yesNo" },
+                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L3", iframe:"no", type: "textfield" }
             ],
             // ancestors
             [
-                { q: "Does node Hägersten-Älvsjö and node Västerort have the same parent?", id: "A3L1", iframe:"A3L", type: "yesNo" },
-                { q: "How many ancestors does node Bromma have?", id: "A3L2", iframe:"A3L", type: "howmany" },
-                { q: "Is node Sundbyberg parent to node Sigtuna?", id: "A3L3", iframe:"A3L", type: "yesNo" },
-                { q: "Does node Aspudden have more or less ancestors than node Täby?", id: "A3L4", iframe:"A3L", type: "lessMore" },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L5", iframe:"no", type: "textfield" }
+                { q: "Does Hägersten-Älvsjö and Västerort have the same parent?", facit:"N", id: "A3L1", iframe:"A3L", type: "yesNo" },
+                { q: "Is Sundbyberg parent to Sigtuna?", facit:"N", id: "A3L2", iframe:"A3L", type: "yesNo" },
+                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L3", iframe:"no", type: "textfield" }
             ],
             // descendants
             [
-                { q: "How many children does node Inre staden have? (children = one level down in hierarchy)", id: "D3L1", iframe:"D3L", type: "howmany" },
-                { q: "How many descendants does node Västerort have?", id: "D3L2", iframe:"D3L", type: "howmany" },
-                { q: "Does node Stockholm have more or less children than node Sollentuna? (children = one level down in hierarchy)", id: "D3L3", iframe:"D3L", type: "lessMore" },
-                { q: "Is node Sätra child to node Skarpnäck?(children = one level down in hierarchy)", id: "D3L4", iframe:"D3L", type: "yesNo" },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L5", iframe:"no", type: "textfield" }
+                { q: "Is Sundbyberg a descendant to Västerort?", facit:"N", id: "D3L1", iframe:"D3L", type: "yesNo" },
+                { q: "Is Sätra child to Skarpnäck?(children = one level down in hierarchy)", facit:"N", id: "D3L2", iframe:"D3L", type: "yesNo" },
+                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L3", iframe:"no", type: "textfield" }
             ]
         ]
     },
@@ -581,13 +449,11 @@ const visQ2 = [
 const visSeq = [[0, 1, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0], [1, 0, 2], [0, 2, 1]];
 
 
-function addQuestions(arrayVis, arrayTeq, visQ, s) {
+function addQuestions(arrayVis, arrayTeq, visQ) {
     
     for (let i = 0; i < arrayVis.length; i++) {  
         //console.log("Order of vis: ", visQ[arrayVis[i]].q);
-        if (s !== "visQ2") {
-            allStatements.push(visQ[arrayVis[i]]);
-        }
+        //allStatements.push(visQ[arrayVis[i]]);
         for (let j = 0; j < arrayTeq.length; j++) {
             var brushingLinking = visQ[arrayVis[i]].questions;
             //console.log("Order of brushing and linking: ", brushingLinking[arrayTeq[j]]);
@@ -628,15 +494,15 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1, "visQ1");
+    addQuestions(arrayVis, arrayTeq, visQ1);
     //allStatements.push(visQmiddle[0]);
-    //addQuestions(arrayVis, arrayTeq, visQ2, "visQ2");
+    //addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
     }
 
-    console.log("Ending: ", allStatements);
+    console.log("Questions: ", allStatements);
 }
 
 

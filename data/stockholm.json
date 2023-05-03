@@ -185,7 +185,7 @@
             {"name":"Stadshagen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"}
         ],"colname":"level4","parent":"Inre staden"},
         {"name":"Norrmalm, City","children":[
-            {"name":"Normalm","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
+            {"name":"Norrmalm","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Skeppsholmen","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Vasastaden","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Östermalm(norr om Odengatan)","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"}
@@ -328,15 +328,8 @@
         ],"colname":"level4","parent":"Västerort"}
     ],"colname":"level3","parent":"Stockholm"}
 ],
-
-
-
-
-
-
-
-
 "colname":"level2","parent":"Stockholms län"},
+
 {"name":"Sundbyberg","children":[
     {"name":"Centrala Sundby","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
     {"name":"Rissne","children":[],"colname":"level3","value":1, "parent":"Sundbyberg"},
