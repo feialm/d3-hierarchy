@@ -130,6 +130,8 @@ function update(source) {
     .attr("x1", nodeLink.x1)
     .attr("y1", function (d) { return d.y/1.5; })
     .attr("x2", nodeLink.x2)
-    .attr("y2", function (d) { return d.parent.y/1.5; });
+    .attr("y2", function (d) { return d.parent.y / 1.5; });
+
+Module.initZoom();
 }
 

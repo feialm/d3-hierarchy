@@ -18,6 +18,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<script type="text/javascript" src="./js/functions.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/style2.css">
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
 		<title>Query for vis</title>
@@ -44,7 +45,8 @@
 	<span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
 	It is <span class="bolded">not</span> possible to change an answer afterwards.<br><br>
 	<span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.<br><br>
-	<span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.
+	<span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.<br><br>
+	<span class="bolded">Glossary: </span>children = one level down in hierarchy, parent = one level up in hierarchy, descendant = children and its children, ancestor = parents and its parents.
 	</p>
 	</div>
 	
@@ -67,13 +69,12 @@
 	Let's begin by click on the Continue-button!</p>
 	</div>
 
-
 	<div class="prePage" id="theory">
-		<h3>Theory</h3>
-		<p>Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
+		<p><h3>Theory</h3>
+		Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
 		Read the theory, ask the test leader if anything is unclear.<br>
 		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s) where you are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
-	</p>
+		</p>
 		<div class="row">
 			<div class="column">
 				<h2>Icicle Plot</h2>
@@ -113,11 +114,11 @@
 
 	<div>
 		<form class="margin" id="survey" method="post" name="surveyForm"><br>
-			<p><span id='statement'></span><br><br>
+			<p><span id='statement'></span><span id='node1'></span><span id="text"></span><span id='node2'></span><br>
 				<span id='yesNo'>Yes
 					<input type='radio' name='yesNo' id='yes' value='Y' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
 					<input type='radio' name='yesNo' id='no' value='N' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
-				No</span><br><br>
+				No</span><br>
 				<span id='likert'>
 				Very Poor Knowledge and/or Experience
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -131,6 +132,23 @@
 				<textarea name="textfield" id="textfield" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
 				<!--<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>-->
             </p>
+		</form>
+		<form class="margin" id="survey2" method="post" name="surveyForm"><br>
+			<p><span id='statement2'></span><br>
+				<span id='yesNo2'>Yes
+					<input type='radio' name='yesNo' id='yes' value='Y' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
+					<input type='radio' name='yesNo' id='no' value='N' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
+				No</span><br><br>
+				<span id='statement3'></span><br>
+				<span id='likert2'>
+				Very Poor Knowledge and/or Experience
+					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+					<input type='radio' name='query' id='radio2' value='2' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+					<input type='radio' name='query' id='radio3' value='3' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+					<input type='radio' name='query' id='radio4' value='4' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+					<input type='radio' name='query' id='radio5' value='5' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+				Very Good Knowledge and/or Experience</span>
+			</p>
 		</form>
 	</div>
 
@@ -172,7 +190,7 @@
 		<iframe id="A2S" type="text/html" src="./html/treemap/treemap5.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="D2S" type="text/html" src="./html/treemap/treemap5.html">
+		<iframe id="D2S" type="text/html" src="./html/treemap/treemap6.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 		<iframe id="S3L" type="text/html" src="./html/icicle/icicle2.html">
@@ -203,7 +221,6 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
-	<script type="text/javascript" src="./js/functions.js"></script>
 	<!--<script language="javascript">
 	function checkNumber(object) {
 		var invalidChars = /[^0-9]/gi

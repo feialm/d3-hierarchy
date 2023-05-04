@@ -79,6 +79,9 @@ function update(root){
       return Module.splitString(d)
     });
   
+  
+Module.initZoom();
+  
 }
 
 

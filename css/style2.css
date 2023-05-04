@@ -126,6 +126,15 @@ iframe {
 }
 
 
+#node1{
+  font-weight: bold;
+}
+
+#node2{
+  font-weight: bold;
+}
+
+
 /* Theory page */
 /* Create three equal columns that floats next to each other */
 .column {

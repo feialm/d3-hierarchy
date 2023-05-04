@@ -62,7 +62,16 @@ function update(root){
     .attr("y", function (d) { return treemapUtils.getMeasurments2("y", d);})
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d);})
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
-    .style("fill", function (d) { return Module.color(d.depth); })
+    .style("fill", function (d) {
+      
+      if (d.data.name === node1 || d.data.name === node2) {
+        console.log("sdfg");
+      }
+      
+      return Module.color(d.depth);
+
+
+    })
     .attr("stroke", "white").attr('stroke-width', '0.4');
   
   // text labels on node
@@ -73,26 +82,26 @@ function update(root){
     .attr("x", function (d) { return d.x0 + 8; })
     .attr("y", function (d) {
       if (d.data.colname == null) {
-        return d.y0 + 5;
+        return d.y0 + 12;
       }
       if (d.data.colname == "level2") {
-        return d.y0 + 13;
+        return d.y0 + 25;
       }
       if (d.data.colname == "level3") {
-        return d.y0 + 20;
+        return d.y0 + 38;
       }
     })
     .attr("dy", "0.35em")
     .style("font", function (d) {
       if (d.children) {
         if (d.data.colname == null) {
-          return "12px sans-serif";
+          return "18px sans-serif";
         }
         if (d.data.colname == "level2") {
-          return "10px sans-serif";
+          return "16px sans-serif";
         }
       } else {
-        return "10px sans-serif"
+        return "16px sans-serif"
       }
     })
     .style("font-weight", function (d) {
@@ -110,6 +119,9 @@ function update(root){
     .text(function (d) {
       return d.data.name;
     });
+  
+  
+Module.initZoom();
   
 }
 

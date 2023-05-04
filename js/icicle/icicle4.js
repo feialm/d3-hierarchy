@@ -60,13 +60,16 @@ function update(root) {
   
     // Labels for nodes
   const text = nodeEnter.append("text")
-      .style("user-select", "none")
-      .attr("pointer-events", "none")
-      .attr("x", 4)
+    .style("user-select", "none")
+    .attr("pointer-events", "none")
+    .attr("x", 4)
     .attr("y", 17)
-   .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
+    .style("font", "16px sans-serif")
+    .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
   
   text.append("tspan")
     .text(function (d) { return d.data.name; });
+
+Module.initZoom();
 };
 

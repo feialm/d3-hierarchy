@@ -68,5 +68,7 @@ function update(root) {
   
   text.append("tspan")
     .text(function (d) { return d.data.name; });
+  
+Module.initZoom();
 };
 

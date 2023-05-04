@@ -158,6 +158,21 @@ export function mouseoutDescendants(event, d) {
 
 
 
+// ------  Zoom functions ------
+
+export let zoom = d3.zoom()
+  .on('zoom', handleZoom);
+
+export function handleZoom(e) {
+  d3.select('svg g')
+    .attr('transform', e.transform);
+}
+
+export function initZoom() {
+  d3.select('svg')
+    .call(zoom);
+}
+
 
 
 
@@ -230,7 +245,6 @@ export function splitString(d) {
       else {
         nameList = d.data.name.split(" ");    
       }
-      
       if (nameList.length > 1 && !d.children) {
         name = cutString(d, nameList, "add");
       } else {

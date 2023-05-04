@@ -79,6 +79,9 @@ function update(root){
     .text(function (d) {
       return Module.splitString(d)
     });
+  
+  
+Module.initZoom();
 }
 
 

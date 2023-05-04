@@ -73,7 +73,7 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("fill","#045a8d")
-    .attr("r", 3);//radius
+    .attr("r", 6);//radius
 
   // Labels for nodes
   nodeEnter
@@ -81,6 +81,7 @@ function update(source) {
     .attr("dy", ".35em")
     .attr("y", -13)
     .attr("text-anchor", "end")
+    .style("font", "16px sans-serif")
     .text(function (d) {
       if (d.parent == null) {
         return d.data.name;
@@ -135,5 +136,6 @@ function update(source) {
     .attr("x2", function (d) { return d.parent.x*2; })
     .attr("y2", function (d) { return d.parent.y/1.5; });
   
+Module.initZoom();
 }
 
