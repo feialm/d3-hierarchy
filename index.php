@@ -1,5 +1,5 @@
 <?php
-    // count how mnay particpants
+    // count how many particpants
 	// issue different versions of tests where the order of the questions has been changed
 	$countParticipant = fopen('C:/xampp/htdocs/d3-hierarchy/countParticipant/countParticipant.txt', 'r+');
 	if($countParticipant){
@@ -18,9 +18,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<script type="text/javascript" src="./js/functions.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/style2.css">
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="./js/functions.js"></script>
 		<title>Query for vis</title>
 	</head>
 	<body onload="onPageLoad();">
@@ -152,7 +152,14 @@
 		</form>
 	</div>
 
-	<div class="margin" id="button" onclick="advanceTest();">Continue</div>
+	<script>
+	function loading(){		
+  	//$.getScript("./html/treemap/treemap5.html");
+	document.getElementById('A2S').src = "./html/treemap/treemap5.html";
+	advanceTest();} 
+	</script>
+
+	<div class="margin" id="button" onclick="loading()">Continue</div>
 
 	<div class="iframe">
 		<!-- sibling, ancestor,  descendant -->

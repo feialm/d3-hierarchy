@@ -13,7 +13,7 @@ const radios = ["query", "yesNo"];
 
 
 var datevalues = [];
-var testPosition = 0;
+let testPosition = 0;
 var userAnswers = [];
 var currentUser = [];
 var colorVision = false;
@@ -282,14 +282,14 @@ const visQ2 = [
                     q2: " Norrby ",
                     q3: "sibling to",
                     q4: " Handen?",
-                    facit: "Y", id: "S1L1", iframe: "S1L", type: "yesNo"
+                    facit: "Y", id: "S1L1", iframe: "S1L", type: "yesNo", node1: "Norrby", node2: "Handen"
                 },
                 {
                     q: "Is",
                     q2: " Rådmansrö ",
                     q3: "sibling to",
                     q4: " Helenelund?",
-                    facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo"
+                    facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansrö", node2: "Helenelund"
                 },
                 {
                     q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
@@ -303,14 +303,14 @@ const visQ2 = [
                     q2: " Rissne",
                     q3: "have the same parent as",
                     q4: " Duvbo?",
-                    facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo"
+                    facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Norrmalm, City ",
                     q3: "parent to",
                     q4: " Reimersholme?",
-                    facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo"
+                    facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L3", iframe:"no", type: "textfield" }
             ],
@@ -321,14 +321,14 @@ const visQ2 = [
                     q2: " Högdalen ",
                     q3: "a descendant to",
                     q4: " Söderort?",
-                    facit: "Y", id: "D1L1", iframe: "D1L", type: "yesNo"
+                    facit: "Y", id: "D1L1", iframe: "D1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Hölö ",
                     q3: "child to",
                     q4: " Södertälje?",
-                    facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo"
+                    facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L3", iframe:"no", type: "textfield" }
             ]
@@ -344,14 +344,14 @@ const visQ2 = [
                     q2: " Viksjö ",
                     q3: "sibling to",
                     q4: " Huddinge?",
-                    facit: "N", id: "S2L1", iframe: "S2L", type: "yesNo"
+                    facit: "N", id: "S2L1", iframe: "S2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Järva ",
                     q3: "sibling to",
                     q4: " Haga?",
-                    facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo"
+                    facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L3", iframe:"no", type: "textfield" }
             ],
@@ -362,14 +362,14 @@ const visQ2 = [
                     q2: " Vega ",
                     q3: "have the same parent as",
                     q4: " Skogås?",
-                    facit: "N", id: "A2L1", iframe: "A2L", type: "yesNo"
+                    facit: "N", id: "A2L1", iframe: "A2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Västerort ",
                     q3: "parent to",
                     q4: " Alvik?",
-                    facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo"
+                    facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L3", iframe:"no", type: "textfield" }
             ],
@@ -380,14 +380,14 @@ const visQ2 = [
                     q2: " Långholmen ",
                     q3: "a descendant to",
                     q4: " Inre Staden?",
-                    facit: "No", id: "D2L1", iframe: "D2L", type: "yesNo"
+                    facit: "No", id: "D2L1", iframe: "D2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Tveta ",
                     q3: "child to",
                     q4: " Sundbyberg?",
-                    facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo"
+                    facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L3", iframe:"no", type: "textfield" }
             ]
@@ -403,14 +403,14 @@ const visQ2 = [
                     q2: " Täby ",
                     q3: "sibling to",
                     q4: " Arninge?",
-                    facit: "N", id: "S3L1", iframe: "S3L", type: "yesNo"
+                    facit: "N", id: "S3L1", iframe: "S3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Botkyrka ",
                     q3: "sibling to",
                     q4: " Lidingö?",
-                    facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo"
+                    facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L3", iframe:"no", type: "textfield" }
             ],
@@ -421,14 +421,14 @@ const visQ2 = [
                     q2: " Hägersten-Älvsjö ",
                     q3: "have the same parent as",
                     q4: " Västerort?",
-                    facit: "N", id: "A3L1", iframe: "A3L", type: "yesNo"
+                    facit: "N", id: "A3L1", iframe: "A3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Sundbyberg ",
                     q3: "parent to",
                     q4: " Sigtuna?",                    
-                    facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo"
+                    facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L3", iframe:"no", type: "textfield" }
             ],
@@ -439,14 +439,14 @@ const visQ2 = [
                     q2: " Sundbyberg ",
                     q3: "a descendant to",
                     q4: " Västerort?",
-                    facit: "N", id: "D3L1", iframe: "D3L", type: "yesNo"
+                    facit: "N", id: "D3L1", iframe: "D3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 {
                     q: "Is",
                     q2: " Sätra ",
                     q3: "child to",
                     q4: " Skarpnäck?",
-                    facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo"
+                    facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
                 },
                 { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L3", iframe:"no", type: "textfield" }
             ]
@@ -551,10 +551,18 @@ function showINPUT(type) {
 };
 
 
+function saveLocalStorage() {
+    $(document).ready(function () {
+        localStorage.setItem('testPosition', testPosition);
+        localStorage.setItem('node1', allStatements[testPosition].node1);
+        localStorage.setItem('node2', allStatements[testPosition].node2);
+    });
+};
 
 
 // update page with with the current question + reset button
- function onPageLoad() {
+function onPageLoad() {
+    saveLocalStorage();
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
@@ -661,6 +669,9 @@ function checkFacit() {
 }
 
 
+
+
+
 // take you to the next question
  function advanceTest(){
 	var c = document.getElementById("button").style.color;
@@ -696,8 +707,9 @@ function checkFacit() {
 		
         unCheckRadios();
 		document.getElementById("textfield").value = "";
-        
         testPosition++;
+        console.log(allStatements[testPosition].node1, allStatements[testPosition].node2);
+        saveLocalStorage();
         document.getElementById("statement").innerHTML = allStatements[testPosition].q;
         document.getElementById("node1").innerHTML = allStatements[testPosition].q2;
         document.getElementById("text").innerHTML = allStatements[testPosition].q3;
@@ -778,7 +790,6 @@ function unCheckRadios(){
 
 // save answers in .txt file, send to php-file
 function saveUserAnswers(recordTimeBtn, facit, s) {
-    console.log(s)
 	var formElements = document.getElementById(s);
 	var answer;
 

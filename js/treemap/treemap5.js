@@ -1,6 +1,19 @@
 import * as Module from "../utils/utils.js";
 import * as treemapUtils from "../utils/treemapUtils.js";
 
+
+let testPosition = 0;
+console.log(allStatements);
+let node1, node2 = "";
+
+$(document).ready(function () {
+  testPosition = localStorage.getItem('testPosition');
+  node1 = localStorage.getItem('node1');
+  node2 = localStorage.getItem('node2');
+  console.log("TestPosition: ", testPosition, "node1: ", node1, "node2: ", node2);
+});
+
+
 var i = 0;
 var root;
 
@@ -26,7 +39,7 @@ d3.json("../../data/2dShapes.json").then(function (data) {
 });
 
 
-function update(root){ 
+function update(root) { 
 
   var tree = d3.treemap().size([Module.width_c, Module.height_c])
     .padding(2)(root);
@@ -63,14 +76,11 @@ function update(root){
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d);})
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
     .style("fill", function (d) {
-      
       if (d.data.name === node1 || d.data.name === node2) {
-        console.log("sdfg");
+        return "#fdb863";
+      } else {
+        return Module.color(d.depth);
       }
-      
-      return Module.color(d.depth);
-
-
     })
     .attr("stroke", "white").attr('stroke-width', '0.4');
   
