@@ -553,7 +553,6 @@ function showINPUT(type) {
 
 function saveLocalStorage() {
     $(document).ready(function () {
-        localStorage.setItem('testPosition', testPosition);
         localStorage.setItem('node1', allStatements[testPosition].node1);
         localStorage.setItem('node2', allStatements[testPosition].node2);
     });

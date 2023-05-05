@@ -1,18 +1,13 @@
 import * as Module from "../utils/utils.js";
 import * as treemapUtils from "../utils/treemapUtils.js";
 
-
-let testPosition = 0;
-console.log(allStatements);
 let node1, node2 = "";
 
 $(document).ready(function () {
-  testPosition = localStorage.getItem('testPosition');
   node1 = localStorage.getItem('node1');
   node2 = localStorage.getItem('node2');
-  console.log("TestPosition: ", testPosition, "node1: ", node1, "node2: ", node2);
+  console.log("node1: ", node1, "node2: ", node2);
 });
-
 
 var i = 0;
 var root;

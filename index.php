@@ -155,7 +155,15 @@
 	<script>
 	function loading(){		
   	//$.getScript("./html/treemap/treemap5.html");
+	document.getElementById('S1S').src = "./html/nodelink/tree4.html";
+	document.getElementById('A1S').src = "./html/nodelink/tree5.html";
+	document.getElementById('D2S').src = "./html/nodelink/tree6.html";
+	document.getElementById('S2S').src = "./html/treemap/treemap4.html";			
 	document.getElementById('A2S').src = "./html/treemap/treemap5.html";
+	document.getElementById('D2S').src = "./html/treemap/treemap6.html";
+	document.getElementById('S3S').src = "./html/icicle/icicle6.html";			
+	document.getElementById('A3S').src = "./html/icicle/icicle6.html";
+	document.getElementById('D3S').src = "./html/icicle/icicle6.html";
 	advanceTest();} 
 	</script>
 

@@ -1,6 +1,14 @@
 import * as Module from "../utils/utils.js";
 import * as icicleUtils from "../utils/icicleUtils.js";
 
+let node1, node2 = "";
+
+$(document).ready(function () {
+  node1 = localStorage.getItem('node1');
+  node2 = localStorage.getItem('node2');
+  console.log("node1: ", node1, "node2: ", node2);
+});
+
 var i = 0;
 
 var svg = d3
@@ -48,8 +56,14 @@ function update(root) {
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("width", function (d) { return icicleUtils.rectWidth(d); })
     .attr("height", function (d) { return icicleUtils.rectHeight(d); })
-    .attr("fill", function (d) { return Module.color(d.depth); })
-    .attr("stroke", "white").attr('stroke-width', '0.4')
+    .attr("fill", function (d) {
+      if (d.data.name === node1 || d.data.name === node2) {
+        return "#fdb863";
+      } else {
+        return Module.color(d.depth);
+      }
+    })
+    .attr("stroke", "white" ).attr('stroke-width', '0.4')
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverDescendants)
     .on("mouseout", Module.mouseoutDescendants)
