@@ -1,5 +1,5 @@
 body {
-	background-color: #ffffff;
+	background-color: #e8ecf0;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width: 95%;
 	border: 2px solid #d1d9df;
@@ -26,8 +26,12 @@ body {
 	margin: 20px;
 }
 
-.prePage p{
-	font-size: 1.0em;
+#intro{
+	font-size: 1.2em;
+}
+
+#theory{
+  margin-top: 0px;
 }
 
 h1 {
@@ -76,7 +80,7 @@ iframe {
 
 /* TOP MENU */
 .menu {
-  background-color:#ffffff;
+  background-color:#e8ecf0;
   overflow: hidden;
   font: 12px;
   top: 0;
@@ -88,7 +92,7 @@ iframe {
 
 /* Style the links inside the navigation bar */
 .menu a {
-	background-color:#d1d9df;
+	background-color:#74a9cf;
 	float: right;
 	display: block;
 	color: black;
@@ -109,7 +113,7 @@ iframe {
 #introPOP {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
-  background-color: rgba(255, 255, 255, 255);
+  background-color: #e8ecf0;
   z-index: 2;
   font-size: 20px;
   width: 90%;
@@ -143,7 +147,8 @@ iframe {
   padding: 5px;
   height: 300px;
   border: 2px solid #ffffff;
-  background-color: #d1d9df;
+  border-radius: 5px;
+  background-color: #e8ecf0;
 }
 
 #shorter{

@@ -34,43 +34,42 @@
 		</div>
 	<p class="prePage">
 	<span class="bolded"> The aim: </span> The research study is to investigate what techniques are most suitable for exploring the structure and details of hierarchical data.
-	To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
-	
-	<span class="bolded">The set up: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations.The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
-	Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br>
-	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
-	name or contact information to keep the answers anonymized when showing the results.<br><br>
-	<span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
-	You are also free to use the mouse to zoom in/out in the user interface.<br><br>
-	<span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
-	It is <span class="bolded">not</span> possible to change an answer afterwards.<br><br>
-	<span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.<br><br>
-	<span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.<br><br>
-	<span class="bolded">Glossary: </span>children = one level down in hierarchy, parent = one level up in hierarchy, descendant = children and its children, ancestor = parents and its parents.
-	</p>
+    To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
+    <span class="bolded">The setup: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations. The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
+    Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br>
+    In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
+    name or contact information to keep the answers anonymized when showing the results.<br><br>
+    <span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
+    Once you interact with the diagram the pre-highlighted nodes disappear and will not come back.<br>
+    You are also free to use the mouse to zoom in/out in the user interface.<br><br>
+    <span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
+    It is <span class="bolded">not</span> possible to change an answer afterward.<br><br>
+    <span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.<br><br>
+    <span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.<br><br>
+    <span class="bolded">Glossary: </span>children = one level down in hierarchy, parent = one level up in hierarchy, descendant = children and its children, ancestor = parents and its parents.
 	</div>
 	
 	<!------------- Main pages ------------->
 	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='currentPage'></span><br>
-	<div class="prePage" id="intro">
-	<p>Hello,<br>
-	Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
-	To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
-	The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
-	You will be asked to perform tasks and answer questions regarding the data and the visualizations.The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
-	Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.
-	You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is not possible to change an answer afterwards.
-	<br><br>
-	In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
-	name or contact information to keep the answers anonymized when showing the results.<br><br>
-	The test is conducted in English but you are allowed to ask questions in both Swedish or English relating if you do not understand the task/question to clarify the the question.
-	However, the test leader will not help you fulfill the tasks and questions by giving any answers or hints.
-	<br><br>
-	Let's begin by click on the Continue-button!</p>
-	</div>
+    <div class="prePage" id="intro">
+    <p>Hello,<br>
+    Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
+    To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
+    The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
+    You will be asked to perform tasks and answer questions regarding the data and the visualizations. Some tasks and questions require deeper answers. The question will be stated and the visualization will be shown below.
+	In the beginning some nodes in the visualization are pre-highlighted in yellow. Once you interact with the visualization the yellow highlight disappears and will not come back.
+    You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is not possible to change an answer afterward.
+    <br><br>
+    In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
+    name or contact information to keep the answers anonymized when showing the results.<br><br>
+    The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.
+    However, the test leader will not help you fulfill the tasks and questions by giving any answers or hints.
+    <br><br>
+    Let's begin by clicking on the Continue button!</p>
+    </div>
 
 	<div class="prePage" id="theory">
-		<p><h3>Theory</h3>
+		<p><span class="bolded">Theory</span><br>
 		Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
 		Read the theory, ask the test leader if anything is unclear.<br>
 		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s) where you are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
@@ -154,15 +153,24 @@
 
 	<script>
 	function loading(){		
-  	//$.getScript("./html/treemap/treemap5.html");
+  	//$.getScript("./js/utils/utils.js");
+	document.getElementById('S1L').src = "./html/nodelink/tree3.html";
+	document.getElementById('A1L').src = "./html/nodelink/tree.html";
+	document.getElementById('D1L').src = "./html/nodelink/tree2.html";
 	document.getElementById('S1S').src = "./html/nodelink/tree4.html";
 	document.getElementById('A1S').src = "./html/nodelink/tree5.html";
 	document.getElementById('D2S').src = "./html/nodelink/tree6.html";
+	document.getElementById('S2L').src = "./html/treemap/treemap2.html";			
+	document.getElementById('A2L').src = "./html/treemap/treemap.html";
+	document.getElementById('D2L').src = "./html/treemap/treemap3.html";
 	document.getElementById('S2S').src = "./html/treemap/treemap4.html";			
 	document.getElementById('A2S').src = "./html/treemap/treemap5.html";
 	document.getElementById('D2S').src = "./html/treemap/treemap6.html";
-	document.getElementById('S3S').src = "./html/icicle/icicle6.html";			
-	document.getElementById('A3S').src = "./html/icicle/icicle6.html";
+	document.getElementById('S3L').src = "./html/icicle/icicle2.html";			
+	document.getElementById('A3L').src = "./html/icicle/icicle.html";
+	document.getElementById('D3L').src = "./html/icicle/icicle3.html";
+	document.getElementById('S3S').src = "./html/icicle/icicle4.html";			
+	document.getElementById('A3S').src = "./html/icicle/icicle5.html";
 	document.getElementById('D3S').src = "./html/icicle/icicle6.html";
 	advanceTest();} 
 	</script>

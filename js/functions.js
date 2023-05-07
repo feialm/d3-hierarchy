@@ -293,6 +293,9 @@ const visQ2 = [
                 },
                 {
                     q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
                     id: "S1L2", iframe: "no", type: "textfield"
                 }
             ],
@@ -303,16 +306,22 @@ const visQ2 = [
                     q2: " Rissne",
                     q3: "have the same parent as",
                     q4: " Duvbo?",
-                    facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "Rissne", node2: "Duvbo"
                 },
                 {
                     q: "Is",
                     q2: " Norrmalm, City ",
                     q3: "parent to",
                     q4: " Reimersholme?",
-                    facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "Norrmalm, City", node2: "Reimersholme"
                 },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A1L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "A1L3", iframe: "no", type: "textfield"
+                }
             ],
             // descendants
             [
@@ -321,16 +330,22 @@ const visQ2 = [
                     q2: " Högdalen ",
                     q3: "a descendant to",
                     q4: " Söderort?",
-                    facit: "Y", id: "D1L1", iframe: "D1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "Y", id: "D1L1", iframe: "D1L", type: "yesNo", node1: "Högdalen", node2: "Söderort"
                 },
                 {
                     q: "Is",
                     q2: " Hölö ",
                     q3: "child to",
                     q4: " Södertälje?",
-                    facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Södertälje"
                 },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D1L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "D1L3", iframe: "no", type: "textfield"
+                }
             ]
         ]
     },
@@ -344,16 +359,22 @@ const visQ2 = [
                     q2: " Viksjö ",
                     q3: "sibling to",
                     q4: " Huddinge?",
-                    facit: "N", id: "S2L1", iframe: "S2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "S2L1", iframe: "S2L", type: "yesNo", node1: "Viksjö", node2: "Huddinge"
                 },
                 {
                     q: "Is",
                     q2: " Järva ",
                     q3: "sibling to",
-                    q4: " Haga?",
-                    facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    q4: " Råsunda?",
+                    facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "Järva", node2: "Råsunda"
                 },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S2L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "S2L3", iframe: "no", type: "textfield"
+                }
             ],
             //ancestors
             [
@@ -362,16 +383,22 @@ const visQ2 = [
                     q2: " Vega ",
                     q3: "have the same parent as",
                     q4: " Skogås?",
-                    facit: "N", id: "A2L1", iframe: "A2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "A2L1", iframe: "A2L", type: "yesNo", node1: "Vega", node2: "Skogås"
                 },
                 {
                     q: "Is",
                     q2: " Västerort ",
                     q3: "parent to",
                     q4: " Alvik?",
-                    facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "Västerort", node2: "Alvik"
                 },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A2L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "A2L3", iframe: "no", type: "textfield"
+                }
             ],
             //descendants
             [
@@ -380,16 +407,22 @@ const visQ2 = [
                     q2: " Långholmen ",
                     q3: "a descendant to",
                     q4: " Inre Staden?",
-                    facit: "No", id: "D2L1", iframe: "D2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "No", id: "D2L1", iframe: "D2L", type: "yesNo", node1: "Långholmen", node2: "Inre Staden"
                 },
                 {
                     q: "Is",
                     q2: " Tveta ",
                     q3: "child to",
                     q4: " Sundbyberg?",
-                    facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "Tveta", node2: "Sundbyberg"
                 },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D2L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "D2L3", iframe: "no", type: "textfield"
+                }
             ]
         ]
     },
@@ -403,16 +436,22 @@ const visQ2 = [
                     q2: " Täby ",
                     q3: "sibling to",
                     q4: " Arninge?",
-                    facit: "N", id: "S3L1", iframe: "S3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "S3L1", iframe: "S3L", type: "yesNo", node1: "Täby", node2: "Arninge"
                 },
                 {
                     q: "Is",
                     q2: " Botkyrka ",
                     q3: "sibling to",
                     q4: " Lidingö?",
-                    facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "Botkyrka", node2: "Lidingö"
                 },
-                { q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "S3L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "S3L3", iframe: "no", type: "textfield"
+                }
             ],
             // ancestors
             [
@@ -421,16 +460,22 @@ const visQ2 = [
                     q2: " Hägersten-Älvsjö ",
                     q3: "have the same parent as",
                     q4: " Västerort?",
-                    facit: "N", id: "A3L1", iframe: "A3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "A3L1", iframe: "A3L", type: "yesNo", node1: "Hägersten-Älvsjö", node2: "Västerort"
                 },
                 {
                     q: "Is",
                     q2: " Sundbyberg ",
                     q3: "parent to",
-                    q4: " Sigtuna?",                    
-                    facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    q4: " Solna?",                    
+                    facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "Sundbyberg", node2: "Solna"
                 },
-                { q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "A3L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "A3L3", iframe: "no", type: "textfield"
+                }
             ],
             // descendants
             [
@@ -439,16 +484,22 @@ const visQ2 = [
                     q2: " Sundbyberg ",
                     q3: "a descendant to",
                     q4: " Västerort?",
-                    facit: "N", id: "D3L1", iframe: "D3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "D3L1", iframe: "D3L", type: "yesNo", node1: "Sundbyberg", node2: "Västerort"
                 },
                 {
                     q: "Is",
                     q2: " Sätra ",
                     q3: "child to",
                     q4: " Skarpnäck?",
-                    facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "Sätra", node2: "Skarpnäck"
                 },
-                { q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)", id: "D3L3", iframe:"no", type: "textfield" }
+                {
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q2: "",
+                    q3: "",
+                    q4: "",
+                    id: "D3L3", iframe: "no", type: "textfield"
+                }
             ]
         ]
     },
@@ -503,9 +554,9 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ1);
     //allStatements.push(visQmiddle[0]);
-    //addQuestions(arrayVis, arrayTeq, visQ2);
+    addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);

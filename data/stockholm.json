@@ -174,7 +174,7 @@
 
 
 {"name":"Stockholm","children":[
-    {"name":"Inre staden","children":[
+    {"name":"Inre Staden","children":[
         {"name":"Kungsholmen","children":[
             {"name":"Fredhäll","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
             {"name":"Kristineberg","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
@@ -183,13 +183,13 @@
             {"name":"Lilla Essingen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
             {"name":"Stora Essingen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"},
             {"name":"Stadshagen","children":[],"colname":"level5","value":1, "parent":"Kungsholmen"}
-        ],"colname":"level4","parent":"Inre staden"},
+        ],"colname":"level4","parent":"Inre Staden"},
         {"name":"Norrmalm, City","children":[
             {"name":"Norrmalm","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Skeppsholmen","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Vasastaden","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"},
             {"name":"Östermalm(norr om Odengatan)","children":[],"colname":"level5","value":1, "parent":"Norrmalm, City"}
-        ],"colname":"level4","parent":"Inre staden"},
+        ],"colname":"level4","parent":"Inre Staden"},
         {"name":"Södermalm","children":[
             {"name":"Gamla Stan","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
             {"name":"Långholmen","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
@@ -197,14 +197,14 @@
             {"name":"Riddarholmen","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
             {"name":"Södermalm","children":[],"colname":"level5","value":1, "parent":"Södermalm"},
             {"name":"Södra Hammarbyhamnen","children":[],"colname":"level5","value":1, "parent":"Södermalm"}
-        ],"colname":"level4","parent":"Inre staden"},
+        ],"colname":"level4","parent":"Inre Staden"},
         {"name":"Östermalm","children":[
             {"name":"Djurgården","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
             {"name":"Hjorthagen","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
             {"name":"Gärdet","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
             {"name":"Norra Djurgården","children":[],"colname":"level5","value":1, "parent":"Östermalm"},
             {"name":"Östermalm","children":[],"colname":"level5","value":1, "parent":"Östermalm"}
-        ],"colname":"level4","parent":"Inre staden"}
+        ],"colname":"level4","parent":"Inre Staden"}
     ],"colname":"level3","parent":"Stockholm"},
 
 

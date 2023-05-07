@@ -1,6 +1,13 @@
 import * as Module from "../utils/utils.js";
 import * as nodeLink from "../utils/node-linkUtils.js";
 
+let node1, node2 = "";
+
+$(document).ready(function () {
+  node1 = localStorage.getItem('node1');
+  node2 = localStorage.getItem('node2');
+  console.log("node1: ", node1, "node2: ", node2);
+});
 
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
@@ -71,7 +78,13 @@ function update(source) {
     .append("circle")
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
-    .attr("fill","#045a8d")
+    .attr("fill", function (d) {
+      if (d.data.name === node1 || d.data.name === node2) {
+        return "#fdb863";
+      } else {
+        return "#045a8d";
+      }
+    })
     .attr("r", 3);//radius
 
   // Labels for nodes
