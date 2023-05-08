@@ -142,13 +142,13 @@
 				No</span><br><br>
 				<span id='statement3'></span><br>
 				<span id='likert2'>
-				Very Poor Knowledge and/or Experience
+				Very Poor
 					<input type='radio' name='query' id='radio1' value='1' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
 					<input type='radio' name='query' id='radio2' value='2' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
 					<input type='radio' name='query' id='radio3' value='3' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
 					<input type='radio' name='query' id='radio4' value='4' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
 					<input type='radio' name='query' id='radio5' value='5' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
-				Very Good Knowledge and/or Experience</span>
+				Very Good</span>
 			</p>
 		</form>
 	</div>

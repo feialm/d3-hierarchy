@@ -545,18 +545,16 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1);
+    addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
     }
 
-    //console.log("Questions: ", allStatements);
+    console.log("Questions: ", allStatements);
 }
 
-// read in the questions
-getQuestions();
 
 
 function hideIT(thatArray) {
@@ -602,6 +600,7 @@ function saveLocalStorage() {
 
 // update page with with the current question + reset button
 function onPageLoad() {
+    getQuestions();// read in the questions
     saveLocalStorage();
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
@@ -794,7 +793,7 @@ function checkFacit() {
     } else {
         document.getElementById("intro").style.display = "none";
     }
-    if (allStatements[testPosition].id === "I4") {
+    if (allStatements[testPosition].id === "I3") {
         document.getElementById("theory").style.display = "inline-block";
     } else {
         document.getElementById("theory").style.display = "none";

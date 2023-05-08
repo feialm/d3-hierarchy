@@ -6,7 +6,7 @@ let node1, node2 = "";
 $(document).ready(function () {
   node1 = localStorage.getItem('node1');
   node2 = localStorage.getItem('node2');
-  console.log("node1: ", node1, "node2: ", node2);
+  //console.log("node1: ", node1, "node2: ", node2);
 });
 
 // append svg-object to container in html-file
