@@ -151,6 +151,24 @@
 				Very Good</span>
 			</p>
 		</form>
+		<form class="margin" id="survey3" method="post" name="surveyForm"><br>
+			<p><span id='statementFirst'></span><br></p>	
+			<p><span id='statementA'></span><br>
+				<textarea name="textfield" id="textfieldA" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
+			</p>
+			<p><span id='statementB'></span><br>
+				<textarea name="textfield" id="textfieldB" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
+			</p>
+			<p><span id='statementC'></span><br>
+				<textarea name="textfield" id="textfieldC" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
+			</p>
+			<span id='yesNo3'>
+			<input type='radio' name='yesNo' id='yes' value='' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
+			</span><br><br>
+			<span id='likert3'>
+			<input type='radio' name='query' id='radio1' value='' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+			</span>
+		</form>
 	</div>
 
 	<script>
@@ -236,13 +254,7 @@
 		<iframe id="D3S" type="text/html" src="./html/icicle/icicle6.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
-		<iframe id="CMV1" type="text/html" src="./html/CMV/CMV1_S.html">
-			<p>Your browser does not support iframes.</p>
-		</iframe>
-		<iframe id="CMV2" type="text/html" src="./html/CMV/CMV2_S.html">
-			<p>Your browser does not support iframes.</p>
-		</iframe>
-		<iframe id="CMV3" type="text/html" src="./html/CMV/CMV3_S.html">
+		<iframe id="CMV1" type="text/html" src="./html/CMV/CMV1_A.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>

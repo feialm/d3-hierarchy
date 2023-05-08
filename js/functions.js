@@ -3,11 +3,11 @@ var allStatements = [];// put this in the beginning instead??
 const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
     "S2L", "A2L", "D2L", "S2S", "A2S", "D2S",
     "S3L", "A3L", "D3L", "S3S", "A3S", "D3S",
-    "CMV1", "CMV2", "CMV3"];
+    "CMV1"];
 
 const inputArray = ["likert", "yesNo", "textfield"];
 
-const pageArray = ["survey", "survey2","theory", "CMV"];
+const pageArray = ["survey", "survey2", "survey3", "theory", "CMV"];
 
 const radios = ["query", "yesNo"];
 
@@ -57,25 +57,11 @@ const endingQ = [
         type: "info"
     },
     {
-        q: "What would you like to happen in the table and the node-link diagram when interacting with the interface exploring the data?",
-        q2: "",
-        q3: "",
-        q4: "",
+        q:"Locate the correct visualizations in the menu down below and compare them to answer the follwoing questions:",
+        q2: "What would you like to happen in the table and the node-link diagram when interacting with the interface exploring the data?",
+        q3: "What would you like to happen in the table and treemap when interacting with the interface exploring the data?",
+        q4: "What would you like to happen in the table and the icicle plot when interacting with the interface exploring the data",
         id: "CMV1", iframe: "CMV1", type: "textfield"
-    },
-    {
-        q: "What would you like to happen in the table and treemap when interacting with the interface exploring the data?",
-        q2: "",
-        q3: "",
-        q4: "",
-        id: "CMV2", iframe: "CMV2", type: "textfield"
-    },
-    {
-        q: "What would you like to happen in the table and the icicle plot when interacting with the interface exploring the data",
-        q2: "",
-        q3: "",
-        q4: "",
-        id: "CMV3", iframe: "CMV3", type: "textfield"
     },
     {
         q: "Do you have any thought on how the techniques that you have seen today can be improved for explore and understand a node's relationships to other nodes?",
@@ -545,7 +531,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
@@ -605,7 +591,7 @@ function onPageLoad() {
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
-    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/54";
+    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/52";
     
     hideIT(pageArray);
     hideIT(iframeArray);
@@ -708,6 +694,48 @@ function checkFacit() {
 }
 
 
+// reset radio-buttons
+function unCheckRadios(){
+    for (var j = 0; j < radios.length; j++){
+        var radioButtons = document.getElementsByName(radios[j]);
+        for (var i = 0; i < radioButtons.length; i++) {
+            if(radioButtons[i].checked) {
+                document.getElementById(radioButtons[i].id).checked = false;
+            }
+        }        
+    }
+
+}
+
+
+// save answers in .txt file, send to php-file
+function saveUserAnswers(recordTimeBtn, facit, s) {
+	var formElements = document.getElementById(s);
+	var answer;
+
+	if (allStatements[testPosition] !== "") {
+        answer = allStatements[testPosition].id
+            + "\t"+ recordTimeBtn
+            + "\t" + formElements.elements["yesNo"].value
+            + "\t" + formElements.elements["query"].value
+            + "\t" + facit
+            + "\t" + document.getElementById("textfield").value + document.getElementById("textfieldA").value
+            + "\t" + document.getElementById("textfieldB").value
+            + "\t" + document.getElementById("textfieldC").value;
+    }
+	userAnswers.push(answer);
+}
+
+
+// POP-up window for Help page
+ function on() {
+	document.getElementById("introPOP").style.display = "block";
+}
+
+ function off() {
+	document.getElementById("introPOP").style.display = "none";
+}
+
 
 
 
@@ -734,7 +762,10 @@ function checkFacit() {
             if (allStatements[testPosition].id === "I2") {
                 saveUserAnswers(saveDate, facit, "survey2"); // save answers 
             }
-            else if (allStatements[testPosition].type === "textfield") {
+            else if (allStatements[testPosition].id === "CMV1") {
+                 saveUserAnswers(saveDate, facit, "survey3"); // save answers 
+            }
+            else if (allStatements[testPosition].id !== "CMV1" && allStatements[testPosition].type === "textfield") {
                  saveUserAnswers(saveDate, facit, "survey"); // save answers 
             }
             else if(allStatements[testPosition].type === "yesNo"){
@@ -745,7 +776,10 @@ function checkFacit() {
         }
 		
         unCheckRadios();
-		document.getElementById("textfield").value = "";
+        document.getElementById("textfield").value = "";
+        document.getElementById("textfieldA").value = "";
+        document.getElementById("textfieldB").value = "";
+        document.getElementById("textfieldC").value = "";
         testPosition++;
         console.log(allStatements[testPosition].node1, allStatements[testPosition].node2);
         saveLocalStorage();
@@ -753,7 +787,7 @@ function checkFacit() {
         document.getElementById("node1").innerHTML = allStatements[testPosition].q2;
         document.getElementById("text").innerHTML = allStatements[testPosition].q3;
         document.getElementById("node2").innerHTML = allStatements[testPosition].q4;
-        document.getElementById("currentPage").innerHTML = "Page: " +  (testPosition+1) +"/54";
+        document.getElementById("currentPage").innerHTML = "Page: " +  (testPosition+1) +"/52";
 	}
 	else {
 		alert("Please fill in an answer to proceed!");
@@ -784,7 +818,7 @@ function checkFacit() {
     }
 
 
-    if (allStatements[testPosition].type === "info" || allStatements[testPosition].id === "other") {
+    if (allStatements[testPosition].type === "info") {
         document.getElementById("button").style.color = "#000";
         document.getElementById("button").style.backgroundColor = "#74a9cf";
     }
@@ -798,58 +832,27 @@ function checkFacit() {
     } else {
         document.getElementById("theory").style.display = "none";
     }
-    if (allStatements[testPosition].id === "CMV1" ||
-        allStatements[testPosition].id === "CMV2" ||
-        allStatements[testPosition].id === "CMV3"
+    if (allStatements[testPosition].id === "CMV1"
     ) {
         document.getElementById("CMV").style.display = "inline-block";
+        document.getElementById("survey3").style.display = "inline-block";
+        document.getElementById("statementFirst").innerHTML = allStatements[testPosition].q;
+        document.getElementById("statementA").innerHTML = allStatements[testPosition].q2;
+        document.getElementById("statementB").innerHTML = allStatements[testPosition].q3;
+        document.getElementById("statementC").innerHTML = allStatements[testPosition].q4;
+        document.getElementById("survey").style.display = "none";
+        document.getElementById("yesNo3").style.display = "none";
+        document.getElementById("likert3").style.display = "none";
     } else {
         document.getElementById("CMV").style.display = "none";
+        document.getElementById("survey3").style.display = "none";
+
     }
 
     showINPUT(allStatements[testPosition].type);
     showIFRAME(allStatements[testPosition].iframe);
 }
 
-
-// reset radio-buttons
-function unCheckRadios(){
-	
-    for (var j = 0; j < radios.length; j++){
-        var radioButtons = document.getElementsByName(radios[j]);
-        for (var i = 0; i < radioButtons.length; i++) {
-            if(radioButtons[i].checked) {
-                document.getElementById(radioButtons[i].id).checked = false;
-            }
-        }        
-    }
-
-}
-
-
-// save answers in .txt file, send to php-file
-function saveUserAnswers(recordTimeBtn, facit, s) {
-	var formElements = document.getElementById(s);
-	var answer;
-
-	if (allStatements[testPosition] !== "") {
-        answer = allStatements[testPosition].id + "\t" + recordTimeBtn + "\t" +
-            formElements.elements["yesNo"].value +
-            "\t" + formElements.elements["query"].value + "\t" + document.getElementById("textfield").value
-            + "\t" + facit;
-    }
-	userAnswers.push(answer);
-}
-
-
-// POP-up window for Help page
- function on() {
-	document.getElementById("introPOP").style.display = "block";
-}
-
- function off() {
-	document.getElementById("introPOP").style.display = "none";
-}
 
 
 
