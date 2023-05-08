@@ -73,13 +73,13 @@ function update(root){
     .attr("x", function (d) { return d.x0 + 8; })
     .attr("y", function (d) {
       if (d.data.colname == null) {
-        return d.y0 + 5;
+        return d.y0 + 12;
       }
       if (d.data.colname == "level2") {
-        return d.y0 + 13;
+        return d.y0 + 25;
       }
       if (d.data.colname == "level3") {
-        return d.y0 + 20;
+        return d.y0 + 38;
       }
     })
     .attr("dy", "0.35em")

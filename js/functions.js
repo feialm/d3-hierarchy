@@ -41,7 +41,7 @@ const introQ = [
         q2: "What is your current experience and or knowledge of information visualization?", type2: "likert2",
         id: "I2", iframe: "no"
     },
-    { q: "", q2: "", q3: "", q4: "", id: "I4", iframe:"no", type: "info" }
+    { q: "", q2: "", q3: "", q4: "", id: "I3", iframe:"no", type: "info" }
 ];
  
 
@@ -261,15 +261,6 @@ const visQ1 = [
 ];
 
 
-const visQmiddle = [{
-    q: "Great, you're about halfway there now! :) You will now be able to perform similar tasks on the same visualizations and techniques as before but on a larger dataset this time.\nClick on Continue to proceed.",
-    id: "",
-    iframe: "no",
-    type: "info"
-}
-];
-
-
 // Large dataset 42 questions
 const visQ2 = [
     {//node-link
@@ -292,7 +283,7 @@ const visQ2 = [
                     facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansrö", node2: "Helenelund"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -303,7 +294,7 @@ const visQ2 = [
             [
                 {
                     q: "Does",
-                    q2: " Rissne",
+                    q2: " Rissne ",
                     q3: "have the same parent as",
                     q4: " Duvbo?",
                     facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "Rissne", node2: "Duvbo"
@@ -316,7 +307,7 @@ const visQ2 = [
                     facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "Norrmalm, City", node2: "Reimersholme"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -340,7 +331,7 @@ const visQ2 = [
                     facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Södertälje"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -369,7 +360,7 @@ const visQ2 = [
                     facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "Järva", node2: "Råsunda"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -393,7 +384,7 @@ const visQ2 = [
                     facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "Västerort", node2: "Alvik"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -417,7 +408,7 @@ const visQ2 = [
                     facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "Tveta", node2: "Sundbyberg"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -446,7 +437,7 @@ const visQ2 = [
                     facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "Botkyrka", node2: "Lidingö"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -470,7 +461,7 @@ const visQ2 = [
                     facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "Sundbyberg", node2: "Solna"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -494,7 +485,7 @@ const visQ2 = [
                     facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "Sätra", node2: "Skarpnäck"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more relevant/less for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -555,7 +546,6 @@ function getQuestions() {
     //console.log("ArrayTeq: ", arrayTeq);
  
     //addQuestions(arrayVis, arrayTeq, visQ1);
-    //allStatements.push(visQmiddle[0]);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
