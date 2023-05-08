@@ -35,13 +35,12 @@
 	<p class="prePage">
 	<span class="bolded"> The aim: </span> The research study is to investigate what techniques are most suitable for exploring the structure and details of hierarchical data.
     To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
-    <span class="bolded">The setup: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations. The task can be that you will count, find, order, and name objects using the interface or based on the interface you use.
-    Some tasks and questions require deeper answers and justifications as to why one has performed a task in a way or answered a question in a specific way.<br>
-    In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
+    <span class="bolded">The setup: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations.
+    Some tasks and questions require deeper answers. In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
     name or contact information to keep the answers anonymized when showing the results.<br><br>
     <span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
     Once you interact with the diagram the pre-highlighted nodes disappear and will not come back.<br>
-    You are also free to use the mouse to zoom in/out in the user interface.<br><br>
+    You are also free to use the touchpad and the touch-scrren.<br><br>
     <span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
     It is <span class="bolded">not</span> possible to change an answer afterward.<br><br>
     <span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.<br><br>
@@ -56,14 +55,17 @@
     Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
     To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
     The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
-    You will be asked to perform tasks and answer questions regarding the data and the visualizations. Some tasks and questions require deeper answers. The question will be stated and the visualization will be shown below.
-	In the beginning some nodes in the visualization are pre-highlighted in yellow. Once you interact with the visualization the yellow highlight disappears and will not come back.
-    You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is not possible to change an answer afterward.
+    You will be asked to perform tasks and answer questions regarding the data and the visualizations. Some tasks and questions require deeper answers. The question will be stated and the visualization will be shown below.<br><br>
+    In the beginning, some nodes in the visualization are pre-highlighted in yellow. Once you interact with the visualization the yellow highlight disappears and will not come back.
+    You will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
+    <br><br>
+    The device that the user test is performed on has a touch screen. You are free to use both the touchpad and the touch-screen to perform the test.
+    You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is <span class="bolded">not</span> possible to change an answer afterward.
     <br><br>
     In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
     name or contact information to keep the answers anonymized when showing the results.<br><br>
     The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.
-    However, the test leader will not help you fulfill the tasks and questions by giving any answers or hints.
+    However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions by giving any answers or hints.
     <br><br>
     Let's begin by clicking on the Continue button!</p>
     </div>

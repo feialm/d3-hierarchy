@@ -71,6 +71,7 @@ textarea {
 
 /* - - - IFRAME - -  */
 iframe {
+  background-color: #ffffff;
 	margin: auto;
 	margin-top: 10px;
 	width: 100%;

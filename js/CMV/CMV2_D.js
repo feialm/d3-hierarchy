@@ -86,13 +86,13 @@ function update(root){
     .style("font", function (d) {
       if (d.children) {
         if (d.data.colname == null) {
-          return "12px sans-serif";
+          return "18px sans-serif";
         }
         if (d.data.colname == "level2") {
-          return "10px sans-serif";
+          return "16px sans-serif";
         }
       } else {
-        return "10px sans-serif"
+        return "16px sans-serif"
       }
     })
     .style("font-weight", function (d) {
