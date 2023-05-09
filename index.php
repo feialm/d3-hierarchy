@@ -179,7 +179,7 @@
 	document.getElementById('D1L').src = "./html/nodelink/tree2.html";
 	document.getElementById('S1S').src = "./html/nodelink/tree4.html";
 	document.getElementById('A1S').src = "./html/nodelink/tree5.html";
-	document.getElementById('D2S').src = "./html/nodelink/tree6.html";
+	document.getElementById('D1S').src = "./html/nodelink/tree6.html";
 	document.getElementById('S2L').src = "./html/treemap/treemap2.html";			
 	document.getElementById('A2L').src = "./html/treemap/treemap.html";
 	document.getElementById('D2L').src = "./html/treemap/treemap3.html";
