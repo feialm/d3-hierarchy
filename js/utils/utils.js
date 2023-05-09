@@ -49,23 +49,7 @@ export function mouseoverAncestor(event, d) {
   }//end if
 
 }
-/*
-export function mouseoutAncestor(event, d) {
-  //console.log("out node: ", d.data.name);
-  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
 
-    while(d.parent) {
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
-      if (d.parent != "null") {
-        d = d.parent;//iterate through nodes 
-      } else { break; }
-    }
-
-   if (d.data.parent == "null") {
-     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
-    }//end if
-}
-*/
 
 function getSiblings(d) {
     return {first: d.parent.children.length, second: d.parent.children };
@@ -92,26 +76,6 @@ export function mouseoverSiblings(event, d) {
   }
 }
 
-/*
-export function mouseoutSiblings(event, d) {
-
-  //console.log("out node: ", d.data.name);
-  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
-  var counter = 0;
-
-  if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
-  } else {
-    var lengthSibling = getSiblings(d).first;
-    var arraySibling = getSiblings(d).second;
-
-    while (counter < lengthSibling) {
-      d = arraySibling[counter];
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
-        counter++; // iterate through nodes
-    }
-  }
-}*/
 
 
 export function getAscendants(d) {
@@ -139,24 +103,6 @@ export function mouseoverDescendants(event, d) {
     }// end while
 }
 
-/*
-export function mouseoutDescendants(event, d) {
-  //console.log("out node: ", d.data.name);
-  //d3.selectAll("rect").style("fill", "#045a8d");
-  d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
-
-  var ascendants = getAscendants(d);
-
-  const length = ascendants.length;
-  var j = 0;
-  d = ascendants[0];
-
-    while (j < length) {       
-      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
-      d = ascendants[++j]//iterate through nodes
-    }// end while
-}
-*/
 
 
 export function colorNodes(node1, node2) {
