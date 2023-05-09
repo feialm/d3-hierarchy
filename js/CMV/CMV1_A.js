@@ -73,14 +73,14 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("fill","#045a8d")
-    .attr("r", 6);//radius
+    .attr("r", 8);//radius
 
   // Labels for nodes
   nodeEnter
     .append("text")
     .attr("dy", ".35em")
-    .attr("y", -13)
-    .attr("text-anchor", "end")
+    .attr("y", -18)
+    .attr("text-anchor", "middle")
     .style("font", "16px sans-serif")
     .text(function (d) {
       if (d.parent == null) {

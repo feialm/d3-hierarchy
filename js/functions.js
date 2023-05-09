@@ -7,7 +7,7 @@ const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
 
 const inputArray = ["likert", "yesNo", "textfield"];
 
-const pageArray = ["survey", "survey2", "survey3", "theory", "CMV"];
+const pageArray = ["survey", "survey2", "survey3", "theory", "CMV", "demographics"];
 
 const radios = ["query", "yesNo"];
 
@@ -531,8 +531,8 @@ function getQuestions() {
     }
     console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1);
-    addQuestions(arrayVis, arrayTeq, visQ2);
+    //addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
@@ -812,9 +812,11 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
         document.getElementById("statement2").innerHTML = allStatements[testPosition].q;
         document.getElementById("statement3").innerHTML = allStatements[testPosition].q2;
         document.getElementById("survey").style.display = "none";
+        document.getElementById("demographics").style.display = "inline-block";
 
     } else {
         document.getElementById("survey2").style.display = "none";
+        document.getElementById("demographics").style.display = "none";
     }
 
 

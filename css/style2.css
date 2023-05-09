@@ -34,6 +34,12 @@ body {
   margin-top: 0px;
 }
 
+#demographics{
+	font-size: 1.0em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 h1 {
 	font-weight: medium;
 	font-size: 1.2em;
@@ -65,7 +71,7 @@ h2 {
 }
 
 textarea {
-	width: 450px;
+	width: 700px;
 	height: 150px;
 }
 
@@ -142,13 +148,13 @@ iframe {
 
 /* Theory page */
 /* Create three equal columns that floats next to each other */
+
 .column {
   float: left;
   width: 30%;
   padding: 5px;
   height: 300px;
   border: 2px solid #ffffff;
-  border-radius: 5px;
   background-color: #e8ecf0;
 }
 
@@ -165,11 +171,11 @@ iframe {
 }
 
 #img1:hover{
-  margin-left: 50%;
+  margin-left: 60%;
 }
 
 #img3:hover{
-  margin-left: -50%;
+  margin-left: -10%;
 }
 
 /* Clear floats */
@@ -189,6 +195,4 @@ iframe {
   box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 3px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
-#CMV{
-  padding: 2%;
-}
+

@@ -39,12 +39,12 @@
     Some tasks and questions require deeper answers. In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
     name or contact information to keep the answers anonymized when showing the results.<br><br>
     <span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
-    Once you interact with the diagram the pre-highlighted nodes disappear and will not come back.<br>
     You are also free to use the touchpad and the touch-scrren.<br><br>
     <span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
     It is <span class="bolded">not</span> possible to change an answer afterward.<br><br>
-    <span class="bolded">Language: </span>The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.<br><br>
-    <span class="bolded">Stuck on a question: </span>The test leader will <span class="bolded">not help</span> you fulfill the tasks and questions by giving any answers or hints. Try your best to complete it.<br><br>
+    <span class="bolded">Language: </span> You can answer the questions in both Swedish and English.
+    <span class="bolded">Stuck on a question: </span>You are free to ask the conductor of the test if you do not understand the task/question and need it to be clarified.
+	However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions. Try your best to complete it.<br><br>
     <span class="bolded">Glossary: </span>children = one level down in hierarchy, parent = one level up in hierarchy, descendant = children and its children, ancestor = parents and its parents.
 	</div>
 	
@@ -52,57 +52,59 @@
 	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='currentPage'></span><br>
     <div class="prePage" id="intro">
     <p>Hello,<br>
-    Thank you for taking your time and participating in this research study. The research study will investigate what techniques are most suitable for exploring the structure and details of hierarchical data. 
-    To be able to examine it you will encounter hierarchical data sets of varying size and content visualized in different ways.<br><br>
-    The visualizations will also have different interaction functionality with the aim of allowing the user to explore and discover different parts and angles of the data.
-    You will be asked to perform tasks and answer questions regarding the data and the visualizations. Some tasks and questions require deeper answers. The question will be stated and the visualization will be shown below.<br><br>
-    In the beginning, some nodes in the visualization are pre-highlighted in yellow. Once you interact with the visualization the yellow highlight disappears and will not come back.
-    You will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
+    In this test you will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
     <br><br>
     The device that the user test is performed on has a touch screen. You are free to use both the touchpad and the touch-screen to perform the test.
-    You submit an answer to a question by clicking on the continue button and you are then taken to the next question. It is <span class="bolded">not</span> possible to change an answer afterward.
+	It is <span class="bolded">not</span> possible to change an answer afterward.
     <br><br>
-    In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
-    name or contact information to keep the answers anonymized when showing the results.<br><br>
-    The test is conducted in English but you are allowed to ask questions in both Swedish and English relating if you do not understand the task/question to clarify the question.
-    However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions by giving any answers or hints.
+    You can answer the questions in both Swedish and English. You are free to ask the conductor of the test if you do not understand the task/question and need it to be clarified.
+    However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions.
     <br><br>
     Let's begin by clicking on the Continue button!</p>
     </div>
 
+	<div class="prePage" id="demographics">
+    <p>
+    The two questions below are necessary to see if the results differ by demographics. You will still be anonymous in the test.
+	</p>
+    </div>
+
 	<div class="prePage" id="theory">
 		<p><span class="bolded">Theory</span><br>
-		Before we start the evaluation we will introduce the theory about the three visualization graphs which will be evaluated with a dataset and with different interaction techniques.<br>
-		Read the theory, ask the test leader if anything is unclear.<br>
-		The following pages will show visualizations of hierarchical datasets. Every visualization will inlcude question(s) and/or task(s) where you are recommended to <span class="bolded">interact and play around</span>. Click on Continue to proceed.
-		</p>
+		In the test, three visualization graphs will be shown to represent hierarhical data.
+		The following pages will shows the visualizations. Every visualization will inlcude question(s) and/or task(s).<br>
+		<span class="bolded">Interact and play around</span> in the coming visualizations.
+		You can enlarge the images by clicking on them.<br><br>
+		The most classic way to present hierarchical data is to visualize individual data items as nodes. Edges are drawn between data items that have an ancestral-descendant relationship in so-called Node-Link diagrams.
 		<div class="row">
 			<div class="column">
+				<h2>Node-Link diagram</h2>
+				<img class="img" id="img1" src="./images/nodelink.PNG" style="width:80%">
+			</div>
+			<div class="column">
 				<h2>Icicle Plot</h2>
-				<img class="img" id="img1" src="./images/icicle.PNG" style="width:60%">			
+				<img class="img" src="./images/icicle.PNG" style="width:60%">			
 			</div>
 			<div class="column">
 				<h2>Treemap</h2>
-				<img class="img" src="./images/treemap.PNG" style="width:70%">
+				<img class="img" id="img3" src="./images/treemap.PNG" style="width:70%">
 			</div>
-			<div class="column">
-				<h2>Node-Link diagram</h2>
-				<img class="img" id="img3" src="./images/nodelink.PNG" style="width:80%">
+			<div class="column" id="shorter">
+			<p>	It is read from the top-to-bottom. The ancestor to all the other nodes lays in the shallowest hierarchy level at the top of the graph. Further down the graph the descendants are placed.<br><br>
+			All nodes that are aligned on the same height belong to the same level in the hierarchy.
+			</p>
 			</div>
 			<div class="column"id="shorter">
-				<p>Icicle Plots are often read from left-to-right or from top-to-bottom.
-				This graph is read from the top-to-bottom.<br><br>
-				The vertical and horizontal lines are used to section up the data.
-				Each row is representing one level in the hierarchy from the dataset. Each column in an row is an individual node.	</p>
+			<p> It's also read from the top-to.bottom.
+				The vertical and horizontal lines are used to section up the data.<br><br>
+				Each row is representing one level in the hierarchy from the dataset. Each column within a row is an individual node.
+			</p>
 			</div>
 			<div class="column" id="shorter">
-				<p>The descendant nodes are placed in and on top of the ancestor node, so-called nestled treemap.<br><br>
+			<p>The descendant nodes are placed in and on top of the ancestor node, so-called nestled treemap.<br><br>
 				Vertical and horizontal lines are used to section up the data and distinguish the individual nodes in the layers.
-				The deepest nodes are on top.</p>
-			</div>
-			<div class="column" id="shorter">
-				<p>This node-link diagram is read from the top-to-bottom. Each circle is a node. The lines between two nodes indicates that they have a ancestral-descendant relationship.<br><br>
-				The shallowest levels in the hierarchy are in the top and the further down the graph they are placed, the deeper level a node belongs to. All nodes that are are aligend on the same height belongs to the same level in the hierarchy.	</p>
+				The deepest nodes are on top.
+			</p>
 			</div>
 		</div>
 	</div>
@@ -114,7 +116,7 @@
 
 
 	<div>
-		<form class="margin" id="survey" method="post" name="surveyForm"><br>
+		<form class="margin" id="survey" method="post" name="surveyForm">
 			<p><span id='statement'></span><span id='node1'></span><span id="text"></span><span id='node2'></span><br>
 				<span id='yesNo'>Yes
 					<input type='radio' name='yesNo' id='yes' value='Y' class='form-radio' onclick='changeQuestionnaireSubmitButton()'>
@@ -134,7 +136,7 @@
 				<!--<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>-->
             </p>
 		</form>
-		<form class="margin" id="survey2" method="post" name="surveyForm"><br>
+		<form class="margin" id="survey2" method="post" name="surveyForm">
 			<p><span id='statement2'></span><br>
 				<span id='yesNo2'>Yes
 					<input type='radio' name='yesNo' id='yes' value='Y' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
@@ -151,7 +153,7 @@
 				Very Good</span>
 			</p>
 		</form>
-		<form class="margin" id="survey3" method="post" name="surveyForm"><br>
+		<form class="margin" id="survey3" method="post" name="surveyForm">
 			<p><span id='statementFirst'></span><br></p>	
 			<p><span id='statementA'></span><br>
 				<textarea name="textfield" id="textfieldA" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
