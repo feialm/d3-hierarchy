@@ -99,11 +99,11 @@ const visQ1 = [
             // ancestors
             [
                 {
-                    q: "Does",
+                    q: "Is",
                     q2: " hexagon ",
-                    q3: "have the same parent as",
+                    q3: "an ancestor to",
                     q4: " octagon?",
-                    facit: "Y", id: "A1S1", iframe: "A1S", type: "yesNo", node1: "hexagon", node2: "octagon"
+                    facit: "N", id: "A1S1", iframe: "A1S", type: "yesNo", node1: "hexagon", node2: "octagon"
                 },
                 {
                     q: "Is",
@@ -155,11 +155,11 @@ const visQ1 = [
             //ancestors
             [
                 {
-                    q: "Does",
-                    q2: " heptagon ",
-                    q3: "have the same parent as",
+                    q: "Is",
+                    q2: " 2D Shapes ",
+                    q3: "an ancestor to",
                     q4: " circle?",
-                    facit: "N", id: "A2S1", iframe: "A2S", type: "yesNo", node1: "heptagon", node2: "circle"
+                    facit: "Y", id: "A2S1", iframe: "A2S", type: "yesNo", node1: "2D Shapes", node2: "circle"
                 },
                 {
                     q: "Is",
@@ -211,11 +211,11 @@ const visQ1 = [
             // ancestors
             [
                 {
-                    q: "Does",
-                    q2: " heptagon ",
-                    q3: "have the same parent as",
-                    q4: " ellipse?",
-                    facit: "N", id: "A3S1", iframe: "A3S", type: "yesNo", node1: "heptagon", node2: "ellipse"
+                    q: "Is",
+                    q2: " Conic Shapes ",
+                    q3: "an ancestor to",
+                    q4: " heptagon?",
+                    facit: "N", id: "A3S1", iframe: "A3S", type: "yesNo", node1: "Conic Shapes", node2: "heptagon"
                 },
                 {
                     q: "Is",
@@ -279,11 +279,11 @@ const visQ2 = [
             // ancestors
             [
                 {
-                    q: "Does",
+                    q: "Is",
                     q2: " Rissne ",
-                    q3: "have the same parent as",
+                    q3: "an ancestor to",
                     q4: " Duvbo?",
-                    facit: "Y", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "Rissne", node2: "Duvbo"
+                    facit: "N", id: "A1L1", iframe: "A1L", type: "yesNo", node1: "Rissne", node2: "Duvbo"
                 },
                 {
                     q: "Is",
@@ -356,11 +356,11 @@ const visQ2 = [
             //ancestors
             [
                 {
-                    q: "Does",
-                    q2: " Vega ",
-                    q3: "have the same parent as",
-                    q4: " Skogås?",
-                    facit: "N", id: "A2L1", iframe: "A2L", type: "yesNo", node1: "Vega", node2: "Skogås"
+                    q: "Is",
+                    q2: " Stockholms län ",
+                    q3: "an ancestor to",
+                    q4: " Vega?",
+                    facit: "Y", id: "A2L1", iframe: "A2L", type: "yesNo", node1: "Stockholms län", node2: "Vega"
                 },
                 {
                     q: "Is",
@@ -433,11 +433,11 @@ const visQ2 = [
             // ancestors
             [
                 {
-                    q: "Does",
-                    q2: " Hägersten-Älvsjö ",
-                    q3: "have the same parent as",
-                    q4: " Västerort?",
-                    facit: "N", id: "A3L1", iframe: "A3L", type: "yesNo", node1: "Hägersten-Älvsjö", node2: "Västerort"
+                    q: "Is",
+                    q2: " Västerort ",
+                    q3: "an ancestor to",
+                    q4: " Nockeby?",
+                    facit: "Y", id: "A3L1", iframe: "A3L", type: "yesNo", node1: "Västerort", node2: "Nockeby"
                 },
                 {
                     q: "Is",
@@ -531,8 +531,8 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1);
-    addQuestions(arrayVis, arrayTeq, visQ2);
+    addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
