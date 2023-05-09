@@ -66,7 +66,9 @@ function update(root) {
     .attr("stroke", "white").attr('stroke-width', '0.4')
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverDescendants)
-    .on("mouseout", Module.mouseoutDescendants)
+    .on("mouseout", function () {
+        return Module.colorNodes(node1, node2);
+      })
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
   

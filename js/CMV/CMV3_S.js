@@ -52,7 +52,7 @@ function update(root) {
     .attr("stroke", "white").attr('stroke-width', '0.4')
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverSiblings)
-    .on("mouseout", Module.mouseoutSiblings)
+    .on("mouseout", Module.colorNodes2)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
   

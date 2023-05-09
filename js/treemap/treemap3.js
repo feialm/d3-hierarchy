@@ -53,8 +53,9 @@ function update(root){
   var nodeEnter = node
     .enter()
     .append("g")
-    .attr("class", "node")
-    .on("mouseout", Module.mouseoutDescendants)
+    .on("mouseout", function () {
+        return Module.colorNodes(node1, node2);
+      })
     .on("mouseover", Module.mouseoverDescendants)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");

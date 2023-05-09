@@ -514,13 +514,13 @@ function getQuestions() {
     let randVis = Math.floor(Math.random() * 6);// random number 0-5
     let randTech = Math.floor(Math.random() * 2);//random number 0-1, sad or sda order brushing and linking
 
-    //console.log("visSeq: ", visSeq[randVis]);
+    console.log("visSeq: ", visSeq[randVis]);
     var arrayVis = [];
     for (let i = 0; i < visSeq[randVis].length; i++) {
         arrayVis.push(visSeq[randVis][i]);
     }
 
-    //console.log("ArrayVis: ", arrayVis, "\nShould be same as visSeq");
+    console.log("ArrayVis: ", arrayVis, "\nShould be same as visSeq");
 
     var arrayTeq = [];
     if (randTech === 0) {
@@ -529,10 +529,10 @@ function getQuestions() {
     } else if(randTech === 1){
         arrayTeq = [0, 2, 1];//sda order
     }
-    //console.log("ArrayTeq: ", arrayTeq);
+    console.log("ArrayTeq: ", arrayTeq);
  
     addQuestions(arrayVis, arrayTeq, visQ1);
-    //addQuestions(arrayVis, arrayTeq, visQ2);
+    addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);

@@ -112,7 +112,9 @@ function update(source) {
   
   nodeUpdate
     .select("circle.node")
-    .on("mouseout", nodeLink.mouseoutAncestor)
+    .on("mouseout", function () {
+        return nodeLink.colorNodes(node1, node2);
+      })
     .on("mouseover", nodeLink.mouseoverAncestor)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");

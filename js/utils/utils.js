@@ -49,7 +49,7 @@ export function mouseoverAncestor(event, d) {
   }//end if
 
 }
-
+/*
 export function mouseoutAncestor(event, d) {
   //console.log("out node: ", d.data.name);
   d3.selectAll("rect").style("fill", function (d) { return color(d.depth); });
@@ -65,7 +65,7 @@ export function mouseoutAncestor(event, d) {
      d3.selectAll("#node" + d.id).style("fill", function (d) { return color(d.depth); });
     }//end if
 }
-
+*/
 
 function getSiblings(d) {
     return {first: d.parent.children.length, second: d.parent.children };
@@ -92,6 +92,7 @@ export function mouseoverSiblings(event, d) {
   }
 }
 
+/*
 export function mouseoutSiblings(event, d) {
 
   //console.log("out node: ", d.data.name);
@@ -110,7 +111,7 @@ export function mouseoutSiblings(event, d) {
         counter++; // iterate through nodes
     }
   }
-}
+}*/
 
 
 export function getAscendants(d) {
@@ -138,6 +139,7 @@ export function mouseoverDescendants(event, d) {
     }// end while
 }
 
+/*
 export function mouseoutDescendants(event, d) {
   //console.log("out node: ", d.data.name);
   //d3.selectAll("rect").style("fill", "#045a8d");
@@ -154,7 +156,26 @@ export function mouseoutDescendants(event, d) {
       d = ascendants[++j]//iterate through nodes
     }// end while
 }
+*/
 
+
+export function colorNodes(node1, node2) {
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("rect").style("fill", function (d) {
+      if (d.data.name === node1 || d.data.name === node2) {
+        return "#fdb863";
+      } else {
+        return color(d.depth);
+      }
+  });
+}
+
+export function colorNodes2(event, d) {
+  //console.log("out node: ", d.data.name);
+  d3.selectAll("rect").style("fill", function (d) {
+      return color(d.depth);
+  });
+}
 
 
 

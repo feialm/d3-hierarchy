@@ -46,7 +46,7 @@ function update(root){
     .enter()
     .append("g")
     .attr("class", "node")
-    .on("mouseout", Module.mouseoutSiblings)
+    .on("mouseout", Module.colorNodes2)
     .on("mouseover", Module.mouseoverSiblings)
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
