@@ -90,8 +90,9 @@ function update(root){
     .attr("dy", "0.35em")
     .style("font", treemapUtils.font)
     .style("font-weight", treemapUtils.fontWeight)
-    .text(function (d) {
-      return Module.splitString(d)
+    .text(function (d) { 
+      let textLabel = Module.splitString(d);
+      return treemapUtils.upperCaseLabel(textLabel,d);
     });
   
   

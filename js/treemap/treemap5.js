@@ -87,44 +87,12 @@ function update(root) {
     .append("text")
     .attr("class", "node")
     .attr("x", function (d) { return d.x0 + 8; })
-    .attr("y", function (d) {
-      if (d.data.colname == null) {
-        return d.y0 + 12;
-      }
-      if (d.data.colname == "level2") {
-        return d.y0 + 25;
-      }
-      if (d.data.colname == "level3") {
-        return d.y0 + 38;
-      }
-    })
+    .attr("y", treemapUtils.y2)
     .attr("dy", "0.35em")
-    .style("font", function (d) {
-      if (d.children) {
-        if (d.data.colname == null) {
-          return "18px sans-serif";
-        }
-        if (d.data.colname == "level2") {
-          return "16px sans-serif";
-        }
-      } else {
-        return "16px sans-serif"
-      }
-    })
-    .style("font-weight", function (d) {
-      if (d.data.colname == null) {
-        return "600";
-      }
-      if (d.data.colname == "level2") {
-        return "500";
-      }
-      if (d.data.colname == "level3") {
-        return "normal";
-      }
-      return "normal";
-    })
+    .style("font", treemapUtils.font2)
+    .style("font-weight", treemapUtils.fontWeight)
     .text(function (d) {
-      return d.data.name;
+      return treemapUtils.upperCaseLabel(d.data.name,d);
     });
   
   

@@ -21,10 +21,21 @@ export function getMeasurments2(type, d) {
 }
 
 
+export function upperCaseLabel(textLabel, d) {
+  if (d.depth === 0) {
+    textLabel = textLabel.toUpperCase();
+  }
+  if (d.depth === 1) {
+    textLabel = textLabel.toUpperCase();
+  }
+  return textLabel;
+}
+
+
 // ------ functions to align and set layout of labels for stockholm.json-data --------
 export function y(d) {
    if (d.data.colname == null) {
-        return d.y0 + 5;
+        return d.y0 + 6;
       }
       if (d.data.colname == "level2") {
         return d.y0 + 15;
@@ -74,3 +85,34 @@ export function fontWeight(d) {
     }
     return "normal";
 }
+
+
+
+/* ------ functions to align and set layout of labels for
+--------  2dShapes.json and introduction.json  --------*/
+export function y2(d) {
+   if (d.data.colname == null) {
+        return d.y0 + 12;
+      }
+      if (d.data.colname == "level2") {
+        return d.y0 + 26;
+      }
+      if (d.data.colname == "level3") {
+        return d.y0 + 38;
+      }
+}
+
+export function font2(d) {
+    if (d.children) {
+      if (d.data.colname == null) {
+        return "18px sans-serif";
+      }
+      if (d.data.colname == "level2") {
+        return "16px sans-serif";
+      }
+    } else {
+      return "16px sans-serif"
+    }
+}
+
+

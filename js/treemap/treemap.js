@@ -93,7 +93,8 @@ function update(root){
     .style("font", treemapUtils.font)
     .style("font-weight", treemapUtils.fontWeight)
     .text(function (d) {
-      return Module.splitString(d)
+      let textLabel = Module.splitString(d);
+      return treemapUtils.upperCaseLabel(textLabel,d);
     });
   
   
