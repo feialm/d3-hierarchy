@@ -1,12 +1,10 @@
 import * as Module from "../utils/utils.js";
 import * as nodeLink from "../utils/node-linkUtils.js";
 
-let node1, node2 = "";
+let node1 = "";
 
 $(document).ready(function () {
   node1 = localStorage.getItem('node1');
-  node2 = localStorage.getItem('node2');
-  //console.log("node1: ", node1, "node2: ", node2);
 });
 
 // append svg-object to container in html-file
@@ -80,7 +78,7 @@ function update(source) {
     .attr("class", "node")
     .attr("id", function (d) { return "node" + d.id })//TEST
     .attr("fill", function (d) {
-      if (d.data.name === node1 || d.data.name === node2) {
+      if (d.data.name === node1) {
         return "#fdb863";
       } else {
         return "#045a8d";
@@ -116,7 +114,7 @@ function update(source) {
   nodeUpdate
     .select("circle.node")
     .on("mouseout", function () {
-        return nodeLink.colorNodes(node1, node2);
+        return nodeLink.colorNodes(node1);
       })
     .on("mouseover", nodeLink.mouseoverDescendants)
     .on("mousemove", Module.mousemove)

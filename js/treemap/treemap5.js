@@ -1,12 +1,10 @@
 import * as Module from "../utils/utils.js";
 import * as treemapUtils from "../utils/treemapUtils.js";
 
-let node1, node2 = "";
+let node1 = "";
 
 $(document).ready(function () {
   node1 = localStorage.getItem('node1');
-  node2 = localStorage.getItem('node2');
-  //console.log("node1: ", node1, "node2: ", node2);
 });
 
 var i = 0;
@@ -55,7 +53,7 @@ function update(root) {
     .append("g")
     .attr("class", "node")
     .on("mouseout", function () {
-        return Module.colorNodes(node1, node2);
+        return Module.colorNodes(node1);
       })
     .on("mouseover", Module.mouseoverAncestor)
     .on("mousemove", Module.mousemove)
@@ -73,7 +71,7 @@ function update(root) {
     .attr("width", function (d) { return treemapUtils.getMeasurments("width", d);})
     .attr("height", function (d) { return treemapUtils.getMeasurments("height", d); })
     .style("fill", function (d) {
-      if (d.data.name === node1 || d.data.name === node2) {
+      if (d.data.name === node1) {
         return "#fdb863";
       } else {
         return Module.color(d.depth);

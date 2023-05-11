@@ -81,11 +81,11 @@ export function mouseoverSiblings(event, d) {
 }
 
 
-export function colorNodes(node1, node2) {
+export function colorNodes(node1) {
   //console.log("out node: ", d.data.name);
   d3.selectAll("line").style("stroke", "#c3c3c3").style("stroke-width", 2);
   d3.selectAll("circle").style("fill", function (d) {
-      if (d.data.name === node1 || d.data.name === node2) {
+      if (d.data.name === node1) {
         return "#fdb863";
       } else {
         return "#045a8d";

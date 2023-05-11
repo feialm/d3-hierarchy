@@ -105,10 +105,10 @@ export function mouseoverDescendants(event, d) {
 
 
 
-export function colorNodes(node1, node2) {
+export function colorNodes(node1) {
   //console.log("out node: ", d.data.name);
   d3.selectAll("rect").style("fill", function (d) {
-      if (d.data.name === node1 || d.data.name === node2) {
+      if (d.data.name === node1) {
         return "#fdb863";
       } else {
         return color(d.depth);

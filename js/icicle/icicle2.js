@@ -1,12 +1,10 @@
 import * as Module from "../utils/utils.js";
 import * as icicleUtils from "../utils/icicleUtils.js";
 
-let node1, node2 = "";
+let node1 = "";
 
 $(document).ready(function () {
   node1 = localStorage.getItem('node1');
-  node2 = localStorage.getItem('node2');
-  //console.log("node1: ", node1, "node2: ", node2);
 });
 
 var i = 0;
@@ -57,7 +55,7 @@ function update(root) {
     .attr("width", function (d) { return icicleUtils.rectWidth(d); })
     .attr("height", function (d) { return icicleUtils.rectHeight(d); })
     .attr("fill", function (d) { 
-      if (d.data.name === node1 || d.data.name === node2) {
+      if (d.data.name === node1) {
         return "#fdb863";
       } else {
         return Module.color(d.depth);
@@ -67,7 +65,7 @@ function update(root) {
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverSiblings)
     .on("mouseout", function () {
-        return Module.colorNodes(node1, node2);
+        return Module.colorNodes(node1);
       })
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");

@@ -56,7 +56,7 @@ const endingQ = [
         type: "info"
     },
     {
-        q:"Locate the correct visualizations in the menu down below and compare them to answer the follwoing questions:",
+        q: "This following questions is about how how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally.: ",
         q2: "What would you like to happen in the table and the node-link diagram when interacting with the interface exploring the data?",
         q3: "What would you like to happen in the table and treemap when interacting with the interface exploring the data?",
         q4: "What would you like to happen in the table and the icicle plot when interacting with the interface exploring the data",
@@ -578,7 +578,6 @@ function showINPUT(type) {
 function saveLocalStorage() {
     $(document).ready(function () {
         localStorage.setItem('node1', allStatements[testPosition].node1);
-        localStorage.setItem('node2', allStatements[testPosition].node2);
     });
 };
 
