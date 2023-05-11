@@ -21,7 +21,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/style2.css">
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
 		<script type="text/javascript" src="./js/functions.js"></script>
-		<title>Query for vis</title>
+		<title>Brushing & Linking on Hierarchical data</title>
 	</head>
 	<body onload="onPageLoad();">
 	<!------------ Help page ------------->
@@ -38,27 +38,24 @@
     <span class="bolded">The setup: </span>You will be asked to perform tasks and answer questions regarding the data and the visualizations.
     Some tasks and questions require deeper answers. In the beginning, you will be asked to fill in some details which will be used to see if the results differ by demographics. This information will not include questions such as
     name or contact information to keep the answers anonymized when showing the results.<br><br>
-    <span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br>
-    You are also free to use the touchpad and the touch-scrren.<br><br>
+    <span class="bolded">Interacting with the visualizations: </span> You are free to explore the visualizations and see what techniques are available.<br><br>
     <span class="bolded">Submit answer: </span>You submit an answer to a question by clicking on the continue button and you are then taken to the next question.<br>
     It is <span class="bolded">not</span> possible to change an answer afterward.<br><br>
-    <span class="bolded">Language: </span> You can answer the questions in both Swedish and English.
-    <span class="bolded">Stuck on a question: </span>You are free to ask the conductor of the test if you do not understand the task/question and need it to be clarified.
+    <span class="bolded">Language: </span> You can answer the questions in both Swedish and English.<br><br>
+    <span class="bolded">Stuck on a question: </span>You are free to ask the test leader of the test if you do not understand the task/question and need it to be clarified.
 	However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions. Try your best to complete it.<br><br>
-    <span class="bolded">Glossary: </span>children = one level down in hierarchy, parent = one level up in hierarchy, descendant = children and its children, ancestor = parents and its parents.
+    <span class="bolded">Glossary:<br></span>children = one level down in hierarchy,<br>parent = one level up in hierarchy,<br>descendant = children and its children,<br>ancestor = parents and its parents.
 	</div>
 	
 	<!------------- Main pages ------------->
-	<h1 class="margin">Brushing and Linking on Hierarchical data</h1><p><span class="margin" id='currentPage'></span><br>
+	<p><span class="margin" id='currentPage'></span><br>
     <div class="prePage" id="intro">
     <p>Hello,<br>
     In this test you will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
     <br><br>
-    The device that the user test is performed on has a touch screen. You are free to use both the touchpad and the touch-screen to perform the test.
-	It is <span class="bolded">not</span> possible to change an answer afterward.
-    <br><br>
-    You can answer the questions in both Swedish and English. You are free to ask the conductor of the test if you do not understand the task/question and need it to be clarified.
+    You can answer the questions in both Swedish and English. You are free to ask the test leader of the test if you do not understand the task/question and need it to be clarified.
     However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions.
+	It is <span class="bolded">not</span> possible to change an answer afterward.
     <br><br>
     Let's begin by clicking on the Continue button!</p>
     </div>
@@ -71,11 +68,12 @@
 
 	<div class="prePage" id="theory">
 		<p><span class="bolded">Theory</span><br>
-		In the test, three visualization graphs will be shown to represent hierarhical data.
-		The following pages will shows the visualizations. Every visualization will inlcude question(s) and/or task(s).<br>
-		<span class="bolded">Interact and play around</span> in the coming visualizations.
-		You can enlarge the images by clicking on them.<br><br>
-		The most classic way to present hierarchical data is to visualize individual data items as nodes. Edges are drawn between data items that have an ancestral-descendant relationship in so-called Node-Link diagrams.
+   		In the test, three visualization graphs will be shown to represent hierarchical data.
+        The following pages will show the visualizations. Every visualization will include question(s) and/or task(s).<br>
+        <span class="bolded">Interact and play around</span> in the coming visualizations.
+        You can enlarge the images by clicking on them.<br><br>
+        The most classic way to present hierarchical data is to visualize individual data items as nodes.
+		Edges are drawn between data items that have an ancestral-descendant relationship in so-called Node-Link diagrams.
 		<div class="row">
 			<div class="column">
 				<h2>Node-Link diagram</h2>
