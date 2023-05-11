@@ -34,7 +34,6 @@ const introQ = [
     { q: "", q2: "", q3: "", q4: "", id: "I1", iframe:"no", type: "info" },
     {
         q: "Do you have color blindness visual impairment?",
-        q2: "",
         q3: "",
         q4: "",
         type: "yesNo",
@@ -313,8 +312,8 @@ const visQ2 = [
                     q: "Is",
                     q2: " Hölö ",
                     q3: "child to",
-                    q4: " Södertälje?",
-                    facit: "Y", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Södertälje"
+                    q4: " Tyresö?",
+                    facit: "N", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Tyresö"
                 },
                 {
                     q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
@@ -384,7 +383,7 @@ const visQ2 = [
                     q2: " Långholmen ",
                     q3: "a descendant to",
                     q4: " Inre Staden?",
-                    facit: "No", id: "D2L1", iframe: "D2L", type: "yesNo", node1: "Långholmen", node2: "Inre Staden"
+                    facit: "Y", id: "D2L1", iframe: "D2L", type: "yesNo", node1: "Långholmen", node2: "Inre Staden"
                 },
                 {
                     q: "Is",
