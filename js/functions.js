@@ -1,4 +1,4 @@
-var allStatements = [];// put this in the beginning instead??
+var allStatements = [];
 
 const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
     "S2L", "A2L", "D2L", "S2S", "A2S", "D2S",

@@ -92,7 +92,7 @@ function update(source) {
     .append("text")
     .attr("dy", ".35em")
     .attr("y", -13)
-    .attr("text-anchor", "end")
+    .attr("text-anchor", "middle")
     .text(function (d) {
       if (d.parent == null) {
         return d.data.name;
