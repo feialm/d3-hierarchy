@@ -72,13 +72,28 @@ function update(root) {
   
 
   
-    // Labels for nodes
+  // Labels for nodes
   const text = nodeEnter.append("text")
+      .attr("id", function (d) { return "text" + d.id })//TEST
       .style("user-select", "none")
+      .style("font", function (d) {
+        if (d.data.name === node1) {
+          return "16px sans-serif";
+        } else {
+          return "10px sans-serif";
+        }
+      })
+      .style("font-weight", function (d) {
+        if (d.data.name === node1) {
+          return "bold";
+        } else {
+          return "normal";
+        }
+      })
       .attr("pointer-events", "none")
       .attr("x", 4)
-    .attr("y", 17)
-   .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
+      .attr("y", 17)
+      .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
   
   text.append("tspan")
     .text(function (d) { return d.data.name; });

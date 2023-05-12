@@ -15,6 +15,13 @@ export var width_d = 2560 - margin.left - margin.right;
 export var height_d = 1000 - margin.top - margin.bottom;
 
 
+let small = "large";
+  
+export function whatFont(s) {
+  small = s;
+}
+
+
 // prepare a color scale
 
 export const color = d3.scaleOrdinal()
@@ -22,6 +29,11 @@ export const color = d3.scaleOrdinal()
   .range(["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]);
 
 
+export function mouseoverText(d) {
+  d3.selectAll("#text" + d.id)
+    .style("font", "16px sans-serif")
+    .style("font-weight", "bold");
+}
 
 
 // ----- brushing and linking functions
@@ -39,6 +51,7 @@ export function mouseoverAncestor(event, d) {
  
   while (d.parent) {
     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    mouseoverText(d);
     if (d.parent != "null") {
       d = d.parent; // iterate through nodes
     } else { break; }
@@ -46,6 +59,7 @@ export function mouseoverAncestor(event, d) {
 
   if (d.data.parent == "null") {
     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    mouseoverText(d);
   }//end if
 
 }
@@ -63,7 +77,8 @@ export function mouseoverSiblings(event, d) {
   var counter = 0;
 
   if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    mouseoverText(d);
   } else {
     var lengthSibling = getSiblings(d).first;
     var arraySibling = getSiblings(d).second;
@@ -71,6 +86,7 @@ export function mouseoverSiblings(event, d) {
     while (counter < lengthSibling) {
       d = arraySibling[counter];
       d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+      mouseoverText(d);
         counter++; // iterate through nodes
     }
   }
@@ -99,6 +115,7 @@ export function mouseoverDescendants(event, d) {
 
     while (j < length) {  
       d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+      mouseoverText(d);
       d = ascendants[++j]//iterate through nodes
     }// end while
 }
@@ -114,6 +131,30 @@ export function colorNodes(node1) {
         return color(d.depth);
       }
   });
+
+   d3.selectAll("text")
+     .style("font", function (d) {
+       if (d.data.name === node1) {
+         if (small === "small") {
+           return "18px sans-serif";
+         } else {
+           return "16px sans-serif";
+         }
+       } else {
+          if (small === "small") {
+           return "16px sans-serif";
+          } else {
+            return "10px sans-serif";
+          }
+       }
+     })
+    .style("font-weight",function (d) {
+       if (d.data.name === node1) {
+         return "bold";
+       } else {
+         return "normal";
+       }
+    });
 }
 
 export function colorNodes2(event, d) {
@@ -121,6 +162,16 @@ export function colorNodes2(event, d) {
   d3.selectAll("rect").style("fill", function (d) {
       return color(d.depth);
   });
+
+   d3.selectAll("text")
+    .style("font", function (d) {
+          if (small === "small") {
+           return "16px sans-serif";
+          } else {
+            return "10px sans-serif";
+          }
+       })
+    .style("font-weight", "normal");
 }
 
 

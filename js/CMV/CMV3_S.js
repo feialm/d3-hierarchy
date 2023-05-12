@@ -1,6 +1,9 @@
 import * as Module from "../utils/utils.js";
 import * as icicleUtils from "../utils/icicleUtils.js";
 
+
+Module.whatFont("small");
+
 var i = 0;
 
 var svg = d3
@@ -60,6 +63,7 @@ function update(root) {
   
     // Labels for nodes
   const text = nodeEnter.append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
     .style("user-select", "none")
     .attr("pointer-events", "none")
     .attr("x", 4)

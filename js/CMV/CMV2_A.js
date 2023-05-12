@@ -1,6 +1,8 @@
 import * as Module from "../utils/utils.js";
 import * as treemapUtils from "../utils/treemapUtils.js";
 
+Module.whatFont("small");
+
 var i = 0;
 var root;
 
@@ -69,6 +71,7 @@ function update(root){
   node
     .enter()
     .append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
     .attr("class", "node")
     .attr("x", function (d) { return d.x0 + 8; })
     .attr("y", treemapUtils.y2)

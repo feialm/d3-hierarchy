@@ -1,6 +1,8 @@
 import * as Module from "../utils/utils.js";
 import * as icicleUtils from "../utils/icicleUtils.js";
 
+Module.whatFont("small");
+
 let node1 = "";
 
 $(document).ready(function () {
@@ -72,15 +74,29 @@ function update(root) {
   
 
   
-    // Labels for nodes
+  // Labels for nodes
   const text = nodeEnter.append("text")
-    .style("user-select", "none")
-    .attr("pointer-events", "none")
-    .attr("x", 4)
-    .attr("y", 17)
-    .style("font", "16px sans-serif")
-    .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
-  
+      .attr("id", function (d) { return "text" + d.id })//TEST
+      .style("user-select", "none")
+      .style("font", function (d) {
+        if (d.data.name === node1) {
+          return "18px sans-serif";
+        } else {
+          return "16px sans-serif";
+        }
+      })
+      .style("font-weight", function (d) {
+        if (d.data.name === node1) {
+          return "bold";
+        } else {
+          return "normal";
+        }
+      })
+      .attr("pointer-events", "none")
+      .attr("x", 4)
+      .attr("y", 17)
+      .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
+
   text.append("tspan")
     .text(function (d) { return d.data.name; });
 
