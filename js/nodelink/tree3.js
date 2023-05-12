@@ -68,8 +68,7 @@ function update(source) {
     .attr("class", "node")
     .attr("transform", function (d) {
       return "translate(" + source.x0 + ", " + source.y0 + ")";
-    })
-    .on("click", Module.click);
+    });
 
   // node attribute/style
   nodeEnter
@@ -85,18 +84,37 @@ function update(source) {
     })
     .attr("r", 3);//radius
 
-  // Labels for nodes
+ // Labels for nodes
   nodeEnter
     .append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
     .attr("dy", ".35em")
-    .attr("y", -13)
-    .attr("text-anchor", "middle")
-    .text(function (d) {
-      if (d.parent == null) {
-        return d.data.name;
+    .attr("y", function (d) {
+      return d.children || d._children ? -13 : 0;
+    })
+    .attr("x", function (d) {
+      return d.children || d._children ? -13 : -20;
+    })
+    .style("fill", function (d) {
+      if (d.data.name === node1) {
+        return "#ff7f00";
+      } else if (d.children) {
+        return "black";
       }
-      return d.children || d._children ? Module.splitString(d) : "";//hämtar namnet på noden
-    });
+    })
+    .attr("font", "10px sans-serif")
+    .attr("text-anchor", "middle")
+    .attr("transform", function (d) {
+      return d.children || d._children ? "" : "rotate(-90)";
+    })
+    .text(function (d) {
+      if (d.data.name === node1) {
+        return d.data.name;
+      } else if(d.children) {
+        return Module.splitString(d);
+      }
+    }
+  );
 
   
   // Update node

@@ -1,6 +1,7 @@
 import * as Module from "../utils/utils.js";
 import * as nodeLink from "../utils/node-linkUtils.js";
 
+nodeLink.whatFont("small");
 
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
@@ -78,16 +79,20 @@ function update(source) {
   // Labels for nodes
   nodeEnter
     .append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
     .attr("dy", ".35em")
-    .attr("y", -18)
-    .attr("text-anchor", "middle")
+    .attr("y", function (d) {
+      return d.children || d._children ? -13: 20;
+    })
+    .attr("x",  function (d) {
+      return d.children || d._children ? -13: -20;
+    })
     .style("font", "16px sans-serif")
+    .attr("text-anchor", "middle")
     .text(function (d) {
-      if (d.parent == null) {
-        return d.data.name;
+          return d.data.name; 
       }
-      return d.children || d._children ? Module.splitString(d) : "";//hämtar namnet på noden
-    });
+  );
 
   
   // Update node

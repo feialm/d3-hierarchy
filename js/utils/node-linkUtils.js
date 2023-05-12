@@ -1,5 +1,65 @@
 import * as Module from "./utils.js";
 
+let small = "large";
+  
+export function whatFont(s) {
+  small = s;
+}
+
+export function mouseoverText(d) {
+  console.log(d.data.name, small)
+  d3.selectAll("#text" + d.id)
+  .attr("dy", ".35em")
+    .attr("y", function (d) {
+      if (small === "small") {
+        return d.children || d._children ? -13: 20;
+      }
+      if (small === "large") {
+        return d.children || d._children ? -13: 0;
+      }
+      
+    })
+    .attr("x", function (d) {
+      if (small === "small") {
+        return d.children || d._children ? -13: -20;
+      }
+      if (small === "large") {
+        return d.children || d._children ? -13: -20;
+      }
+    })
+    .style("font",function () {
+       if (small === "small") {
+          return "16px sans-serif";
+        }
+        if (small === "large") {
+          if (!d.children) {
+            return "6px sans-serif";
+          } else {
+            return "10px sans-serif";
+          }
+        }
+    })
+    .style("fill", "#ff7f00")
+    .attr("text-anchor", "middle")
+    .attr("transform", function (d) {
+        if (small === "small") {
+          return "rotate(0)";
+        }
+        if (small === "large") {
+          if (!d.children) {
+            return "rotate(-90)";
+          } else {
+            return "rotate(0)";
+          }
+        }
+      })
+    .text(function (d) {
+       return d.data.name;
+    } 
+  );
+}
+
+
 export function mouseoverAncestor(event, d) {
 ////console.log("over node: ", d.data.name);
 //reset all nodes color
@@ -7,7 +67,8 @@ d3.selectAll("circle").style("fill", "#c3c3c3");// alla noder som inte select, g
 d3.selectAll("path").style("stroke", "#c3c3c3");// alla links som inte har koppling, grå
 
 while(d.parent) {
-    d3.selectAll("#node" + d.id).style("fill", "#ff7f00")
+  d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+  mouseoverText(d);
     if (d.parent != "null") {
     // links between nodes --> highlight
     d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#ff7f00").style("stroke-width", 3);
@@ -17,7 +78,8 @@ while(d.parent) {
 }
 
 if (d.data.parent == "null") {
-    d3.selectAll("#node" + d.id).style("fill", "#ff7f00")
+  d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+  mouseoverText(d);
 }//end if
 }
 
@@ -47,6 +109,7 @@ export function mouseoverDescendants(event, d) {
 
     while (j < length) {  
       d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+      mouseoverText(d);
       if (d.data.parent != " null" && j <length-1) {
         d3.selectAll("#link" + d.parent.id + "-" + d.id).style("stroke", "#ff7f00").style("stroke-width", 3);
       }
@@ -67,7 +130,8 @@ export function mouseoverSiblings(event, d) {
   var counter = 0;
 
   if (d.parent === null) {
-     d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
+    mouseoverText(d);
   } else {
     var lengthSibling = getSiblings(d).first;
     var arraySibling = getSiblings(d).second;
@@ -75,7 +139,8 @@ export function mouseoverSiblings(event, d) {
     while (counter < lengthSibling) {
       d = arraySibling[counter];
       d3.selectAll("#node" + d.id).style("fill", "#ff7f00");
-        counter++; // iterate through nodes
+      mouseoverText(d);
+      counter++; // iterate through nodes
     }
   }
 }
@@ -91,6 +156,63 @@ export function colorNodes(node1) {
         return "#045a8d";
       }
   });
+
+    d3.selectAll("text")
+      .attr("dy", ".35em")
+      .attr("y", function (d) {
+        if (small === "small") {
+          return d.children || d._children ? -13: 20;
+        }
+        if (small === "large") {
+          return d.children || d._children ? -13: 0;
+        }
+        
+      })
+      .attr("x", function (d) {
+        if (small === "small") {
+          return d.children || d._children ? -13: -20;
+        }
+        if (small === "large") {
+          return d.children || d._children ? -13: -20;
+        }
+      })
+      .style("font",function (d) {
+          if (small === "small") {
+            return "16px sans-serif";
+          }
+          if (small === "large") {
+              return "10px sans-serif";
+            }
+          }
+      )
+      .style("fill", function (d) {
+        if (d.data.name === node1) {
+          return "#ff7f00";
+        } else if (d.children) {
+          return "black";
+        }
+      })
+      .attr("text-anchor", "middle")
+      .attr("transform", function (d) {
+        if (small === "small") {
+          return "rotate(0)";
+        }
+        if (small === "large") {
+        if (!d.children) {
+          return "rotate(-90)";
+        } else {
+          return "rotate(0)";
+        }
+        }
+      })
+      .text(function (d) {
+        if (d.data.name === node1) {
+          return d.data.name;
+        }else if (d.children) {
+        return Module.splitString(d);
+      }
+      }
+    );
 }
 
 
@@ -98,6 +220,59 @@ export function colorNodes2(event, d) {
   //console.log("out node: ", d.data.name);
   d3.selectAll("line").style("stroke", "#c3c3c3").style("stroke-width", 2);
   d3.selectAll("circle").style("fill", "#045a8d");
+
+  d3.selectAll("text")
+    .attr("dy", ".35em")
+    .attr("y", function (d) {
+      if (small === "small") {
+        return d.children || d._children ? -13: 20;
+      }
+      if (small === "large") {
+        return d.children || d._children ? -13: 0;
+      }
+      
+    })
+    .attr("x", function (d) {
+      if (small === "small") {
+        return d.children || d._children ? -13: -20;
+      }
+      if (small === "large") {
+        return d.children || d._children ? -13: -20;
+      }
+    })
+    .style("font", function (d) {
+      if (small === "small") {
+        return "16px sans-serif";
+      }
+      if (small === "large") {
+        return "10px sans-serif";
+      }
+    }
+    )
+    .style("fill", function (d) {
+        if (d.data.name === node1) {
+          return "#ff7f00";
+        } else if (d.children) {
+          return "black";
+        }
+      })
+    .attr("text-anchor", "middle")
+    .attr("transform", function (d) {
+      if (small === "small") {
+        return "rotate(0)";
+      }
+      if (small === "large") {
+        if (!d.children) {
+          return "rotate(-90)";
+        } else {
+          return "rotate(0)";
+        }
+      }
+    })
+    .text(function (d) {
+      return d.data.name;
+    }
+  );
 }
 
 

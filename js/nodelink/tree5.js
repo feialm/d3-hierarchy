@@ -7,6 +7,8 @@ $(document).ready(function () {
   node1 = localStorage.getItem('node1');
 });
 
+nodeLink.whatFont("small");
+
 // append svg-object to container in html-file
 // g --> group, appends group element to svg
 // move g to top-left-margin
@@ -69,8 +71,7 @@ function update(source) {
     .attr("class", "node")
     .attr("transform", function (d) {
       return "translate(" + source.x0 + ", " + source.y0 + ")";
-    })
-    .on("click", Module.click);
+    });
 
   // node attribute/style
   nodeEnter
@@ -86,19 +87,36 @@ function update(source) {
     })
     .attr("r", 8);//radius
 
-  // Labels for nodes
+
+   // Labels for nodes
   nodeEnter
     .append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
     .attr("dy", ".35em")
-    .attr("y", -18)
-    .attr("text-anchor", "middle")
-    .style("font", "16px sans-serif")
-    .text(function (d) {
-      if (d.parent == null) {
-        return d.data.name;
+    .attr("y", function (d) {
+      return d.children || d._children ? -13: 20;
+    })
+    .attr("x",  function (d) {
+      return d.children || d._children ? -13: -20;
+    })
+    .style("fill", function (d) {
+      if (d.data.name === node1) {
+        return "#ff7f00";
+      } else if (d.children) {
+        return "black";
       }
-      return d.children || d._children ? Module.splitString(d) : "";//hämtar namnet på noden
-    });
+    })
+    .style("font", "16px sans-serif")
+    .attr("text-anchor", "middle")
+    .text(function (d) {
+        if (d.data.name === node1) {
+          return d.data.name;
+        } else if(d.children) {
+          return Module.splitString(d);
+        }
+      }
+  );
+
 
   
   // Update node
