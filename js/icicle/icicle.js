@@ -65,7 +65,7 @@ function update(root) {
     .style("cursor", "pointer")
     .on("mouseover", Module.mouseoverAncestor)
     .on("mouseout", function () {
-        return Module.colorNodes(node1, node2);
+        return Module.colorNodes(node1);
       })
     .on("mousemove", Module.mousemove)
     .attr("cursor", "pointer");
