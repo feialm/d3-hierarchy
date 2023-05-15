@@ -92,7 +92,7 @@ function update(source) {
   nodeEnter
     .append("text")
     .attr("id", function (d) { return "text" + d.id })//TEST
-    .attr("dy", "0.35em")
+    .attr("dy", "0.30em")
     .attr("y", function (d) {
       return d.children || d._children ? -13: 20;
     })

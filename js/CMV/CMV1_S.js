@@ -80,7 +80,7 @@ function update(source) {
   nodeEnter
     .append("text")
     .attr("id", function (d) { return "text" + d.id })//TEST
-    .attr("dy", ".35em")
+    .attr("dy", ".30em")
     .attr("y", function (d) {
       return d.children || d._children ? -13: 20;
     })

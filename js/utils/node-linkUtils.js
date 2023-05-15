@@ -9,7 +9,7 @@ export function whatFont(s) {
 export function mouseoverText(d) {
   console.log(d.data.name, small)
   d3.selectAll("#text" + d.id)
-  .attr("dy", ".35em")
+  .attr("dy", ".30em")
     .attr("y", function (d) {
       if (small === "small") {
         return d.children || d._children ? -13: 20;
@@ -158,7 +158,7 @@ export function colorNodes(node1) {
   });
 
     d3.selectAll("text")
-      .attr("dy", ".35em")
+      .attr("dy", ".30em")
       .attr("y", function (d) {
         if (small === "small") {
           return d.children || d._children ? -13: 20;
@@ -222,7 +222,7 @@ export function colorNodes2(event, d) {
   d3.selectAll("circle").style("fill", "#045a8d");
 
   d3.selectAll("text")
-    .attr("dy", ".35em")
+    .attr("dy", ".30em")
     .attr("y", function (d) {
       if (small === "small") {
         return d.children || d._children ? -13: 20;
