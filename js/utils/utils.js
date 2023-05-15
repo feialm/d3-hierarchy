@@ -31,7 +31,7 @@ export const color = d3.scaleOrdinal()
 
 export function mouseoverText(d) {
   d3.selectAll("#text" + d.id)
-    .style("font", "16px sans-serif")
+    .style("font", "18px sans-serif")
     .style("font-weight", "bold");
 }
 
