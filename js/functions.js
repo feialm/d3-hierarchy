@@ -47,7 +47,7 @@ const introQ = [
 // 4 questions    
 const endingQ = [
     {
-        q: "The following questions is about how how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally.: ",
+        q: "The following questions is about how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally and motivate your answer: ",
         q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
         q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
         q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
@@ -259,7 +259,7 @@ const visQ2 = [
                     facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansrö", node2: "Helenelund"
                 },
                 {
-                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating sibling nodes suitable for node-link diagrams? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -283,7 +283,7 @@ const visQ2 = [
                     facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "Norrmalm, City", node2: "Reimersholme"
                 },
                 {
-                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating ascendant nodes suitable for node-link diagrams? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -307,7 +307,7 @@ const visQ2 = [
                     facit: "N", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Tyresö"
                 },
                 {
-                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating descendant nodes suitable for node-link diagrams? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -336,7 +336,7 @@ const visQ2 = [
                     facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "Järva", node2: "Råsunda"
                 },
                 {
-                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating sibling nodes suitable for treemaps? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -360,7 +360,7 @@ const visQ2 = [
                     facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "Västerort", node2: "Alvik"
                 },
                 {
-                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating ascendant nodes suitable for treemaps? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -384,7 +384,7 @@ const visQ2 = [
                     facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "Tveta", node2: "Sundbyberg"
                 },
                 {
-                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating descendant nodes suitable for treemaps? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -413,7 +413,7 @@ const visQ2 = [
                     facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "Botkyrka", node2: "Lidingö"
                 },
                 {
-                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating sibling nodes suitable for icicle plots? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -437,7 +437,7 @@ const visQ2 = [
                     facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "Sundbyberg", node2: "Solna"
                 },
                 {
-                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating ascendant nodes suitable for icicle plots? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",
@@ -461,7 +461,7 @@ const visQ2 = [
                     facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "Sätra", node2: "Skarpnäck"
                 },
                 {
-                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
+                    q: "Is the technique for investigating descendant nodes suitable for icicle plots? Is it more/less relevant for one of the datasets you have encountered?",
                     q2: "",
                     q3: "",
                     q4: "",

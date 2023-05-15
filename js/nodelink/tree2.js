@@ -102,6 +102,13 @@ function update(source) {
         return "black";
       }
     })
+    .style("font-weight", function (d) {
+      if (d.data.name === node1) {
+        return "bold";
+      } else {
+        return "normal";
+      }
+    })
     .attr("font", "10px sans-serif")
     .attr("text-anchor", "middle")
     .attr("transform", function (d) {

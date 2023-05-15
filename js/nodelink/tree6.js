@@ -88,17 +88,18 @@ function update(source) {
     .attr("r", 8);//radius
 
 
-   // Labels for nodes
+  // Labels for nodes
   nodeEnter
     .append("text")
     .attr("id", function (d) { return "text" + d.id })//TEST
-    .attr("dy", "0.30em")
+    .attr("dy", ".30em")
     .attr("y", function (d) {
       return d.children || d._children ? -13: 20;
     })
     .attr("x",  function (d) {
       return d.children || d._children ? -13: -20;
     })
+    .style("font", "16px sans-serif")
     .style("fill", function (d) {
       if (d.data.name === node1) {
         return "#ff7f00";
@@ -106,7 +107,13 @@ function update(source) {
         return "black";
       }
     })
-    .style("font", "16px sans-serif")
+    .style("font-weight", function (d) {
+      if (d.data.name === node1) {
+        return "bold";
+      } else {
+        return "normal";
+      }
+    })
     .attr("text-anchor", "middle")
     .text(function (d) {
         if (d.data.name === node1) {
@@ -116,7 +123,6 @@ function update(source) {
         }
       }
   );
-
 
   
   // Update node

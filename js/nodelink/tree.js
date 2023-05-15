@@ -85,7 +85,7 @@ function update(source) {
       })
     .attr("r", 3);//radius
 
- // Labels for nodes
+// Labels for nodes
   nodeEnter
     .append("text")
     .attr("id", function (d) { return "text" + d.id })//TEST
@@ -101,6 +101,13 @@ function update(source) {
         return "#ff7f00";
       } else if (d.children) {
         return "black";
+      }
+    })
+    .style("font-weight", function (d) {
+      if (d.data.name === node1) {
+        return "bold";
+      } else {
+        return "normal";
       }
     })
     .attr("font", "10px sans-serif")

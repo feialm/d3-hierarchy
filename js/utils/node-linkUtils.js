@@ -39,7 +39,8 @@ export function mouseoverText(d) {
           }
         }
     })
-    .style("fill", "#ff7f00")
+    .style("font-weight", "bold")
+    .style("fill", "black")
     .attr("text-anchor", "middle")
     .attr("transform", function (d) {
         if (small === "small") {
@@ -184,7 +185,14 @@ export function colorNodes(node1) {
               return "10px sans-serif";
             }
           }
-      )
+    )
+      .style("font-weight", function (d) {
+        if (d.data.name === node1) {
+          return "bold";
+        } else {
+          return "normal";
+        }
+      })
       .style("fill", function (d) {
         if (d.data.name === node1) {
           return "#ff7f00";
@@ -249,12 +257,9 @@ export function colorNodes2(event, d) {
       }
     }
     )
+    .style("font-weight", "normal")
     .style("fill", function (d) {
-        if (d.data.name === node1) {
-          return "#ff7f00";
-        } else if (d.children) {
           return "black";
-        }
       })
     .attr("text-anchor", "middle")
     .attr("transform", function (d) {
