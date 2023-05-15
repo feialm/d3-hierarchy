@@ -91,7 +91,6 @@ function update(root){
     .attr("y", treemapUtils.y2)
     .attr("dy", "0.35em")
     .style("font", treemapUtils.font2)
-    .style("font-weight", treemapUtils.fontWeight)
     .text(function (d) {
       return treemapUtils.upperCaseLabel(d.data.name,d);
     });

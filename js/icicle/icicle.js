@@ -78,7 +78,7 @@ function update(root) {
         if (d.data.name === node1) {
           return "16px sans-serif";
         } else {
-          return "10px sans-serif";
+          return "14px sans-serif";
         }
       })
       .style("font-weight", function (d) {

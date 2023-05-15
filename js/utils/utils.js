@@ -31,7 +31,6 @@ export const color = d3.scaleOrdinal()
 
 export function mouseoverText(d) {
   d3.selectAll("#text" + d.id)
-    .style("font", "18px sans-serif")
     .style("font-weight", "bold");
 }
 
@@ -133,21 +132,6 @@ export function colorNodes(node1) {
   });
 
    d3.selectAll("text")
-     .style("font", function (d) {
-       if (d.data.name === node1) {
-         if (small === "small") {
-           return "18px sans-serif";
-         } else {
-           return "16px sans-serif";
-         }
-       } else {
-          if (small === "small") {
-           return "16px sans-serif";
-          } else {
-            return "10px sans-serif";
-          }
-       }
-     })
     .style("font-weight",function (d) {
        if (d.data.name === node1) {
          return "bold";
@@ -164,13 +148,6 @@ export function colorNodes2(event, d) {
   });
 
    d3.selectAll("text")
-    .style("font", function (d) {
-          if (small === "small") {
-           return "16px sans-serif";
-          } else {
-            return "10px sans-serif";
-          }
-       })
     .style("font-weight", "normal");
 }
 
