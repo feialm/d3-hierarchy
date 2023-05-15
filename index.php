@@ -108,6 +108,24 @@
 	</div>
 
 
+	<div>
+		<form class="margin" id="survey3" method="post" name="surveyForm">
+			<p><span id='statementFirst'></span><br></p>	
+			<p><span id='statementA'></span><br>
+			</p>
+			<p><span id='statementB'></span><br>
+			</p>
+			<p><span id='statementC'></span>
+			</p>
+			<span id='yesNo3'>
+			<input type='radio' name='yesNo' id='yes' value='' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
+			</span>
+			<span id='likert3'>
+			<input type='radio' name='query' id='radio1' value='' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
+			</span>
+		</form>
+	</div>
+
 	<div class="prePage" id="CMV">
 		<img id="CMV_table" src="./images/table.PNG" style="width:50%">
 	</div>
@@ -150,24 +168,6 @@
 					<input type='radio' name='query' id='radio5' value='5' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
 				Very Good</span>
 			</p>
-		</form>
-		<form class="margin" id="survey3" method="post" name="surveyForm">
-			<p><span id='statementFirst'></span><br></p>	
-			<p><span id='statementA'></span><br>
-				<textarea name="textfield" id="textfieldA" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
-			</p>
-			<p><span id='statementB'></span><br>
-				<textarea name="textfield" id="textfieldB" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
-			</p>
-			<p><span id='statementC'></span><br>
-				<textarea name="textfield" id="textfieldC" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
-			</p>
-			<span id='yesNo3'>
-			<input type='radio' name='yesNo' id='yes' value='' class='form-radio' onclick='changeSubmitButtonColor("colorVision")'>
-			</span><br><br>
-			<span id='likert3'>
-			<input type='radio' name='query' id='radio1' value='' class='form-radio' onclick='changeSubmitButtonColor("knowledge")'>
-			</span>
 		</form>
 	</div>
 

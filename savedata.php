@@ -15,7 +15,7 @@
     if (isset($_POST['userAnswers'])) {
         $userAnswers = $_POST['userAnswers'];
 
-        $stringToSave = "id\thh:mm:ss\tY/N\tRating\tFacit\tText\tTextB\tTextC\n";
+        $stringToSave = "id\thh:mm:ss\tY/N\tRating\tFacit\n";
 
         for ($x = 0; $x < sizeof($userAnswers); $x++) {
             $stringToSave = $stringToSave . $userAnswers[$x] . "\n";

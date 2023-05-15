@@ -47,27 +47,18 @@ const introQ = [
 // 4 questions    
 const endingQ = [
     {
-        q: "The following 3 questions requires longer answers.\nYou will see a still image and one of the three visualizations at once.\nPlay around in the visualization interface, compare the techniques that are available in the menu and then answer the question.",
+        q: "The following questions is about how how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally.: ",
+        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
+        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
+        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
+        id: "CMV1", iframe: "CMV1", type: "info"
+    },
+    {
+        q: "Do you have any thoughts or suggestions on how to improve the possibility to explore and understand a node's relationship to other nodes?",
         q2: "",
         q3: "",
         q4: "",
-        id: "CMV",
-        iframe:"no",
-        type: "info"
-    },
-    {
-        q: "This following questions is about how how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally.: ",
-        q2: "What would you like to happen in the table and the node-link diagram when interacting with the interface exploring the data?",
-        q3: "What would you like to happen in the table and treemap when interacting with the interface exploring the data?",
-        q4: "What would you like to happen in the table and the icicle plot when interacting with the interface exploring the data",
-        id: "CMV1", iframe: "CMV1", type: "textfield"
-    },
-    {
-        q: "Do you have any thought on how the techniques that you have seen today can be improved for explore and understand a node's relationships to other nodes?",
-        q2: "",
-        q3: "",
-        q4: "",
-        id: "other", iframe: "no", type: "textfield"
+        id: "other", iframe: "no", type: "info"
     },
     { q: "Thank you for participating in this survey! :)", q2: "", q3: "", q4: "", id:"", iframe:"no", type:"info"}
 ];
@@ -268,11 +259,11 @@ const visQ2 = [
                     facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansrö", node2: "Helenelund"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S1L2", iframe: "no", type: "textfield"
+                    id: "S1L2", iframe: "no", type: "info"
                 }
             ],
             // ancestors
@@ -292,11 +283,11 @@ const visQ2 = [
                     facit: "N", id: "A1L2", iframe: "A1L", type: "yesNo", node1: "Norrmalm, City", node2: "Reimersholme"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A1L3", iframe: "no", type: "textfield"
+                    id: "A1L3", iframe: "no", type: "info"
                 }
             ],
             // descendants
@@ -316,11 +307,11 @@ const visQ2 = [
                     facit: "N", id: "D1L2", iframe: "D1L", type: "yesNo", node1: "Hölö", node2: "Tyresö"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D1L3", iframe: "no", type: "textfield"
+                    id: "D1L3", iframe: "no", type: "info"
                 }
             ]
         ]
@@ -345,11 +336,11 @@ const visQ2 = [
                     facit: "Y", id: "S2L2", iframe: "S2L", type: "yesNo", node1: "Järva", node2: "Råsunda"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S2L3", iframe: "no", type: "textfield"
+                    id: "S2L3", iframe: "no", type: "info"
                 }
             ],
             //ancestors
@@ -369,11 +360,11 @@ const visQ2 = [
                     facit: "N", id: "A2L2", iframe: "A2L", type: "yesNo", node1: "Västerort", node2: "Alvik"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A2L3", iframe: "no", type: "textfield"
+                    id: "A2L3", iframe: "no", type: "info"
                 }
             ],
             //descendants
@@ -393,11 +384,11 @@ const visQ2 = [
                     facit: "N", id: "D2L2", iframe: "D2L", type: "yesNo", node1: "Tveta", node2: "Sundbyberg"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D2L3", iframe: "no", type: "textfield"
+                    id: "D2L3", iframe: "no", type: "info"
                 }
             ]
         ]
@@ -422,11 +413,11 @@ const visQ2 = [
                     facit: "Y", id: "S3L2", iframe: "S3L", type: "yesNo", node1: "Botkyrka", node2: "Lidingö"
                 },
                 {
-                    q: "Is the techniques for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate sibling nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S3L3", iframe: "no", type: "textfield"
+                    id: "S3L3", iframe: "no", type: "info"
                 }
             ],
             // ancestors
@@ -446,11 +437,11 @@ const visQ2 = [
                     facit: "N", id: "A3L2", iframe: "A3L", type: "yesNo", node1: "Sundbyberg", node2: "Solna"
                 },
                 {
-                    q: "Is the techniques for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate ascendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A3L3", iframe: "no", type: "textfield"
+                    id: "A3L3", iframe: "no", type: "info"
                 }
             ],
             // descendants
@@ -470,11 +461,11 @@ const visQ2 = [
                     facit: "N", id: "D3L2", iframe: "D3L", type: "yesNo", node1: "Sätra", node2: "Skarpnäck"
                 },
                 {
-                    q: "Is the technique for investigate descendants and child nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets? (motivate why or why not)",
+                    q: "Is the technique for investigate descendant nodes suitable for the datasets (Stockholm and 2D Shapes)? Is it more/less relevant for one of the datasets?",
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D3L3", iframe: "no", type: "textfield"
+                    id: "D3L3", iframe: "no", type: "info"
                 }
             ]
         ]
@@ -513,13 +504,13 @@ function getQuestions() {
     let randVis = Math.floor(Math.random() * 6);// random number 0-5
     let randTech = Math.floor(Math.random() * 2);//random number 0-1, sad or sda order brushing and linking
 
-    console.log("visSeq: ", visSeq[randVis]);
+    //console.log("visSeq: ", visSeq[randVis]);
     var arrayVis = [];
     for (let i = 0; i < visSeq[randVis].length; i++) {
         arrayVis.push(visSeq[randVis][i]);
     }
 
-    console.log("ArrayVis: ", arrayVis, "\nShould be same as visSeq");
+    //console.log("ArrayVis: ", arrayVis, "\nShould be same as visSeq");
 
     var arrayTeq = [];
     if (randTech === 0) {
@@ -528,16 +519,16 @@ function getQuestions() {
     } else if(randTech === 1){
         arrayTeq = [0, 2, 1];//sda order
     }
-    console.log("ArrayTeq: ", arrayTeq);
+    //console.log("ArrayTeq: ", arrayTeq);
  
     //addQuestions(arrayVis, arrayTeq, visQ1);
-    addQuestions(arrayVis, arrayTeq, visQ2);
+    //addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
     }
 
-    console.log("Questions: ", allStatements);
+    //console.log("Questions: ", allStatements);
 }
 
 
@@ -589,7 +580,7 @@ function onPageLoad() {
 	//document.getElementById("button").style.color = "#a6a6a6";
 	document.getElementById("button").style.color = "#000";
 	document.getElementById("button").style.backgroundColor = "#74a9cf";//reset button color
-    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/52";
+    document.getElementById("currentPage").innerHTML = "Page: " + (testPosition+1) +"/51";
     
     hideIT(pageArray);
     hideIT(iframeArray);
@@ -716,10 +707,7 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
             + "\t"+ recordTimeBtn
             + "\t" + formElements.elements["yesNo"].value
             + "\t" + formElements.elements["query"].value
-            + "\t" + facit
-            + "\t" + document.getElementById("textfield").value + document.getElementById("textfieldA").value
-            + "\t" + document.getElementById("textfieldB").value
-            + "\t" + document.getElementById("textfieldC").value;
+            + "\t" + facit;
     }
 	userAnswers.push(answer);
 }
@@ -763,9 +751,6 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
             else if (allStatements[testPosition].id === "CMV1") {
                  saveUserAnswers(saveDate, facit, "survey3"); // save answers 
             }
-            else if (allStatements[testPosition].id !== "CMV1" && allStatements[testPosition].type === "textfield") {
-                 saveUserAnswers(saveDate, facit, "survey"); // save answers 
-            }
             else if(allStatements[testPosition].type === "yesNo"){
                 saveDate = durationTime();
                 facit = checkFacit()
@@ -774,10 +759,7 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
         }
 		
         unCheckRadios();
-        document.getElementById("textfield").value = "";
-        document.getElementById("textfieldA").value = "";
-        document.getElementById("textfieldB").value = "";
-        document.getElementById("textfieldC").value = "";
+        //document.getElementById("textfield").value = "";
         testPosition++;
         console.log(allStatements[testPosition].node1, allStatements[testPosition].node2);
         saveLocalStorage();
@@ -785,7 +767,7 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
         document.getElementById("node1").innerHTML = allStatements[testPosition].q2;
         document.getElementById("text").innerHTML = allStatements[testPosition].q3;
         document.getElementById("node2").innerHTML = allStatements[testPosition].q4;
-        document.getElementById("currentPage").innerHTML = "Page: " +  (testPosition+1) +"/52";
+        document.getElementById("currentPage").innerHTML = "Page: " +  (testPosition+1) +"/51";
 	}
 	else {
 		alert("Please fill in an answer to proceed!");

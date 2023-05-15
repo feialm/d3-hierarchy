@@ -82,6 +82,7 @@ function update(root){
       return treemapUtils.upperCaseLabel(d.data.name,d);
     });
   
+Module.initZoom();  
 }
 
 
