@@ -7,7 +7,6 @@ export function whatFont(s) {
 }
 
 export function mouseoverText(d) {
-  console.log(d.data.name, small)
   d3.selectAll("#text" + d.id)
   .attr("dy", ".30em")
     .attr("y", function (d) {
@@ -216,11 +215,10 @@ export function colorNodes(node1) {
       .text(function (d) {
         if (d.data.name === node1) {
           return d.data.name;
-        }else if (d.children) {
-        return Module.splitString(d);
-      }
-      }
-    );
+        } else {
+          return "";
+        }
+      });
 }
 
 
@@ -230,54 +228,7 @@ export function colorNodes2(event, d) {
   d3.selectAll("circle").style("fill", "#045a8d");
 
   d3.selectAll("text")
-    .attr("dy", ".30em")
-    .attr("y", function (d) {
-      if (small === "small") {
-        return d.children || d._children ? -13: 20;
-      }
-      if (small === "large") {
-        return d.children || d._children ? -13: 0;
-      }
-      
-    })
-    .attr("x", function (d) {
-      if (small === "small") {
-        return d.children || d._children ? -13: -20;
-      }
-      if (small === "large") {
-        return d.children || d._children ? -13: -20;
-      }
-    })
-    .style("font", function (d) {
-      if (small === "small") {
-        return "16px sans-serif";
-      }
-      if (small === "large") {
-        return "10px sans-serif";
-      }
-    }
-    )
-    .style("font-weight", "normal")
-    .style("fill", function (d) {
-          return "black";
-      })
-    .attr("text-anchor", "middle")
-    .attr("transform", function (d) {
-      if (small === "small") {
-        return "rotate(0)";
-      }
-      if (small === "large") {
-        if (!d.children) {
-          return "rotate(-90)";
-        } else {
-          return "rotate(0)";
-        }
-      }
-    })
-    .text(function (d) {
-      return d.data.name;
-    }
-  );
+    .text("");
 }
 
 

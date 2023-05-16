@@ -116,13 +116,12 @@ function update(source) {
     })
     .attr("text-anchor", "middle")
     .text(function (d) {
-        if (d.data.name === node1) {
-          return d.data.name;
-        } else if(d.children) {
-          return Module.splitString(d);
-        }
+      if (d.data.name === node1) {
+        return d.data.name;
+      } else {
+        return "";
       }
-  );
+    });
 
 
   

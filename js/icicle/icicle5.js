@@ -98,7 +98,13 @@ function update(root) {
       .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
   
   text.append("tspan")
-    .text(function (d) { return d.data.name; });
+    .text(function (d) {
+      if (d.data.name === node1) {
+          return d.data.name;
+        } else {
+          return "";
+    }
+    });
   
 Module.initZoom();
 };

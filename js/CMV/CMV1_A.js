@@ -89,10 +89,7 @@ function update(source) {
     })
     .style("font", "16px sans-serif")
     .attr("text-anchor", "middle")
-    .text(function (d) {
-          return d.data.name;
-      }
-  );
+    .text("");
 
   
   // Update node

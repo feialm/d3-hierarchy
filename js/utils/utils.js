@@ -31,7 +31,10 @@ export const color = d3.scaleOrdinal()
 
 export function mouseoverText(d) {
   d3.selectAll("#text" + d.id)
-    .style("font-weight", "bold");
+    .style("font-weight", "bold")
+    .text(function (d) {
+      return d.data.name;
+    });
 }
 
 
@@ -132,13 +135,14 @@ export function colorNodes(node1) {
   });
 
    d3.selectAll("text")
-    .style("font-weight",function (d) {
-       if (d.data.name === node1) {
-         return "bold";
-       } else {
-         return "normal";
-       }
-    });
+     .style("font-weight", "bold")
+     .text(function (d) {
+      if (d.data.name === node1) {
+        return d.data.name;
+      } else {
+        return "";
+      }
+     });
 }
 
 export function colorNodes2(event, d) {
@@ -147,8 +151,8 @@ export function colorNodes2(event, d) {
       return color(d.depth);
   });
 
-   d3.selectAll("text")
-    .style("font-weight", "normal");
+  d3.selectAll("text")
+    .text("");
 }
 
 

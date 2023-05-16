@@ -72,7 +72,7 @@ function update(root) {
     .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
   
   text.append("tspan")
-    .text(function (d) { return d.data.name; });
+    .text("");
   
 Module.initZoom();
 };

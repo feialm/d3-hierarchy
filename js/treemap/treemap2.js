@@ -88,9 +88,13 @@ function update(root){
     .attr("y", treemapUtils.y)
     .attr("dy", "0.35em")
     .style("font", treemapUtils.font)
+    .style("font-weight", "bold")
     .text(function (d) { 
-      let textLabel = Module.splitString(d);
-      return treemapUtils.upperCaseLabel(textLabel,d);
+      if (d.data.name === node1) {
+        return d.data.name;
+      } else {
+        return "";
+      }
     });
   
   
