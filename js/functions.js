@@ -521,8 +521,8 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1);
-    //addQuestions(arrayVis, arrayTeq, visQ2);
+    addQuestions(arrayVis, arrayTeq, visQ1);
+    addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
         allStatements.push(endingQ[i]);
