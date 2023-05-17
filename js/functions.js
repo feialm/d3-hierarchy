@@ -521,7 +521,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1);
+    addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
@@ -693,7 +693,6 @@ function unCheckRadios(){
             }
         }        
     }
-
 }
 
 
@@ -730,7 +729,7 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
 	var c = document.getElementById("button").style.color;
 	var rgb = c.replace(/^(rgb|rgba)\(/, '').replace(/\)$/, '').replace(/\s/g, '').split(',');
 
-	console.log("testPosition: ", testPosition, "id", allStatements[testPosition].id);
+	//console.log("testPosition: ", testPosition, "id", allStatements[testPosition].id);
 
 	if (rgb[0] == 0) {
 		var currentTime = Date.now();
@@ -761,7 +760,7 @@ function saveUserAnswers(recordTimeBtn, facit, s) {
         unCheckRadios();
         //document.getElementById("textfield").value = "";
         testPosition++;
-        console.log(allStatements[testPosition].node1, allStatements[testPosition].node2);
+        //console.log(allStatements[testPosition].node1, allStatements[testPosition].node2);
         saveLocalStorage();
         document.getElementById("statement").innerHTML = allStatements[testPosition].q;
         document.getElementById("node1").innerHTML = allStatements[testPosition].q2;
