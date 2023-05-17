@@ -84,24 +84,36 @@ function update(root) {
     .attr("id", function (d) { return "text" + d.id })//TEST
     .style("user-select", "none")
     .style("font", function (d) {
-      if (d.data.name === node1) {
+     if (d.data.name === node1) {
         return "16px sans-serif";
-      } else {
-        return "14px sans-serif";
+      }else if (!d.children) {
+        return "6px sans-serif";
       }
-    })
+      else {
+        return "14px sans-serif";
+      }})
     .style("font-weight", function (d) {
       if (d.data.name === node1) {
         return "bold";
       } else {
         return "normal";
-      }
-    })
+      }})
+    .attr("transform", function (d) {
+      if (d.x1 - d.x0 > 50) {
+        return "";
+      } else if (!d.children && d.x1 - d.x0 < 50) {
+        return "translate("
+          + -11 + "," + 100
+          + ")" + "rotate(-90)";
+      }else{
+        return "translate("
+          + -5 + "," + 100
+          + ")" + "rotate(-90)";
+      }})
     .attr("pointer-events", "none")
     .attr("x", 4)
-    .attr("y", 17)
-    .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b);
-    });
+    .attr("y", 17);
+    //.attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b);});
   
   text.append("tspan")
     .text(function (d) {

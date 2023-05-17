@@ -97,8 +97,15 @@ function update(root) {
         return "bold";
       } else {
         return "normal";
-      }
-    })
+      }})
+    .attr("transform", function (d) {
+      if (d.x1 - d.x0 > 50) {
+        return "";
+      } else {
+        return "translate("
+          + -5 + "," + 100
+          + ")" + "rotate(-90)";
+      }})
     .attr("pointer-events", "none")
     .attr("x", 4)
     .attr("y", 17);
