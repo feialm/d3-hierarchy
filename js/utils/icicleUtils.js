@@ -25,5 +25,5 @@ export function rectWidth(d) {
   }
 
 export function labelVisible(d, width) {
-    return d.y1 <= width && d.y0 >= 0 && d.x1 - d.x0 > 16;
+    return d.y1 <= width*2 && d.y0 >= 0 && d.x1 - d.x0 > 5;
   }

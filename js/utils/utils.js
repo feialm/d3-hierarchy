@@ -33,7 +33,11 @@ export function mouseoverText(d) {
   d3.selectAll("#text" + d.id)
     .style("font-weight", "bold")
     .text(function (d) {
-      return d.data.name;
+      let textLabel = d.data.name;
+      if (small === "large") {
+        textLabel = splitString(d);
+      }
+      return textLabel;
     });
 }
 

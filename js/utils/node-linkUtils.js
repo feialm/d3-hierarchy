@@ -192,13 +192,7 @@ export function colorNodes(node1) {
           return "normal";
         }
       })
-      .style("fill", function (d) {
-        if (d.data.name === node1) {
-          return "#ff7f00";
-        } else if (d.children) {
-          return "black";
-        }
-      })
+      .style("fill", "black")
       .attr("text-anchor", "middle")
       .attr("transform", function (d) {
         if (small === "small") {

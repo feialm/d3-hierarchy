@@ -48,9 +48,9 @@ const introQ = [
 const endingQ = [
     {
         q: "The following questions is about how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally and motivate your answer: ",
-        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
-        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
-        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you like to happen in the table?",
+        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
+        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
+        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
         id: "CMV1", iframe: "CMV1", type: "info"
     },
     {
@@ -521,7 +521,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){

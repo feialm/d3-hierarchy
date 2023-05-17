@@ -43,7 +43,7 @@
     It is <span class="bolded">not</span> possible to change an answer afterward.<br><br>
     <span class="bolded">Language: </span> You can answer the questions in both Swedish and English.<br><br>
     <span class="bolded">Stuck on a question: </span>You are free to ask the test leader of the test if you do not understand the task/question and need it to be clarified.
-	However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions. Try your best to complete it.<br><br>
+	However, the test leader <span class="bolded">will not</span> help you fulfill the tasks and questions. Try your best to complete it.<br><br>
     <span class="bolded">Glossary:<br></span>children = one level down in hierarchy,<br>parent = one level up in hierarchy,<br>descendant = children and its children,<br>ancestor = parents and its parents.
 	</div>
 	
@@ -51,10 +51,10 @@
 	<p><span class="margin" id='currentPage'></span><br>
     <div class="prePage" id="intro">
     <p>Hello,<br>
-    In this test you will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
+    In this test, you will encounter <span class="bolded">three</span> datasets and <span class="bolded">two</span> distinct differences in the size of the datasets.
     <br><br>
     You can answer the questions in both Swedish and English. You are free to ask the test leader of the test if you do not understand the task/question and need it to be clarified.
-    However, the test leader <span class="bolded">will not help</span> help you fulfill the tasks and questions.
+    However, the test leader <span class="bolded">will not</span> help you fulfill the tasks and questions.
 	It is <span class="bolded">not</span> possible to change an answer afterward.
     <br><br>
     Let's begin by clicking on the Continue button!</p>

@@ -46,6 +46,13 @@ function update(root) {
     .append("g")
     .attr("class", "node")
     .join("g")
+    .attr("transform", function (d) { return `translate(${d.x0 * 2},${d.y0 / 4})`; });
+  
+    var textEnter = node
+    .enter()
+    .append("g")
+    .attr("class", "node")
+    .join("g")
    .attr("transform", function (d) { return `translate(${d.x0*2},${d.y0/4})`;});
   
   nodeEnter
@@ -72,29 +79,29 @@ function update(root) {
   
 
   
-  // Labels for nodes
-  const text = nodeEnter.append("text")
-      .attr("id", function (d) { return "text" + d.id })//TEST
-      .style("user-select", "none")
-      .style("font", function (d) {
-        if (d.data.name === node1) {
-          return "16px sans-serif";
-        } else {
-          return "14px sans-serif";
-        }
-      })
-      .style("font-weight", function (d) {
-        if (d.data.name === node1) {
-          return "bold";
-        } else {
-          return "normal";
-        }
-      })
-      .attr("pointer-events", "none")
-      .attr("x", 4)
-      .attr("y", 17)
-      .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
-
+ // Labels for nodes
+  const text = textEnter.append("text")
+    .attr("id", function (d) { return "text" + d.id })//TEST
+    .style("user-select", "none")
+    .style("font", function (d) {
+      if (d.data.name === node1) {
+        return "16px sans-serif";
+      } else {
+        return "14px sans-serif";
+      }
+    })
+    .style("font-weight", function (d) {
+      if (d.data.name === node1) {
+        return "bold";
+      } else {
+        return "normal";
+      }
+    })
+    .attr("pointer-events", "none")
+    .attr("x", 4)
+    .attr("y", 17)
+    .attr("fill-opacity", function (d) { return +icicleUtils.labelVisible(d, Module.width_b); });
+  
   text.append("tspan")
     .text(function (d) {
       if (d.data.name === node1) {

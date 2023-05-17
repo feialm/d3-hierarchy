@@ -96,13 +96,7 @@ function update(source) {
     .attr("x", function (d) {
       return d.children || d._children ? -13 : -20;
     })
-    .style("fill", function (d) {
-      if (d.data.name === node1) {
-        return "#ff7f00";
-      } else if (d.children) {
-        return "black";
-      }
-    })
+    .style("fill", "black")
     .style("font-weight", function (d) {
       if (d.data.name === node1) {
         return "bold";
