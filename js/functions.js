@@ -3,7 +3,7 @@ var allStatements = [];
 const iframeArray = ["S1L", "A1L", "D1L", "S1S", "A1S", "D1S",
     "S2L", "A2L", "D2L", "S2S", "A2S", "D2S",
     "S3L", "A3L", "D3L", "S3S", "A3S", "D3S",
-    "CMV1"];
+    "CMV1", "S1L3", "A1L3", "D1L3", "S2L3", "A2L3", "D2L3", "S3L3", "A3L3", "D3L3"];
 
 const inputArray = ["likert", "yesNo", "textfield"];
 
@@ -48,9 +48,9 @@ const introQ = [
 const endingQ = [
     {
         q: "The following questions is about how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally and motivate your answer: ",
-        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
-        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
-        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? What would you expect to happen in the table?",
+        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
+        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
+        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
         id: "CMV1", iframe: "CMV1", type: "info"
     },
     {
@@ -263,7 +263,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S1L2", iframe: "no", type: "info"
+                    id: "S1L3", iframe: "S1L3", type: "info"
                 }
             ],
             // ancestors
@@ -287,7 +287,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A1L3", iframe: "no", type: "info"
+                    id: "A1L3", iframe: "A1L3", type: "info"
                 }
             ],
             // descendants
@@ -311,7 +311,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D1L3", iframe: "no", type: "info"
+                    id: "D1L3", iframe: "D1L3", type: "info"
                 }
             ]
         ]
@@ -340,7 +340,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S2L3", iframe: "no", type: "info"
+                    id: "S2L3", iframe: "S2L3", type: "info"
                 }
             ],
             //ancestors
@@ -364,7 +364,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A2L3", iframe: "no", type: "info"
+                    id: "A2L3", iframe: "A2L3", type: "info"
                 }
             ],
             //descendants
@@ -388,7 +388,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D2L3", iframe: "no", type: "info"
+                    id: "D2L3", iframe: "D2L3", type: "info"
                 }
             ]
         ]
@@ -417,7 +417,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "S3L3", iframe: "no", type: "info"
+                    id: "S3L3", iframe: "S3L3", type: "info"
                 }
             ],
             // ancestors
@@ -441,7 +441,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "A3L3", iframe: "no", type: "info"
+                    id: "A3L3", iframe: "A3L3", type: "info"
                 }
             ],
             // descendants
@@ -465,7 +465,7 @@ const visQ2 = [
                     q2: "",
                     q3: "",
                     q4: "",
-                    id: "D3L3", iframe: "no", type: "info"
+                    id: "D3L3", iframe: "D3L3", type: "info"
                 }
             ]
         ]
@@ -521,7 +521,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    addQuestions(arrayVis, arrayTeq, visQ1);
+    //addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){

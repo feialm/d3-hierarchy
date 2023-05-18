@@ -199,7 +199,6 @@
 
 	<div class="iframe">
 		<!-- sibling, ancestor,  descendant -->
-		<!-- Large dataset -->
 		<iframe id="S1L" type="text/html" src="./html/nodelink/tree3.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
@@ -255,6 +254,34 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 		<iframe id="CMV1" type="text/html" src="./html/CMV/CMV1_A.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<!-- For the qualitative questions -->
+		<iframe id="S1L3" type="text/html" src="./html/compare/S1L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A1L3" type="text/html" src="./html/compare/A1L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D1L3" type="text/html" src="./html/compare/D1L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="S2L3" type="text/html" src="./html/compare/S2L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A2L3" type="text/html" src="./html/compare/A2L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D2L3" type="text/html" src="./html/compare/D2L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="S3L3" type="text/html" src="./html/compare/S3L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="A3L3" type="text/html" src="./html/compare/A3L.html">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="D3L3" type="text/html" src="./html/compare/D3L.html">
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
