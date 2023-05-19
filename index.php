@@ -88,21 +88,21 @@
 				<img class="img" id="img3" src="./images/treemap.PNG" style="width:70%">
 			</div>
 			<div class="column" id="shorter">
-			<p>	It is read from the top-to-bottom. The ancestor to all the other nodes lays in the shallowest hierarchy level at the top of the graph. Further down the graph the descendants are placed.<br><br>
+			<p>	It is read from the top-to-bottom. The ancestor to all the other nodes lies in the shallowest hierarchy level at the top of the graph. Further down the graph, the descendants are placed.<br><br>
 			All nodes that are aligned on the same height belong to the same level in the hierarchy.
 			</p>
 			</div>
 			<div class="column"id="shorter">
-			<p> It's also read from the top-to.bottom.
+			<p> It's also read from the top-to-bottom.
 				The vertical and horizontal lines are used to section up the data.<br><br>
 				Each row is representing one level in the hierarchy from the dataset. Each column within a row is an individual node.
 			</p>
 			</div>
 			<div class="column" id="shorter">
-			<p>The descendant nodes are placed in and on top of the ancestor node, so-called nestled treemap.<br><br>
-				Vertical and horizontal lines are used to section up the data and distinguish the individual nodes in the layers.
-				The deepest nodes are on top.
-			</p>
+            <p>The descendant nodes are placed in and on top of the ancestor node, the so-called nestled treemap.<br><br>
+                Vertical and horizontal lines are used to section up the data and distinguish the individual nodes in the layers.
+                The deepest nodes are on top.
+            </p>
 			</div>
 		</div>
 	</div>
@@ -149,7 +149,6 @@
 			</p>
 			<p>
 				<textarea name="textfield" id="textfield" onkeyup="changeQuestionnaireSubmitButton()" placeholder="Please answer in English or Swedish."></textarea>
-				<!--<textarea name="howmany" id="howmany" onkeyup="checkNumber(this)" placeholder="Enter a number please."></textarea>-->
             </p>
 		</form>
 		<form class="margin" id="survey2" method="post" name="surveyForm">
@@ -285,17 +284,5 @@
 			<p>Your browser does not support iframes.</p>
 		</iframe>
 	</div>
-	<!--<script language="javascript">
-	function checkNumber(object) {
-		var invalidChars = /[^0-9]/gi
-		if(invalidChars.test(object.value)) {
-			alert("Enter a number instead of text please");
-			object.value = object.value.replace(invalidChars,"");
-		}else{
-			changeQuestionnaireSubmitButton();
-		}
-	}
-	</script>-->
-
 	</body>
 </html>
