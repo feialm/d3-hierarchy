@@ -110,7 +110,7 @@ const visQ1 = [
                     q2: " decagon ",
                     q3: "a descendant to",
                     q4: " 2D Shapes?",
-                    facit: "Y", id: "D1S2", iframe: "D1S", type: "yesNo", node1: "decagon", node2: "2D Shapes"
+                    facit: "Y", id: "D1S1", iframe: "D1S", type: "yesNo", node1: "decagon", node2: "2D Shapes"
                 },
                 {
                     q: "Is",
@@ -166,7 +166,7 @@ const visQ1 = [
                     q2: " decagon ",
                     q3: "a descendant to",
                     q4: " Conic Shapes?",
-                    facit: "N", id: "D2S2", iframe: "D2S", type: "yesNo", node1: "decagon", node2: "Conic Shapes"
+                    facit: "N", id: "D2S1", iframe: "D2S", type: "yesNo", node1: "decagon", node2: "Conic Shapes"
                 },
                 {
                     q: "Is",
@@ -222,7 +222,7 @@ const visQ1 = [
                     q2: " heptagon ",
                     q3: "a descendant to",
                     q4: " 2D Shapes?",
-                    facit: "Y", id: "D3S2", iframe: "D3S", type: "yesNo", node1: "heptagon", node2: "2D Shapes"
+                    facit: "Y", id: "D3S1", iframe: "D3S", type: "yesNo", node1: "heptagon", node2: "2D Shapes"
                 },
                 {
                     q: "Is",
@@ -521,7 +521,7 @@ function getQuestions() {
     }
     //console.log("ArrayTeq: ", arrayTeq);
  
-    //addQuestions(arrayVis, arrayTeq, visQ1);
+    addQuestions(arrayVis, arrayTeq, visQ1);
     addQuestions(arrayVis, arrayTeq, visQ2);
 
     for (let i = 0; i < endingQ.length; i++){
