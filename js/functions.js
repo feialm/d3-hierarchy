@@ -48,9 +48,9 @@ const introQ = [
 const endingQ = [
     {
         q: "The following questions is about how one could link different visualizations of the same dataset. So-called coordinated & multiple views. The test leader will ask some questions, please answer orally and motivate your answer: ",
-        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
-        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
-        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen then interacting with the visualization? In a linked view, what would you expect to happen in the table?",
+        q2: "1. Explore and interact with 1S, 1A and 1D. What technique is meeting your expectations on what will happen when interacting with the visualization? In a linked view, what would you expect to happen in the table?",
+        q3: "2. Explore and interact with 2S, 2A and 2D. What technique is meeting your expectations on what will happen when interacting with the visualization? In a linked view, what would you expect to happen in the table?",
+        q4: "3. Explore and interact with 3S, 3A and 3D. What technique is meeting your expectations on what will happen when interacting with the visualization? In a linked view, what would you expect to happen in the table?",
         id: "CMV1", iframe: "CMV1", type: "info"
     },
     {
@@ -212,7 +212,7 @@ const visQ1 = [
                     q2: " Polygon Shapes ",
                     q3: "parent to",
                     q4: " triangle?",
-                    facit: "N", id: "A3S2", iframe: "A3S", type: "yesNo", node1: "Polygon Shapes", node2: "triangle"
+                    facit: "Y", id: "A3S2", iframe: "A3S", type: "yesNo", node1: "Polygon Shapes", node2: "triangle"
                 },
             ],
             // descendants
@@ -253,10 +253,10 @@ const visQ2 = [
                 },
                 {
                     q: "Is",
-                    q2: " Rådmansrö ",
+                    q2: " Rådmansö ",
                     q3: "sibling to",
                     q4: " Helenelund?",
-                    facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansrö", node2: "Helenelund"
+                    facit: "N", id: "S1L2", iframe: "S1L", type: "yesNo", node1: "Rådmansö", node2: "Helenelund"
                 },
                 {
                     q: "Is the technique for investigating sibling nodes suitable for node-link diagrams? Is it more/less relevant for one of the datasets you have encountered?",
